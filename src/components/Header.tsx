@@ -6,7 +6,7 @@ const Header = () => {
   const [menuMobile, setMenuMobile] = useState<boolean>(false);
 
   return (
-    <header className="bg-slate-200 flex items-center justify-between xl:justify-start w-full py-4 px-8 h-10vh z-999">
+    <header className="bg-slate-200 flex items-center justify-between xl:justify-start w-full py-4 px-8 h-10vh z-50">
       <div className="xl:w-1/6 text-center">
         <img src={Logo} alt="Ciudad en 15 minutos Logo" />
       </div>
@@ -14,7 +14,7 @@ const Header = () => {
       <nav
         className={`bg-slate-200 fixed w-[80%] md:w-[45%] xl:w-full h-full top-0 ${
           menuMobile ? "left-0" : "-left-full"
-        } -rigth-full top-[10vh] xl:static flex-1 justify-center flex flex-col xl:flex-row items-center gap-10 transition-all duration-700 ease-in-out`}
+        } -rigth-full top-[calc(100vh-91vh)] xl:static flex-1 justify-center flex flex-col xl:flex-row items-center gap-10 transition-all duration-700 ease-in-out z-40`}
       >
         <ul className="flex gap-10 xl:flex-row max-lg:flex-col max-md:flex-col max-sm:flex-col max-lg:w-full items-center">
           <li className="">
