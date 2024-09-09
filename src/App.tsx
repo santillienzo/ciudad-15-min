@@ -3,6 +3,7 @@ import Countdown from './components/Countdown';
 import Evento from './components/Evento';
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Reglas from './components/Reglas';
 import Sponsors from './components/Sponsors';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       />
       <Sponsors />
       <Evento />
+      <Reglas />
 
     </>
   );
