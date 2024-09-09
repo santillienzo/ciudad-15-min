@@ -1,5 +1,6 @@
 import './App.css'
 import Countdown from './components/Countdown';
+import Evento from './components/Evento';
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Sponsors from './components/Sponsors';
@@ -16,6 +17,7 @@ function App() {
         finalMessage="JUGAR!!"
       />
       <Sponsors />
+      <Evento />
 
     </>
   );
