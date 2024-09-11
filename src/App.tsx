@@ -7,7 +7,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<>Hola</>} />
+      <Route path="/" element={<>Hola barbi</>} />
       <Route path="/game-lobby" element={<GameLobby />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
