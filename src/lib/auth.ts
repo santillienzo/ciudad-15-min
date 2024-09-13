@@ -1,5 +1,5 @@
 import { auth, db } from "@/lib/firebaseConfig";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
 import { firebaseErrorHandler, generalErrorHandler } from "@/lib/handleError";
@@ -9,6 +9,10 @@ export interface IRegisterData {
   lastname: string;
   dni: string;
   birthday: string;
+  email: string;
+  password: string;
+}
+export interface ILoginData {
   email: string;
   password: string;
 }
@@ -42,6 +46,33 @@ export const registerUser = async (formData: IRegisterData) => {
       dni: formData.dni,
       email: formData.email,
     });
+  } catch (error: unknown) {
+    let errorMsg = "Hubo un error";
+
+    if (error instanceof FirebaseError) {
+        
+      errorMsg = firebaseErrorHandler(error.code);
+    } else if (error instanceof Error) {
+
+      errorMsg = generalErrorHandler(error.message)
+    } else {
+      console.error("Error desconocido:", error);
+    }
+
+    throw new Error(errorMsg);
+  }
+};
+
+export const loginUser = async (formData: ILoginData) => {
+  try {
+    
+    // Crear usuario en Firebase Auth
+    await signInWithEmailAndPassword(
+      auth,
+      formData.email,
+      formData.password
+    );
+
   } catch (error: unknown) {
     let errorMsg = "Hubo un error";
 
