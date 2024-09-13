@@ -9,3 +9,9 @@ export const firebaseErrorHandler = (code:string) => {
 
     return errorMapping[code] || "Ha ocurrido un error"
 }
+
+export const generalErrorHandler = (message:string) => {
+    console.error(message);
+
+    return message
+}

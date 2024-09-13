@@ -2,19 +2,16 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { auth, db } from '@/lib/firebaseConfig';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+
 import { toast } from "sonner";
-import { FirebaseError } from "firebase/app";
-import { firebaseErrorHandler } from "@/lib/handleError";
+import { IRegisterData, registerUser } from "@/lib/auth";
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
+  const [formData, setFormData] = useState<IRegisterData>({
+    name: '',
+    lastname: '',
     dni: '',
-    fechaNacimiento: '',
+    birthday: '',
     email: '',
     password: '',
   });
@@ -26,45 +23,10 @@ const Register = () => {
     });
   };
 
-  const registerUser = async () => {
-    try {
-      // Crear usuario en Firebase Auth
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        formData.email,
-        formData.password
-      );
-      const user = userCredential.user;
-
-      // Guardar información adicional en Firestore
-      await setDoc(doc(db, 'users', user.uid), {
-        nombre: formData.nombre,
-        apellido: formData.apellido,
-        fechaNacimiento: formData.fechaNacimiento,
-        dni: formData.dni,
-        email: formData.email,
-      });
-    } catch (error: unknown) {
-      let errorMsg = "Hubo un error"
-
-      if (error instanceof FirebaseError) {
-        // Aquí puedes manejar el error específico de Firebase
-        errorMsg = firebaseErrorHandler(error.code);
-      } else if (error instanceof Error) {
-        // Para otros errores de tipo estándar de JavaScript
-        console.error('Error general:', error.message);
-      } else {
-        console.error('Error desconocido:', error);
-      }
-    
-      throw new Error(errorMsg);
-    }
-  };
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const registeredUser = registerUser()
+    const registeredUser = registerUser(formData)
 
     toast.promise(registeredUser, {
       loading: 'Loading...',
@@ -100,10 +62,10 @@ const Register = () => {
             </label>
             <Input
               type="text"
-              name="nombre"
+              name="name"
               placeholder="Gastón"
               className="w-full"
-              value={formData.nombre}
+              value={formData.name}
               onChange={handleChange}
             />
           </div>
@@ -113,10 +75,10 @@ const Register = () => {
             </label>
             <Input
               type="text"
-              name="apellido"
+              name="lastname"
               placeholder="Suarez"
               className="w-full"
-              value={formData.apellido}
+              value={formData.lastname}
               onChange={handleChange}
             />
           </div>
@@ -142,9 +104,9 @@ const Register = () => {
           </label>
           <Input
             type="date"
-            name="fechaNacimiento"
+            name="birthday"
             className="w-full"
-            value={formData.fechaNacimiento}
+            value={formData.birthday}
             onChange={handleChange}
           />
         </div>
