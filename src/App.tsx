@@ -9,7 +9,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<>Hola barbi</>} />
+      <Route path="/" element={<>Hola</>} />
       <Route path="/game-lobby" element={<GameLobby />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
