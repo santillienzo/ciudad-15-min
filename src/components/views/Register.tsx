@@ -5,6 +5,9 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { auth, db } from '@/lib/firebaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
+import { toast } from "sonner";
+import { FirebaseError } from "firebase/app";
+import { firebaseErrorHandler } from "@/lib/handleError";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -23,8 +26,7 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const registerUser = async () => {
     try {
       // Crear usuario en Firebase Auth
       const userCredential = await createUserWithEmailAndPassword(
@@ -32,11 +34,9 @@ const Register = () => {
         formData.email,
         formData.password
       );
-    const user = userCredential.user;
+      const user = userCredential.user;
 
-    console.log(userCredential)
-
-    // Guardar información adicional en Firestore
+      // Guardar información adicional en Firestore
       await setDoc(doc(db, 'users', user.uid), {
         nombre: formData.nombre,
         apellido: formData.apellido,
@@ -44,13 +44,38 @@ const Register = () => {
         dni: formData.dni,
         email: formData.email,
       });
+    } catch (error: unknown) {
+      let errorMsg = "Hubo un error"
 
-      alert('Usuario registrado exitosamente');
-    } catch (error) {
-      console.error('Error registrando usuario:', error);
-      alert('Hubo un error al registrar el usuario.');
+      if (error instanceof FirebaseError) {
+        // Aquí puedes manejar el error específico de Firebase
+        errorMsg = firebaseErrorHandler(error.code);
+      } else if (error instanceof Error) {
+        // Para otros errores de tipo estándar de JavaScript
+        console.error('Error general:', error.message);
+      } else {
+        console.error('Error desconocido:', error);
+      }
+    
+      throw new Error(errorMsg);
     }
   };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const registeredUser = registerUser()
+
+    toast.promise(registeredUser, {
+      loading: 'Loading...',
+      success: () => {
+        return `Te registraste correctamente`;
+      },
+      error: (error) => {
+        return error.message
+      }
+    });
+  }
 
 
   return (
