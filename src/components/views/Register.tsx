@@ -94,7 +94,7 @@ const Register = () => {
     {/* Formulario de Registro */}
     <form className="w-full max-w-md space-y-4" onSubmit={handleSubmit}>
         <div className="flex gap-4">
-          <div>
+          <div className="w-full">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Nombre
             </label>
@@ -107,7 +107,7 @@ const Register = () => {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="w-full">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Apellido
             </label>
