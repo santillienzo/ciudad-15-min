@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChangeEvent, FormEvent, useState } from 'react';
@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { IRegisterData, registerUser } from "@/lib/auth";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<IRegisterData>({
     name: '',
     lastname: '',
@@ -29,8 +30,9 @@ const Register = () => {
     const registeredUser = registerUser(formData)
 
     toast.promise(registeredUser, {
-      loading: 'Loading...',
+      loading: 'Controlando info...',
       success: () => {
+        navigate('/game-lobby')
         return `Te registraste correctamente`;
       },
       error: (error) => {

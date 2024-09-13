@@ -1,7 +1,13 @@
 import { Button } from "@/components/ui/button"
+import { auth } from "@/lib/firebaseConfig"
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 const GameLobby = () => {
+  useEffect(()=> {
+    console.log(auth.currentUser)
+  },[])
+
   return (
     <div className="h-screen flex flex-col justify-between items-center bg-gray-100 p-6">
       {/* Cartel de Bienvenida */}
