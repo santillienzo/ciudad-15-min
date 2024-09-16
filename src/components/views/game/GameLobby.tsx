@@ -28,7 +28,7 @@ const GameLobby = () => {
           </Button>
         </Link>
         <Link to="/register" className="block">
-          <Button className="w-full text-lg" variant="outline">
+          <Button className="w-full text-lg " variant="secondary">
             Registrarte
           </Button>
         </Link>
