@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import ClockLoader from'../../../assets/clock-loader.svg';
 
 interface CountdownProps {
   id: string;
@@ -12,6 +13,7 @@ const Countdown: React.FC<CountdownProps> = ({
   finalMessage,
 }) => {
   const [timeLeft, setTimeLeft] = useState<JSX.Element | string>("");
+  const [isLoading, setIsLoading] = useState(true);
   const countdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -42,25 +44,27 @@ const Countdown: React.FC<CountdownProps> = ({
 
       setTimeLeft(
         <div className="max-sm:flex max-xl:flex-col max-md:flex-col max-sm:flex-col">
-          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl stroke-red-50">
+          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl max-sm:text-5xl stroke-red-50">
             {days}
           </span>{" "}
           Días{" "}
-          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl">
+          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl max-sm:text-5xl">
             {hours}
           </span>{" "}
           Horas{" "}
-          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl">
+          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl max-sm:text-5xl">
             {minutes}
           </span>{" "}
           Minutos{" "}
-          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl">
+          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl max-sm:text-5xl">
             {seconds}
           </span>{" "}
           Segundos{" "}
         </div>
         // `${days} Días ${hours} Horas ${minutes} Minutos y ${seconds} segundos`
       );
+
+      setIsLoading(false);
     };
 
     const intervalId = setInterval(updateCountdown, 1000);
@@ -73,13 +77,21 @@ const Countdown: React.FC<CountdownProps> = ({
     <section
       id={id}
       ref={countdownRef}
-      className="bg-slate-900 flex items-center justify-center flex-col w-full h-[calc(100vh)] overflow-x-hidden"
+      className="bg-slate-900 flex items-center justify-center flex-col w-full overflow-x-hidden"
     >
       <div className="flex items-center justify-between h-full max-md:px-16">
         <div className="text-center">
-          <h2 className="text-5xl font-bold p-5 drop-shadow-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
-            {timeLeft}
-          </h2>
+          {isLoading ? (
+            <div className="loader flex justify-center items-center">
+              <span className="text-white text-3xl">
+                <img src={ClockLoader} alt="Loader" />
+              </span>
+            </div>
+          ) : (
+            <h2 className="text-5xl max-sm:text-4xl font-bold p-5 drop-shadow-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
+              {timeLeft}
+            </h2>
+          )}
         </div>
       </div>
     </section>

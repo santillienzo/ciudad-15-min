@@ -3,6 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+
       animation: {
         ["infinite-slider"]: "infiniteSlider 20s linear infinite",
       },
