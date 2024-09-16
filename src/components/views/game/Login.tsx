@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
+import { Button } from "../../ui/button"
+import { Input } from "../../ui/input"
 import { ChangeEvent, FormEvent, useState } from "react";
 import { ILoginData, loginUser } from "@/lib/auth";
 import { toast } from "sonner";

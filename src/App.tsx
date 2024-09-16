@@ -1,9 +1,9 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/views/NotFound';
-import GameLobby from './components/views/GameLobby';
-import Login from './components/views/Login';
-import Register from './components/views/Register';
+import GameLobby from './components/views/game/GameLobby';
+import Login from './components/views/game/Login';
+import Register from './components/views/game/Register';
 
 function App() {
 
