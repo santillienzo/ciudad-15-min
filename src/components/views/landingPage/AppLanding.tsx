@@ -5,12 +5,13 @@ import Footer from '../../layout/landingPage/Footer';
 import Header from '../../layout/landingPage/Header';
 import Evento from '@/components/features/landingPage/Evento';
 import Reglas from '@/components/features/landingPage/Reglas';
+import { ChakraProvider } from '@chakra-ui/react';
 // import Layout from './components/layout/landingPage/Layout';
 // import Countdown from './components/views/landingPage/Countdown';
 
 const AppLanding = () => {
   return (
-    <div>
+    <ChakraProvider>
       {/* <Layout /> */}
       <Header />
       <Home />
@@ -23,7 +24,7 @@ const AppLanding = () => {
       <Evento />
       <Reglas />
       <Footer />
-    </div>
+    </ChakraProvider>
   );
 }
 

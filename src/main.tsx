@@ -9,11 +9,9 @@ import { Toaster } from 'sonner'
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-      <ChakraProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-        <Toaster richColors position='top-center'/>
-      </ChakraProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+      <Toaster richColors position='top-center'/>
   </StrictMode>
 );
