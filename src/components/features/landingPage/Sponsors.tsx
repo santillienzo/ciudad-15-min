@@ -1,29 +1,7 @@
-// import {
-//   RxFigmaLogo,
-//   RxFramerLogo,
-//   RxSketchLogo,
-//   RxTwitterLogo,
-//   RxGithubLogo,
-//   RxVercelLogo,
-//   RxNotionLogo,
-//   RxDiscordLogo,
-//   RxInstagramLogo,
-//   RxLinkedinLogo,
-// } from "react-icons/rx";
 import { Box, Stack, Text } from "@chakra-ui/react";
 import Logo from "../../../assets/Logo.svg";
 
 const LOGOS = [
-  //   <RxFigmaLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxFramerLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxSketchLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxTwitterLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxGithubLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxVercelLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxNotionLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxDiscordLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxInstagramLogo width={24} height={24} className="text-slate-800" />,
-  //   <RxLinkedinLogo width={24} height={24} className="text-slate-800" />,
   <img src={Logo} alt="Logo" />,
   <img src={Logo} alt="Logo" />,
   <img src={Logo} alt="Logo" />,
