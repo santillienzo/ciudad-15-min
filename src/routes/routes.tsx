@@ -6,7 +6,7 @@ import Home from "../components/views/landingPage/Home";
 import Sponsors from "../components/features/landingPage/Sponsors";
 import Evento from "../components/views/landingPage/Evento";
 import Reglas from "../components/views/landingPage/Reglas";
-import AppLanding from "../AppLanding";
+import AppLanding from "../components/views/landingPage/AppLanding";
 
 const router = createBrowserRouter([
   {
