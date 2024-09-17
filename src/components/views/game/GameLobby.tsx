@@ -1,5 +1,6 @@
 import { useAuth } from "@/components/contexts/AuthContext";
 import { Button } from "@/components/ui/button"
+import { LogOut } from 'lucide-react';
 import { Link, useNavigate } from "react-router-dom"
 
 const GameLobby = () => {
@@ -35,8 +36,8 @@ const GameLobby = () => {
               <Button className="w-full text-lg " variant="secondary">
                 Registrarte
               </Button>
-            </Link> : <Button className="w-full text-lg " variant='secondary' onClick={handleLogout}>
-              Cerrar sesión
+            </Link> : <Button className="w-full text-lg flex gap-4" variant='secondary' onClick={handleLogout}>
+              <LogOut /> <span>Cerrar sesión</span>
             </Button>
         }
       </div>
