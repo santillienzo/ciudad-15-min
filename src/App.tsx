@@ -5,18 +5,25 @@ import GameLobby from './components/views/game/GameLobby';
 import Login from './components/views/game/Login';
 import Register from './components/views/game/Register';
 import AppLanding from './components/views/landingPage/AppLanding';
+import ProtectedRoute from './components/layout/ProtectedRoute';
+import { AuthProvider } from './components/contexts/AuthContext';
 
 function App() {
 
   return (
-    <Routes>
-      <Route path="/" element={<AppLanding/>} />
-      <Route path="/game-lobby" element={<GameLobby />} />
-      <Route path="/login" element={<Login/>} />
-      <Route path="/register" element={<Register/>} />
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<AppLanding/>} />
+        <Route path="/game-lobby" element={<GameLobby />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
 
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        {/* Rutas protegidas  */}
+        <Route path="/game" element={<ProtectedRoute component={<>Componente protegido</>} />} />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AuthProvider>
   );
 }
 

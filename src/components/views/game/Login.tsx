@@ -2,10 +2,12 @@ import { Link, useNavigate } from "react-router-dom"
 import { Button } from "../../ui/button"
 import { Input } from "../../ui/input"
 import { ChangeEvent, FormEvent, useState } from "react";
-import { ILoginData, loginUser } from "@/lib/auth";
+import { ILoginData } from "@/lib/auth";
 import { toast } from "sonner";
+import { useAuth } from "@/components/contexts/AuthContext";
 
 const Login = () => {
+  const {login} = useAuth()
   const navigate = useNavigate();
   const [formData, setFormData] = useState<ILoginData>({
     email: '',
@@ -22,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const registeredUser = loginUser(formData)
+    const registeredUser = login(formData)
 
     toast.promise(registeredUser, {
       loading: 'Controlando info...',

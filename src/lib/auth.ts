@@ -1,5 +1,5 @@
-import { auth, db } from "@/lib/firebaseConfig";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { db } from "@/lib/firebaseConfig";
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
 import { firebaseErrorHandler, generalErrorHandler } from "@/lib/handleError";
@@ -25,7 +25,7 @@ export const validateUser = (data: IRegisterData) => {
 
 }
 
-export const registerUser = async (formData: IRegisterData) => {
+export const registerUser = async (formData: IRegisterData, auth: Auth) => {
   try {
 
     validateUser(formData)
@@ -63,7 +63,7 @@ export const registerUser = async (formData: IRegisterData) => {
   }
 };
 
-export const loginUser = async (formData: ILoginData) => {
+export const loginUser = async (formData: ILoginData, auth: Auth) => {
   try {
     
     // Crear usuario en Firebase Auth

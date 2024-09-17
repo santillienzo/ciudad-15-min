@@ -4,9 +4,11 @@ import { Input } from "@/components/ui/input";
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 import { toast } from "sonner";
-import { IRegisterData, registerUser } from "@/lib/auth";
+import { IRegisterData } from "@/lib/auth";
+import { useAuth } from "@/components/contexts/AuthContext";
 
 const Register = () => {
+  const {register} = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState<IRegisterData>({
     name: '',
@@ -27,7 +29,7 @@ const Register = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const registeredUser = registerUser(formData)
+    const registeredUser = register(formData)
 
     toast.promise(registeredUser, {
       loading: 'Controlando info...',
