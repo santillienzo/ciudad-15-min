@@ -9,7 +9,7 @@ const GameLobby = () => {
   },[])
 
   return (
-    <div className="h-screen flex flex-col justify-between items-center bg-gray-100 p-6">
+    <div className="h-screen flex flex-col justify-between items-center bg-background p-6">
       {/* Cartel de Bienvenida */}
       <div className="flex flex-col justify-center items-center mt-20 text-center">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">
