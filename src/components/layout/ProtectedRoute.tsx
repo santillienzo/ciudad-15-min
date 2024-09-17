@@ -7,14 +7,14 @@ type Props = {
 }
 
 const ProtectedRoute = ({ component:Component }: Props) => {
-  const { user, loading } = useAuth();
+  const { isAuth, loading } = useAuth();
 
   if (loading) {
     return <div>Cargando...</div>; // Muestra un indicador de carga mientras verificas la sesión
   }
 
   // Si no está autenticado, redirige al login
-  if (!user) {
+  if (!isAuth()) {
     return <Navigate to="/login" />;
   }
 

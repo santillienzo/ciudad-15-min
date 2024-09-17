@@ -1,7 +1,14 @@
+import { useAuth } from "@/components/contexts/AuthContext";
 import { Button } from "@/components/ui/button"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const GameLobby = () => {
+  const { isAuth, logout } = useAuth();
+  const navigate = useNavigate();
+  
+  const toPlayRedirect = isAuth() ? '/game' : '/login'
+
+  const handleLogout = () => logout(()=> navigate("/login"))
 
   return (
     <div className="h-screen flex flex-col justify-between items-center bg-background p-6">
@@ -17,16 +24,21 @@ const GameLobby = () => {
 
       {/* Botones en la parte inferior con safe-area-inset */}
       <div className="w-full max-w-md space-y-4 mb-32">
-        <Link to="/login" className="block">
+        <Link to={toPlayRedirect} className="block">
           <Button className="w-full text-lg">
             Jugar
           </Button>
         </Link>
-        <Link to="/register" className="block">
-          <Button className="w-full text-lg " variant="secondary">
-            Registrarte
-          </Button>
-        </Link>
+        {
+          !isAuth() ?
+            <Link to="/register" className="block">
+              <Button className="w-full text-lg " variant="secondary">
+                Registrarte
+              </Button>
+            </Link> : <Button className="w-full text-lg " variant='secondary' onClick={handleLogout}>
+              Cerrar sesión
+            </Button>
+        }
       </div>
     </div>
   )
