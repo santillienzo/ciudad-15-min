@@ -46,6 +46,7 @@
     --background-secondary-muted: hsl(173, 73%, 46%);
     --collapsable-secondary: 	hsl(173.33, 80.6%, 26.27%);
 
+    --link: hsl(43, 98%, 53%)
 
   }
   .dark {
@@ -82,4 +83,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+a {
+  color: var(--link) !important
 }
