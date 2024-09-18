@@ -31,20 +31,20 @@
 
 
     /* Personalize */
-    --button-cta-primary: hsl(43, 98%, 53%);
-    --button-cta-primary-foreground: 	hsl(0, 0%, 25%);
-    --button-cta-secondary: hsl(43, 42%, 86%);
-    --button-cta-secondary-foreground: 	hsl(0, 0%, 25%);
+    --button-cta-primary: hsl(84.22, 53.17%, 59.8%);
+    --button-cta-primary-foreground: 	hsl(0, 0%, 100%);
+    --button-cta-secondary: hsl(343.64, 33.33%, 93.53%);
+    --button-cta-secondary-foreground: 	hsl(0, 0%, 25.1%);
 
-    --background-primary:  hsl(280, 53%, 37%);
+    --background-primary:  hsl(190, 61.76%, 40%);
     --background-primary-foreground: hsl(0, 0%, 100%);
-    --background-primary-muted: hsl(280, 48%, 49%);
-    --collapsable-primary: 	hsl(280, 53%, 37%);
+    --background-primary-muted: hsl(190.07, 65.55%, 59.02%);
+    --collapsable-primary: 	hsl(196.1, 45.05%, 35.69%);
 
-    --background-secondary: hsl(173, 100%, 32%);
+    --background-secondary: hsl(173.29, 100%, 31.57%);
     --background-secondary-foreground: hsl(0, 0%, 100%);
-    --background-secondary-muted: hsl(173, 96%, 41%);
-    --collapsable-secondary: 	hsl(173, 81%, 26%);
+    --background-secondary-muted: hsl(173, 73%, 46%);
+    --collapsable-secondary: 	hsl(173.33, 80.6%, 26.27%);
 
 
   }
