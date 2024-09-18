@@ -9,9 +9,9 @@
     --card-foreground: hsl(240 10% 3.9%);
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(240 10% 3.9%);
-    --primary: hsl(43.04, 97.18%, 72.16%);
-    --primary-foreground: hsl(240 5.9% 10%);
-    --secondary: hsl(43.2, 100%, 95.1%);
+    --primary: hsl( 240 5.9% 10%);
+    --primary-foreground: hsl(0 0% 98%);
+    --secondary: hsl(240 4.8% 95.9%);
     --secondary-foreground: hsl(240 5.9% 10%);
     --muted: hsl(240 4.8% 95.9%);
     --muted-foreground: hsl(240 3.8% 46.1%);
@@ -27,7 +27,26 @@
     --chart-3: hsl(197 37% 24%);
     --chart-4: hsl(43 74% 66%);
     --chart-5: hsl(27 87% 67%);
-    --radius: hsl(0.5rem)
+    --radius: hsl(0.5rem);
+
+
+    /* Personalize */
+    --button-cta-primary: hsl(43, 98%, 53%);
+    --button-cta-primary-foreground: 	hsl(0, 0%, 25%);
+    --button-cta-secondary: hsl(43, 42%, 86%);
+    --button-cta-secondary-foreground: 	hsl(0, 0%, 25%);
+
+    --background-primary:  hsl(280, 53%, 37%);
+    --background-primary-foreground: hsl(0, 0%, 100%);
+    --background-primary-muted: hsl(280, 48%, 49%);
+    --collapsable-primary: 	hsl(280, 53%, 37%);
+
+    --background-secondary: hsl(173, 100%, 32%);
+    --background-secondary-foreground: hsl(0, 0%, 100%);
+    --background-secondary-muted: hsl(173, 96%, 41%);
+    --collapsable-secondary: 	hsl(173, 81%, 26%);
+
+
   }
   .dark {
     --background: hsl(240 10% 3.9%);
