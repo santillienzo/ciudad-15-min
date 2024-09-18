@@ -62,7 +62,25 @@ export default {
   				'3': 'var(--chart-3)',
   				'4': 'var(--chart-4)',
   				'5': 'var(--chart-5)'
-  			}
+  			},
+			
+			/* Button CTA */
+			'button-cta-primary': 'var(--button-cta-primary)',
+			'button-cta-primary-foreground': 'var(--button-cta-primary-foreground)',
+			'button-cta-secondary': 'var(--button-cta-secondary)',
+			'button-cta-secondary-foreground': 'var(--button-cta-secondary-foreground)',
+	
+			/* Background Primary */
+			'background-primary': 'var(--background-primary)',
+			'background-primary-foreground': 'var(--background-primary-foreground)',
+			'background-primary-muted': 'var(--background-primary-muted)',
+			'collapsable-primary': 'var(--collapsable-primary)',
+	
+			/* Background Secondary */
+			'background-secondary': 'var(--background-secondary)',
+			'background-secondary-foreground': 'var(--background-secondary-foreground)',
+			'background-secondary-muted': 'var(--background-secondary-muted)',
+			'collapsable-secondary': 'var(--collapsable-secondary)',
   		}
   	}
   },
