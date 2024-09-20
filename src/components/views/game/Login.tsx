@@ -1,10 +1,10 @@
 import { Link, useNavigate } from "react-router-dom"
-import { Button } from "../../ui/button"
-import { Input } from "../../ui/input"
 import { ChangeEvent, FormEvent, useState } from "react";
 import { ILoginData } from "@/lib/auth";
 import { toast } from "sonner";
 import { useAuth } from "@/components/contexts/AuthContext";
+import ThemeButton from "@/components/common/ThemeButton";
+import ThemeInput from "@/components/common/ThemeInput";
 
 const Login = () => {
   const {login} = useAuth()
@@ -40,23 +40,23 @@ const Login = () => {
 
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 p-6">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-background-primary p-6 text-background-primary-foreground">
     {/* Título de Registro */}
-    <h1 className="text-4xl font-bold text-gray-800 mb-6">Iniciar sesión</h1>
+    <h1 className="text-4xl font-bold mb-6">Iniciar sesión</h1>
 
     {/* Texto de redirección al login */}
-    <p className="text-gray-600 mb-6">
+    <p className="mb-6">
       ¿No tenés cuenta?{" "}
-      <Link to="/register" className="text-blue-600 hover:underline">
+      <Link to="/register">
         Registrate
       </Link>
     </p>
     <form className="w-full max-w-md space-y-4" onSubmit={handleSubmit}>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-button-cta-primary-foreground mb-1">
             Email
           </label>
-          <Input
+          <ThemeInput
             type="email"
             name="email"
             placeholder="gaston@gmail.com"
@@ -67,10 +67,10 @@ const Login = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-button-cta-primary-foreground mb-1">
             Contraseña
           </label>
-          <Input
+          <ThemeInput
             type="password"
             name="password"
             placeholder="***********"
@@ -81,9 +81,9 @@ const Login = () => {
         </div>
 
         {/* Botón de Registro */}
-        <Button className="w-full mt-6 text-lg" type="submit">
-          Registrarse
-        </Button>
+        <ThemeButton className="w-full mt-6 text-lg" type="submit">
+          Iniciar sesión
+        </ThemeButton>
       </form>
     </div>
   )

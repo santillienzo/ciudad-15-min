@@ -7,6 +7,7 @@ import Register from './components/views/game/Register';
 import AppLanding from './components/views/landingPage/AppLanding';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import { AuthProvider } from './components/contexts/AuthContext';
+import Game from './components/views/game/Game';
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
         <Route path="/register" element={<Register/>} />
 
         {/* Rutas protegidas  */}
-        <Route path="/game" element={<ProtectedRoute component={<>Componente protegido</>} />} />
+        <Route path="/game" element={<ProtectedRoute component={<Game/>} />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

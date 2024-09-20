@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 import { toast } from "sonner";
 import { IRegisterData } from "@/lib/auth";
 import { useAuth } from "@/components/contexts/AuthContext";
+import ThemeButton from "@/components/common/ThemeButton";
+import ThemeInput from "@/components/common/ThemeInput";
 
 const Register = () => {
   const {register} = useAuth();
@@ -45,14 +45,14 @@ const Register = () => {
 
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 p-6">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-background-primary p-6 text-background-primary-foreground">
     {/* Título de Registro */}
-    <h1 className="text-4xl font-bold text-gray-800 mb-6">Registro</h1>
+    <h1 className="text-4xl font-bold mb-6">Registro</h1>
 
     {/* Texto de redirección al login */}
-    <p className="text-gray-600 mb-6">
+    <p className="mb-6">
       ¿Ya tenés una cuenta?{" "}
-      <Link to="/login" className="text-blue-600 hover:underline">
+      <Link to="/login">
         Iniciá sesión
       </Link>
     </p>
@@ -61,10 +61,10 @@ const Register = () => {
     <form className="w-full max-w-md space-y-4" onSubmit={handleSubmit}>
         <div className="flex gap-4">
           <div className="w-full">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-button-cta-primary-foreground mb-1">
               Nombre
             </label>
-            <Input
+            <ThemeInput
               type="text"
               name="name"
               placeholder="Gastón"
@@ -74,10 +74,10 @@ const Register = () => {
             />
           </div>
           <div className="w-full">
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-button-cta-primary-foreground mb-1">
               Apellido
             </label>
-            <Input
+            <ThemeInput
               type="text"
               name="lastname"
               placeholder="Suarez"
@@ -89,10 +89,10 @@ const Register = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-button-cta-primary-foreground mb-1">
             Email
           </label>
-          <Input
+          <ThemeInput
             type="email"
             name="email"
             placeholder="gaston@gmail.com"
@@ -103,10 +103,10 @@ const Register = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-button-cta-primary-foreground mb-1">
             Fecha de Nacimiento
           </label>
-          <Input
+          <ThemeInput
             type="date"
             name="birthday"
             className="w-full"
@@ -116,10 +116,10 @@ const Register = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-button-cta-primary-foreground mb-1">
             DNI
           </label>
-          <Input
+          <ThemeInput
             type="text"
             name="dni"
             placeholder="42125495"
@@ -130,10 +130,10 @@ const Register = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-button-cta-primary-foreground mb-1">
             Contraseña
           </label>
-          <Input
+          <ThemeInput
             type="password"
             name="password"
             placeholder="***********"
@@ -144,9 +144,9 @@ const Register = () => {
         </div>
 
         {/* Botón de Registro */}
-        <Button className="w-full mt-6 text-lg" type="submit">
+        <ThemeButton className="w-full mt-6 text-lg" type="submit">
           Registrarse
-        </Button>
+        </ThemeButton>
       </form>
   </div>
   )
