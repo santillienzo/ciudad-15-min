@@ -2,7 +2,6 @@
 import Home from '@/components/features/landingPage/Home';
 import Sponsors from '../../features/landingPage/Sponsors';
 import Footer from '../../layout/landingPage/Footer';
-import Header from '../../layout/landingPage/Header';
 import Evento from '@/components/features/landingPage/Evento';
 import Reglas from '@/components/features/landingPage/Reglas';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -13,7 +12,7 @@ const AppLanding = () => {
   return (
     <ChakraProvider>
       {/* <Layout /> */}
-      <Header />
+      {/* <Header /> */}
       <Home />
       {/* <Countdown
         id="countdown"
