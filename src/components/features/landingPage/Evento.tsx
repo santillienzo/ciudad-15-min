@@ -3,16 +3,20 @@ import { Box, Stack, Text } from "@chakra-ui/react";
 import "../../../lib/accordionSections";
 import { accordionSections } from "../../../lib/accordionSections";
 
+const tailwindCustomStyles = getComputedStyle(document.documentElement);
+const accordionBgColor = tailwindCustomStyles.getPropertyValue(
+  "--collapsable-primary"
+);
 
 const Evento = () => {
   return (
     <Stack
       id="evento"
-      className="flex flex-col items-center justify-center min-h-screen bg-[#572372]"
+      className="flex flex-col items-center justify-center min-h-screen bg-background-primary"
     >
       <Box className="flex flex-col items-center justify-center w-[80%] min-h-full py-16">
         <Box className="h-56">
-          <Text className="text-5xl text-center font-bold text-white">
+          <Text className="text-5xl text-center font-bold text-button-cta-primary-foreground">
             {" "}
             Mas Info{" "}
           </Text>
@@ -21,7 +25,7 @@ const Evento = () => {
         <Box className="flex items-center justify-center flex-col max-sm:flex-col w-11/12">
           <CustomAccordion
             sections={accordionSections}
-            accordionButtonBgColor="#572372"
+            accordionButtonBgColor={accordionBgColor}
           />
 
           {/* <Text className="text-justify">

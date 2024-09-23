@@ -18,24 +18,27 @@ interface CustomAccordionProps {
   sections: AccordionData[];
   accordionButtonBgColor?: string;
 }
-
+// hsl(196.1, 45.05%, 35.69%)
 const CustomAccordion = ({ sections, accordionButtonBgColor }: CustomAccordionProps) => {
   return (
     <Accordion allowToggle className="w-full">
       {sections.map((section, index) => (
-        <AccordionItem key={index} bg={"#9241BB"} className="rounded mb-8">
-          <h2>
+        <AccordionItem
+          key={index}
+          className="rounded mb-8 bg-collapsable-primary border-none"
+        >
+          <Text>
             <AccordionButton
               _expanded={{ bg: accordionButtonBgColor }}
-              className="text-white"
+              className="text-background-secondary-foreground"
             >
               <Box as="span" flex="1" textAlign="left">
                 <Text className="font-bold">{section.title}</Text>
               </Box>
               <AccordionIcon />
             </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4} className="text-white">
+          </Text>
+          <AccordionPanel pb={4} className="text-background-secondary-foreground">
             {section.content}
           </AccordionPanel>
         </AccordionItem>
