@@ -88,3 +88,14 @@
 a {
   color: var(--link) !important
 }
+
+html{
+  height: -webkit-fill-available;
+}
+body {
+  height: 100%;
+}
+
+#root{ 
+  height: 100%;
+}
