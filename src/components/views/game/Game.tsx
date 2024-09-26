@@ -39,7 +39,11 @@ const Game = () => {
     <div className='w-full relative' style={{height: '-webkit-fill-available'}}>
         <div className='absolute w-full h-full'>
           <APIProvider apiKey={MAPS_API_KEY}>
-              <Map defaultCenter={currentPosition} defaultZoom={15} mapId='DEMO_MAP_ID'>
+              <Map 
+                defaultCenter={currentPosition} 
+                defaultZoom={15} 
+                mapId='DEMO_MAP_ID'
+              >
                 <AdvancedMarker position={currentPosition} />
               </Map>
           </APIProvider> 
