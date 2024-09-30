@@ -91,6 +91,8 @@ a {
 
 html{
   height: -webkit-fill-available;
+  height: fill-available; /* Para Firefox */
+  height: 100vh; /* Fallback general */
 }
 body {
   height: 100%;
