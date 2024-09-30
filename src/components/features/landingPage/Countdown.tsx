@@ -36,9 +36,12 @@ const Countdown: React.FC<CountdownProps> = ({
       const hours = (
         "0" + Math.floor((limitTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       ).slice(-2);
-      const minutes = (
-        "0" + Math.floor((limitTime % (1000 * 60 * 60)) / (1000 * 60))
-      ).slice(-2);
+
+      /* CALCULO DE LOS MINUTOS */
+
+      // const minutes = (
+      //   "0" + Math.floor((limitTime % (1000 * 60 * 60)) / (1000 * 60))
+      // ).slice(-2);
 
       /* CALCULO DE LOS SEGUNDOS */
 
@@ -49,15 +52,16 @@ const Countdown: React.FC<CountdownProps> = ({
       setTimeLeft(
         // <div className="max-sm:flex max-xl:flex-col max-md:flex-col max-sm:flex-col">
         <div className="flex font-poppins">
-          <span className="text-2xl max-sm:text-2xl pr-1 font-poppins">{days}</span> días{" "}
-          <span className="font-bold text-2xl max-sm:text-2xl pl-2 pr-1 font-poppins">
+          <span className="text-4xl max-sm:text-2xl pr-1 font-poppins">{days}</span> días{" "}
+          <span className="font-bold text-4xl max-sm:text-2xl pl-2 pr-1 font-poppins">
             {hours}
           </span>{" "}
           horas{" "}
-          <span className="font-bold text-2xl max-sm:text-2xl pl-2 pr-1 font-poppins">
+          {/* <span className="font-bold text-4xl max-sm:text-2xl pl-2 pr-1 font-poppins">
             {minutes}
-          </span>{" "}
+          </span>{" "} 
           minutos{" "}
+          */}
           {/* <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl max-sm:text-5xl">
             {seconds}
           </span>{" "}
@@ -98,7 +102,7 @@ const Countdown: React.FC<CountdownProps> = ({
               />
             </div>
           ) : (
-            <h2 className="text-2xl max-sm:text-2xl font-bold p-5 text-button-cta-primary">
+            <h2 className="text-4xl max-sm:text-2xl font-bold p-5 text-button-cta-primary">
               {timeLeft}
             </h2>
           )}
