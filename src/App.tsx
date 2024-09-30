@@ -8,6 +8,7 @@ import AppLanding from './components/views/landingPage/AppLanding';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import { AuthProvider } from './components/contexts/AuthContext';
 import Game from './components/views/game/Game';
+import QrReader from './components/features/game/QrReader';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
 
         {/* Rutas protegidas  */}
         <Route path="/game" element={<ProtectedRoute component={<Game/>} />} />
+        <Route path="/scanner" element={<ProtectedRoute component={<QrReader/>} />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
