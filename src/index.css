@@ -12,7 +12,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: hsl(0 0% 100%);
@@ -97,6 +96,9 @@
   }
 }
 
+* {
+  font-family: 'poppins';
+}
 a {
   color: var(--link)
 }

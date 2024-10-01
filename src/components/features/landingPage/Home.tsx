@@ -1,36 +1,17 @@
-"use client";
-import React from "react";
 import { Button } from "@/components/ui/button";
 import Countdown from "./Countdown";
 import {
   Box,
-  Container,
   Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import Slider from "react-slick";
-import { cards } from "../../../lib/sliderContent";
 import MainLogo from "../../../assets/svg/Logo blanco.svg";
 import { RiCircleFill, RiMapPinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
-// Settings for the slider
-const settings = {
-  dots: false,
-  arrows: false,
-  fade: true,
-  infinite: true,
-  autoplay: true,
-  speed: 1000,
-  autoplaySpeed: 10000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
 
 const Home = () => {
-  const [slider, setSlider] = React.useState<Slider | null>(null);
-
   return (
     <Stack
       id="home"
@@ -74,28 +55,15 @@ const Home = () => {
 
           {/* Columna izquierda */}
           <Box className="flex flex-col order-2 w-full md:w-1/2 p-4">
-            <Text className="text-3xl pb-5 text-center text-secondary font-bold">
+            <Text className="text-3xl pb-5 text-secondary font-bold text-left">
               Transformemos juntos Mendoza en una ciudad más saludable,
-              equitativa y sostenible. Descubre cómo la movilidad activa puede
-              mejorar tu calidad de vida y la de nuestra ciudad.
+              equitativa y sostenible.
             </Text>
 
-            <Box className="w-full relative overflow-hidden">
-              {/* Slider */}
-              <Slider {...settings} ref={(slider) => setSlider(slider)}>
-                {cards.map((card, index) => (
-                  <Box className="relative" key={index}>
-                    <Container className="relative">
-                      <Stack className="w-full max-w-xl p-4">
-                        <Text className="text-secondary text-justify">
-                          {card.text}
-                        </Text>
-                      </Stack>
-                    </Container>
-                  </Box>
-                ))}
-              </Slider>
-            </Box>
+            <Text className="text-xl text-secondary text-justify font-poppins ">
+              Descubre cómo la movilidad activa puede mejorar tu calidad de vida
+              y la de nuestra ciudad.
+            </Text>
 
             <Button className="bg-button-cta-primary-foreground text-button-cta-secondary-foreground rounded w-32 m-auto mt-4">
               <Link to={"/register"}>Registrarme</Link>

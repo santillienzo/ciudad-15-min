@@ -21,11 +21,11 @@ interface CustomAccordionProps {
 // hsl(196.1, 45.05%, 35.69%)
 const CustomAccordion = ({ sections, accordionButtonBgColor }: CustomAccordionProps) => {
   return (
-    <Accordion allowToggle className="w-full">
+    <Accordion allowToggle className="w-full flex flex-col gap-4">
       {sections.map((section, index) => (
         <AccordionItem
           key={index}
-          className="rounded mb-8 bg-collapsable-primary border-none"
+          className="rounded bg-collapsable-primary border-none"
         >
           <Text>
             <AccordionButton

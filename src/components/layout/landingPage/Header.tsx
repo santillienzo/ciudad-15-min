@@ -2,6 +2,14 @@ import { RiMenuFill, RiCloseCircleLine } from "react-icons/ri";
 // import Logo from "../../../assets/Logo.svg";
 import { useEffect, useRef, useState } from "react";
 // import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+
+// Estilos de iconos
+const iconVariants = {
+  hidden: { rotate: 0, scale: 1 },
+  visible: { rotate: 180, scale: 1.2 },
+  exit: { rotate: -180, scale: 1 },
+};
 
 const Header = () => {
   const [menuMobile, setMenuMobile] = useState<boolean>(false);
@@ -48,27 +56,31 @@ const Header = () => {
             href="#home"
             className="font-semibold text-md"
           >
-            <li className="hover:bg-primary-foreground transition-all duration-300 ease-linear p-3 rounded ">
-              INICIO
+            <li className="relative group transition-all duration-300 ease-linear p-3 rounded text-secondary">
+              Inicio
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-primary-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
             </li>
           </a>
-          
+
           <a
             onClick={handleClick}
             href="#sponsors"
             className="font-semibold text-md"
           >
-            <li className="hover:bg-primary-foreground transition-all duration-300 ease-linear p-3 rounded">
-              NUESTROS SPONSORS
+            <li className="relative group transition-all duration-300 ease-linear p-3 rounded text-secondary">
+              Sponsors
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-primary-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
             </li>
           </a>
+
           <a
             onClick={handleClick}
             href="#evento"
             className="font-semibold text-md"
           >
-            <li className="hover:bg-primary-foreground transition-all duration-300 ease-linear p-3 rounded">
-              EVENTO
+            <li className="relative group transition-all duration-300 ease-linear p-3 rounded text-secondary">
+              Evento
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-primary-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
             </li>
           </a>
           <a
@@ -76,8 +88,9 @@ const Header = () => {
             href="#reglas"
             className="font-semibold text-md"
           >
-            <li className="hover:bg-primary-foreground transition-all duration-300 ease-linear p-3 rounded">
-              REGLAS
+            <li className="relative group transition-all duration-300 ease-linear p-3 rounded text-secondary">
+              Reglas
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-primary-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
             </li>
           </a>
         </ul>
@@ -87,9 +100,31 @@ const Header = () => {
         onClick={() => {
           setMenuMobile(!menuMobile);
         }}
-        className="xl:hidden text-2xl p-2 z-50"
+        className="xl:hidden text-2xl p-2 z-50 "
       >
-        {menuMobile ? <RiCloseCircleLine /> : <RiMenuFill />}
+        {menuMobile ? (
+          <motion.div
+            key="close-icon"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={iconVariants}
+            transition={{ duration: 0.3 }}
+          >
+            <RiCloseCircleLine className="text-secondary" />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="menu-icon"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={iconVariants}
+            transition={{ duration: 0.3 }}
+          >
+            <RiMenuFill className="text-secondary" />
+          </motion.div>
+        )}
       </button>
     </header>
   );

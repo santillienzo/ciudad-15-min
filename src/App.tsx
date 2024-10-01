@@ -1,4 +1,3 @@
-import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/views/NotFound';
 import GameLobby from './components/views/game/GameLobby';
