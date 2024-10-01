@@ -1,0 +1,24 @@
+name: Deploy to Firebase Hosting on merge (Production)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout del código fuente
+      - uses: actions/checkout@v4
+
+      # 2. Instalar dependencias y construir la app para producción
+      - run: npm ci && npm run build
+
+      # 3. Desplegar en Firebase Hosting (producción)
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CIUDAD_15_MINUTOS_PROD }}
+          projectId: ciudad15minutos-prod
+          channelId: live
