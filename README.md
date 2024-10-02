@@ -31,6 +31,5 @@ npm run build:[entorno]
 ```	
 
 ```
-firebase target:apply hosting $TARGET_NAME $PROJECT_ID
 firebase deploy --only hosting:$TARGET_NAME --project $PROJECT_ID --token $FIREBASE_TOKEN
 ```
