@@ -29,7 +29,11 @@ en *entorno* va 'dev' o 'prod' dependiendo cual app querramos deployar
 ```
 npm run build:[entorno]	
 ```	
-
+Cambiamos entorno
+```	
+firebase use ciudad15minutos-prod
+```	
+Deploy
 ```
 firebase deploy --only hosting:$TARGET_NAME --project $PROJECT_ID --token $FIREBASE_TOKEN
 ```
