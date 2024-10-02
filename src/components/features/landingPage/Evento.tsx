@@ -1,31 +1,40 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
+import CustomAccordion from "@/components/common/CustomAccordion";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
+import "../../../lib/accordionSections";
+import { accordionSections } from "../../../lib/accordionSections";
+import CiudadLogo from "@/assets/svg/ciudad.png";
+
+const tailwindCustomStyles = getComputedStyle(document.documentElement);
+const accordionBgColor = tailwindCustomStyles.getPropertyValue(
+  "--collapsable-primary"
+);
 
 const Evento = () => {
   return (
     <Stack
       id="evento"
-      className="flex flex-col items-center justify-center min-h-screen bg-[#07C15B]"
+      className="flex flex-col items-center justify-center min-h-screen bg-background-primary"
     >
-      <Box className="flex flex-col items-center justify-center w-[80%] min-h-full py-16">
-        <Box className="h-56">
-          <Text className="text-5xl text-center font-bold mt-11"> El Evento </Text>
+      <Box className="flex gap-10 flex-col items-center justify-center w-[80%] min-h-full py-16">
+        <Box className="justify-center items-center ">
+          <Box className="">
+            <Text className="text-5xl text-center font-bold text-button-cta-primary-foreground">
+              {" "}
+              Más Info{" "}
+            </Text>
+          </Box>
         </Box>
+        <Box className="flex w-full max-sm:flex-col max-sm:h-screen">
+          <Box className="flex items-center justify-center w-11/12 max-sm:flex-col max-sm:w-full">
+            <CustomAccordion
+              sections={accordionSections}
+              accordionButtonBgColor={accordionBgColor}
+            />
+          </Box>
 
-        <Box className="flex items-center justify-center flex-col max-sm:flex-col gap-8 mt-8">
-          <Text className="text-justify">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas
-            voluptatum nesciunt velit magnam non reiciendis, ex, nobis mollitia
-            excepturi modi perferendis alias quibusdam fugiat accusamus, neque
-            eaque hic ab explicabo. Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Voluptas voluptatum nesciunt velit magnam non
-            reiciendis, ex, nobis mollitia excepturi modi perferendis alias
-            quibusdam fugiat accusamus, neque eaque hic ab explicabo. Lorem
-            ipsum dolor sit, amet consectetur adipisicing elit. Voluptas
-            voluptatum nesciunt velit magnam non reiciendis, ex, nobis mollitia
-            excepturi modi perferendis alias quibusdam fugiat accusamus, neque
-            eaque hic ab explicabo. Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit.
-          </Text>
+          <Box className="flex flex-end w-full justify-around">
+            <Image className="h-[300px] max-sm:h-auto" src={CiudadLogo} alt="Ciudad Logo"></Image>
+          </Box>
         </Box>
       </Box>
     </Stack>

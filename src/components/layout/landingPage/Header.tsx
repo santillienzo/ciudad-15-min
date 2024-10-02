@@ -1,7 +1,15 @@
 import { RiMenuFill, RiCloseCircleLine } from "react-icons/ri";
-import Logo from "../../../assets/Logo.svg";
+// import Logo from "../../../assets/Logo.svg";
 import { useEffect, useRef, useState } from "react";
 // import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+
+// Estilos de iconos
+const iconVariants = {
+  hidden: { rotate: 0, scale: 1 },
+  visible: { rotate: 180, scale: 1.2 },
+  exit: { rotate: -180, scale: 1 },
+};
 
 const Header = () => {
   const [menuMobile, setMenuMobile] = useState<boolean>(false);
@@ -35,65 +43,56 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#74D7DA] flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 fixed top-0 left-0">
-      <div className="xl:w-1/6 text-center z-50">
-        <a href={"/"}>
-          <img
-            src={Logo}
-            alt="Ciudad en 15 minutos Logo"
-            className="w-28 md:w-32 h-10"
-          />
-        </a>
-      </div>
-
+    <header className="bg-background-primary flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 top-0 left-0">
       <nav
         ref={menuMobileRef}
-        className={`bg-[#74D7DA] fixed w-[80%] md:w-[60%] xl:w-full h-full top-0 ${
+        className={`bg-background-primary fixed w-[80%] md:w-[60%] xl:w-full h-full top-0 ${
           menuMobile ? "left-0" : "-left-full"
         } xl:static xl:h-auto flex-1 justify-center flex flex-col xl:flex-row items-center gap-10 transition-all duration-500 ease-in-out z-40`}
       >
-        <ul className="flex flex-col xl:flex-row items-center gap-8 xl:gap-5 mt-20 xl:mt-0">
-          <li className="hover:bg-[#FDD673] transition-all duration-300 ease-linear p-3 rounded-md ">
-            <a
-              onClick={handleClick}
-              href="#home"
-              className="font-semibold text-md"
-            >
-              INICIO
-            </a>
-          </li>
-          {/* <li className="">
-            <a href="#contador" className="font-semibold text-md">
-              CONTADOR
-            </a>
-          </li> */}
-          <li className="hover:bg-[#FDD673] transition-all duration-300 ease-linear p-3 rounded-md">
-            <a
-              onClick={handleClick}
-              href="#sponsors"
-              className="font-semibold text-md"
-            >
-              NUESTROS SPONSORS
-            </a>
-          </li>
-          <li className="hover:bg-[#FDD673] transition-all duration-300 ease-linear p-3 rounded-md">
-            <a
-              onClick={handleClick}
-              href="#evento"
-              className="font-semibold text-md"
-            >
-              EVENTO
-            </a>
-          </li>
-          <li className="hover:bg-[#FDD673] transition-all duration-300 ease-linear p-3 rounded-md">
-            <a
-              onClick={handleClick}
-              href="#reglas"
-              className="font-semibold text-md"
-            >
-              REGLAS
-            </a>
-          </li>
+        <ul className="flex flex-col xl:flex-row items-center gap-8 xl:gap-5 mt-20 xl:mt-0 text-button-cta-secondary-foreground">
+          <a
+            onClick={handleClick}
+            href="#home"
+            className="font-semibold text-md"
+          >
+            <li className="relative group transition-all duration-300 ease-linear p-3 rounded text-secondary">
+              Inicio
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-primary-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
+            </li>
+          </a>
+
+          <a
+            onClick={handleClick}
+            href="#sponsors"
+            className="font-semibold text-md"
+          >
+            <li className="relative group transition-all duration-300 ease-linear p-3 rounded text-secondary">
+              Sponsors
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-primary-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
+            </li>
+          </a>
+
+          <a
+            onClick={handleClick}
+            href="#evento"
+            className="font-semibold text-md"
+          >
+            <li className="relative group transition-all duration-300 ease-linear p-3 rounded text-secondary">
+              Evento
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-primary-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
+            </li>
+          </a>
+          <a
+            onClick={handleClick}
+            href="#reglas"
+            className="font-semibold text-md"
+          >
+            <li className="relative group transition-all duration-300 ease-linear p-3 rounded text-secondary">
+              Reglas
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-primary-foreground scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
+            </li>
+          </a>
         </ul>
       </nav>
 
@@ -101,9 +100,31 @@ const Header = () => {
         onClick={() => {
           setMenuMobile(!menuMobile);
         }}
-        className="xl:hidden text-2xl p-2 z-50"
+        className="xl:hidden text-2xl p-2 z-50 "
       >
-        {menuMobile ? <RiCloseCircleLine /> : <RiMenuFill />}
+        {menuMobile ? (
+          <motion.div
+            key="close-icon"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={iconVariants}
+            transition={{ duration: 0.3 }}
+          >
+            <RiCloseCircleLine className="text-secondary" />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="menu-icon"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={iconVariants}
+            transition={{ duration: 0.3 }}
+          >
+            <RiMenuFill className="text-secondary" />
+          </motion.div>
+        )}
       </button>
     </header>
   );
