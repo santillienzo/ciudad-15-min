@@ -1,5 +1,37 @@
 {
   "projects": {
-    "default": "ciudad-15-minutos"
-  }
+    "default": "ciudad-15-minutos",
+    "prod": "ciudad15minutos-prod"
+  },
+  "targets": {
+    "ciudad-15-minutos-dev": {
+      "hosting": {
+        "dev": [
+          "ciudad-15-minutos"
+        ]
+      }
+    },
+    "ciudad-15-minutos-prod": {
+      "hosting": {
+        "prod": [
+          "ciudad15minutos-prod"
+        ]
+      }
+    },
+    "ciudad-15-minutos": {
+      "hosting": {
+        "dev": [
+          "ciudad-15-minutos"
+        ]
+      }
+    },
+    "ciudad15minutos-prod": {
+      "hosting": {
+        "prod": [
+          "ciudad15minutos-prod"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
