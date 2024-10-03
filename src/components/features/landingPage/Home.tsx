@@ -1,15 +1,10 @@
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
+import { Button } from "@chakra-ui/react";
 import Countdown from "./Countdown";
-import {
-  Box,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import MainLogo from "../../../assets/svg/Logo blanco.svg";
-import { RiCircleFill, RiMapPinLine } from "react-icons/ri";
+import { RiArrowRightUpLine, RiCircleFill, RiMapPinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-
 
 const Home = () => {
   return (
@@ -55,9 +50,9 @@ const Home = () => {
 
           {/* Columna izquierda */}
           <Box className="flex flex-col order-2 w-full md:w-1/2 p-4">
-            <Text className="text-3xl pb-5 text-secondary font-bold text-left">
+            <Text className="text-5xl max-sm:text-3xl pb-5 text-secondary font-bold text-left leading-tight">
               Transformemos juntos Mendoza en una ciudad más saludable,
-              equitativa y sostenible.
+              equitativa y sostenible
             </Text>
 
             <Text className="text-xl text-secondary text-justify font-poppins ">
@@ -65,7 +60,10 @@ const Home = () => {
               y la de nuestra ciudad.
             </Text>
 
-            <Button className="bg-button-cta-primary-foreground text-button-cta-secondary-foreground rounded w-32 m-auto mt-4">
+            <Button
+              rightIcon={<RiArrowRightUpLine />}
+              className="bg-button-cta-primary-foreground text-button-cta-secondary-foreground rounded w-auto m-auto mt-4"
+            >
               <Link to={"/register"}>Registrarme</Link>
             </Button>
           </Box>
@@ -77,25 +75,31 @@ const Home = () => {
 
 export default Home;
 
-{/* <Button className="bg-button-cta-primary rounded w-32 m-auto">
+{
+  /* <Button className="bg-button-cta-primary rounded w-32 m-auto">
   <Link
     to={"/login"}
     className="text-button-cta-primary-foreground rounded"
   >
     Jugar
   </Link>
-</Button> */}
-{/* <Box
+</Button> */
+}
+{
+  /* <Box
 className="w-screen h-screen"
 style={{
 backgroundImage: `url(${CiudadLogo})`,
 backgroundRepeat: "repeat-x",
 backgroundSize: "auto",
 }}
-></Box> */}
+></Box> */
+}
 
-{/* <span className="animate-bounce mt-10 md:mt-12 bg-white p-3 md:p-4 rounded-full">
+{
+  /* <span className="animate-bounce mt-10 md:mt-12 bg-white p-3 md:p-4 rounded-full">
 <a href="#sponsors">
 <RiArrowDownDoubleLine className="text-3xl md:text-5xl" />
 </a>
-</span> */}
+</span> */
+}
