@@ -48,14 +48,14 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-background-primary flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 top-0 left-0">
+    <header className="fixed bg-background-primary flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 top-0 left-0">
       <nav
         ref={menuMobileRef}
         className={`bg-background-primary fixed w-[80%] md:w-[60%] xl:w-full h-full top-0 ${
           menuMobile ? "left-0" : "-left-full"
         } xl:static xl:h-auto flex-1 justify-center flex flex-col xl:flex-row items-center gap-10 transition-all duration-500 ease-in-out z-40`}
       >
-        <ul className="flex flex-col xl:flex-row items-center gap-8 xl:gap-5 mt-20 xl:mt-0 text-button-cta-secondary-foreground">
+        <ul className="fixed flex flex-col xl:flex-row items-center gap-8 xl:gap-5 mt-20 xl:mt-0 text-button-cta-secondary-foreground">
           {navItems.map(({ href, label }) => (
             <a
               onClick={handleClick}
