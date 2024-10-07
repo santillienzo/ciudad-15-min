@@ -51,9 +51,12 @@ const Countdown: React.FC<CountdownProps> = ({
 
       setTimeLeft(
         // <div className="max-sm:flex max-xl:flex-col max-md:flex-col max-sm:flex-col">
-        <div className="flex font-poppins">
-          <span className="text-4xl max-sm:text-2xl pr-1 font-poppins">{days}</span> días{" "}
-          <span className="font-bold text-4xl max-sm:text-2xl pl-2 pr-1 font-poppins">
+        <div className="flex font-poppins text-[#FDB913]">
+          <span className="text-2xl max-sm:text-2xl pr-1 font-poppins">
+            {days}
+          </span>{" "}
+          días{" "}
+          <span className="font-bold text-2xl max-sm:text-2xl pl-2 pr-1 font-poppins">
             {hours}
           </span>{" "}
           horas{" "}
@@ -102,7 +105,7 @@ const Countdown: React.FC<CountdownProps> = ({
               />
             </div>
           ) : (
-            <h2 className="text-4xl max-sm:text-2xl font-bold p-5 text-button-cta-primary">
+            <h2 className="text-2xl max-sm:text-2xl font-bold p-5 text-button-cta-primary">
               {timeLeft}
             </h2>
           )}

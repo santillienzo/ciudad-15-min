@@ -48,7 +48,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed bg-background-primary flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 top-0 left-0">
+    <header className="fixed max-sm:bg-transparent bg-background-primary flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 top-0 left-0">
       <nav
         ref={menuMobileRef}
         className={`bg-background-primary fixed w-[80%] md:w-[60%] xl:w-full h-full top-0 ${
