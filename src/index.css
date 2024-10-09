@@ -52,7 +52,7 @@
     --background-primary-muted: hsl(190.07, 65.55%, 59.02%);
     --collapsable-primary: 	hsl(196.1, 45.05%, 35.69%);
 
-    --background-secondary: hsl(173.29, 100%, 31.57%);
+    --background-secondary: hsl(173, 100%, 32%);
     --background-secondary-foreground: hsl(0, 0%, 100%);
     --background-secondary-muted: hsl(173, 73%, 46%);
     --collapsable-secondary: 	hsl(173.33, 80.6%, 26.27%);
