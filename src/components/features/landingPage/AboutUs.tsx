@@ -4,10 +4,10 @@ import { Image } from "@chakra-ui/react";
 import Logo from "@/assets/svg/Logo blanco.svg";
 import Edificios_1 from "@/assets/svg/Edificios 1.svg";
 
-const Sponsors = () => {
+const AboutUs = () => {
   return (
     <Stack
-      id="sponsors"
+      id="sobre-nosotros"
       className="relative scroll-smooth bg-[#4AAFB2] flex justify-center items-center h-screen w-full overflow-hidden"
     >
       <Box className="flex w-[90%] justify-end items-center h-full relative">
@@ -34,12 +34,15 @@ const Sponsors = () => {
           </Text>
         </Box>
       </Box>
-        <Box className="w-1/2 max-sm:hidden">
-          <Image src={Edificios_1} alt="Edificio" className="absolute bottom-0 left-0 w-96 m-0 p-0" />
-
-        </Box>
+      <Box className="w-1/2 max-sm:hidden">
+        <Image
+          src={Edificios_1}
+          alt="Edificio"
+          className="absolute bottom-0 left-0 w-96 m-0 p-0"
+        />
+      </Box>
     </Stack>
   );
 };
 
-export default Sponsors;
+export default AboutUs;

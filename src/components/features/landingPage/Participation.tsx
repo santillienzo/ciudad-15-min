@@ -8,7 +8,7 @@ const Participation = () => {
     const register = () => 'Te registraste correctamente en el evento'
 
   return (
-    <section className='bg-background-tertiary text-white p-10'>
+    <section id='participa' className='bg-background-tertiary text-white p-10'>
         <h2 className='text-4xl text-center text font-semibold mb-16'>
             <span className='text-background-tertiary-foreground'>Participa</span> en nuestra actividad lúdico-educativa donde descubrirás la cercanía de los <span className='text-background-tertiary-foreground'>servicios esenciales</span> de tu ciudad.
         </h2>
