@@ -75,7 +75,7 @@ const Home = () => {
         {/* Imagen oculta en mobile y que ocupa todo el ancho en desktop */}
         <Image
           src={buildingsImg}
-          className="hidden md:block absolute bottom-0 left-0 w-full h-auto z-30"
+          className="block absolute bottom-0 left-0 w-full h-auto z-30"
         />
       </Box>
     </Stack>
