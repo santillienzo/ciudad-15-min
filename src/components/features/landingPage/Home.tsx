@@ -4,7 +4,7 @@ import Countdown from "./Countdown";
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { RiArrowRightUpLine, RiCircleFill, RiMapPinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import Edificios from "../../../assets/svg/Edificios.svg";
+import buildingsImg from "../../../assets/svg/Edificios.svg";
 
 const Home = () => {
   return (
@@ -72,7 +72,7 @@ const Home = () => {
 
         {/* Imagen oculta en mobile y que ocupa todo el ancho en desktop */}
         <Image
-          src={Edificios}
+          src={buildingsImg}
           className="hidden md:block absolute bottom-0 left-0 w-full h-auto z-30"
         />
       </Box>

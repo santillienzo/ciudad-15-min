@@ -44,7 +44,7 @@ const Header = () => {
     { href: "#home", label: "Inicio" },
     { href: "#sobre-nosotros", label: "Sobre Nosotros" },
     { href: "#evento", label: "El Evento" },
-    { href: "#participa", label: "Participa" },
+    { href: "#participa", label: "Participá" },
     // { href: "#participation", label: "Reglas" },
   ];
 
