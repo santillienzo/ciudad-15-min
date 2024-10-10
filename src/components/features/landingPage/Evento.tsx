@@ -1,8 +1,8 @@
 import CustomAccordion from "@/components/common/CustomAccordion";
-import { Box, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Image, Stack } from "@chakra-ui/react";
 import "../../../lib/accordionSections";
 import { accordionSections } from "../../../lib/accordionSections";
-import CiudadLogo from "@/assets/svg/ciudad.png";
+import EdificioArbol from "@/assets/svg/edifico azul con arbol.svg";
 
 const tailwindCustomStyles = getComputedStyle(document.documentElement);
 const accordionBgColor = tailwindCustomStyles.getPropertyValue(
@@ -13,29 +13,22 @@ const Evento = () => {
   return (
     <Stack
       id="evento"
-      className="flex flex-col items-center justify-center min-h-screen bg-background-primary"
+      className="relative flex flex-col items-center justify-center h-screen bg-background-primary"
     >
-      <Box className="flex gap-10 flex-col items-center justify-center w-[80%] min-h-full py-16">
-        <Box className="justify-center items-center ">
-          <Box className="">
-            <Text className="text-5xl text-center font-bold text-button-cta-primary-foreground">
-              {" "}
-              Más Info{" "}
-            </Text>
-          </Box>
+      <Box className="flex w-[90%] justify-start items-center h-full relative">
+        <Box className="flex flex-col w-1/2 max-sm:w-full gap-8">
+          <CustomAccordion
+            sections={accordionSections}
+            accordionButtonBgColor={accordionBgColor}
+          />
         </Box>
-        <Box className="flex w-full max-sm:flex-col max-sm:h-screen">
-          <Box className="flex items-center justify-center w-11/12 max-sm:flex-col max-sm:w-full">
-            <CustomAccordion
-              sections={accordionSections}
-              accordionButtonBgColor={accordionBgColor}
-            />
-          </Box>
-
-          <Box className="flex flex-end w-full justify-around">
-            <Image className="h-[300px] max-sm:h-auto" src={CiudadLogo} alt="Ciudad Logo"></Image>
-          </Box>
-        </Box>
+      </Box>
+      <Box className="w-1/2 max-sm:hidden">
+        <Image
+          src={EdificioArbol}
+          alt="Edificio"
+          className="absolute bottom-0 right-0 w-1/2 m-0 p-0"
+        />
       </Box>
     </Stack>
   );

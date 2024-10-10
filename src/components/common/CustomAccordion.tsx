@@ -21,7 +21,7 @@ interface CustomAccordionProps {
 // hsl(196.1, 45.05%, 35.69%)
 const CustomAccordion = ({ sections, accordionButtonBgColor }: CustomAccordionProps) => {
   return (
-    <Accordion allowToggle className="w-full flex flex-col gap-4">
+    <Accordion allowToggle className="w-3/4 flex flex-col gap-4 max-sm:w-full">
       {sections.map((section, index) => (
         <AccordionItem
           key={index}
