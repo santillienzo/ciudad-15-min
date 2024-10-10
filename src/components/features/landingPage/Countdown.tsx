@@ -100,7 +100,7 @@ const Countdown: React.FC<CountdownProps> = ({
                 thickness="4px"
                 speed="0.65s"
                 emptyColor="gray.200"
-                color={`hsl(84.22, 53.17%, 59.8%)`}
+                color={`#FDB913`}
                 size="xl"
               />
             </div>
