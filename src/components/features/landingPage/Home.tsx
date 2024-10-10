@@ -4,7 +4,6 @@ import Countdown from "./Countdown";
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { RiArrowRightUpLine, RiCircleFill, RiMapPinLine } from "react-icons/ri";
 import { GoPlus } from "react-icons/go";
-import { Link } from "react-router-dom";
 import buildingsImg from "../../../assets/svg/Edificios.svg";
 
 const Home = () => {
