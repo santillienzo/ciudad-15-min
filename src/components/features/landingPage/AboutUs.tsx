@@ -2,7 +2,7 @@ import { Box, Stack, Text } from "@chakra-ui/react";
 // import Logo from "../../../assets/Logo.svg";
 import { Image } from "@chakra-ui/react";
 import Logo from "@/assets/svg/Logo blanco.svg";
-import Edificios_1 from "@/assets/svg/Edificios 1.svg";
+import buildingLeft from "@/assets/svg/Edificios 1.svg";
 
 const AboutUs = () => {
   return (
@@ -36,9 +36,9 @@ const AboutUs = () => {
       </Box>
       <Box className="w-1/2 max-sm:hidden">
         <Image
-          src={Edificios_1}
+          src={buildingLeft}
           alt="Edificio"
-          className="absolute bottom-0 left-0 w-96 m-0 p-0"
+          className="absolute bottom-0 left-0 w-1/2 m-0 p-0"
         />
       </Box>
     </Stack>
