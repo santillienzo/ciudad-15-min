@@ -14,14 +14,14 @@ const AboutUs = () => {
         <Box className="flex flex-col w-1/2 max-sm:w-full gap-8 z-10">
           <Image src={Logo} alt="Edificio" className="w-96" />
 
-          <Text className="font-bold text-button-cta-primary-foreground">
+          <Text className="font-semibold text-xl text-button-cta-primary-foreground">
             La{" "}
             <span className="text-button-cta-primary"> ciudad de Mendoza </span>
             enfrenta importantes desafíos relacionados con la movilidad y el
             acceso equitativo a los servicios esenciales.
           </Text>
 
-          <Text className="font-bold text-button-cta-primary-foreground">
+          <Text className="font-semibold text-xl text-button-cta-primary-foreground">
             Esta campaña busca sensibilizar a la población sobre la{" "}
             <span className="text-button-cta-primary"> movilidad activa </span>{" "}
             y la{" "}
