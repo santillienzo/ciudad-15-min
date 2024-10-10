@@ -60,6 +60,7 @@ const Header = () => {
           {navItems.map(({ href, label }) => (
             <a
               onClick={handleClick}
+              key={label}
               href={href}
               className="font-semibold text-md"
             >
