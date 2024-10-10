@@ -16,11 +16,6 @@ const AppLanding = () => {
       {/* <Layout /> */}
       <Header />
       <Home />
-      {/* <Countdown
-        id="countdown"
-        limitDate="Oct 19, 2024 21:00:00"
-        finalMessage="JUGAR!!"
-      /> */}
       <AboutUs />
       <Evento />
       {/* <Reglas /> */}

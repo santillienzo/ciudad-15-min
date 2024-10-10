@@ -21,25 +21,25 @@ interface CustomAccordionProps {
 // hsl(196.1, 45.05%, 35.69%)
 const CustomAccordion = ({ sections, accordionButtonBgColor }: CustomAccordionProps) => {
   return (
-    <Accordion allowToggle className="w-3/4 flex flex-col gap-4 max-sm:w-full">
+    <Accordion allowToggle className="w-full flex flex-col gap-4 max-sm:w-full">
       {sections.map((section, index) => (
         <AccordionItem
           key={index}
           className="rounded bg-collapsable-primary border-none"
         >
-          <Text>
-            <AccordionButton
-              _expanded={{ bg: accordionButtonBgColor }}
-              className="text-background-secondary-foreground"
-            >
-              <Box as="span" flex="1" textAlign="left">
-                <Text className="font-bold">{section.title}</Text>
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </Text>
+          <AccordionButton
+            _expanded={{ bg: accordionButtonBgColor }}
+            className="text-background-secondary-foreground"
+          >
+            <Box as="span" flex="1" textAlign="left" className="p-2">
+              <Text className="font-bold">{section.title}</Text>
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
           <AccordionPanel pb={4} className="text-background-secondary-foreground">
-            {section.content}
+            <div className="p-2">
+              {section.content}
+            </div>
           </AccordionPanel>
         </AccordionItem>
       ))}
