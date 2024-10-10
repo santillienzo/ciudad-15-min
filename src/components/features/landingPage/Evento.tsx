@@ -23,13 +23,11 @@ const Evento = () => {
           />
         </Box>
       </Box>
-      <Box className="w-1/2 max-sm:hidden">
         <Image
           src={EdificioArbol}
           alt="Edificio"
-          className="absolute bottom-0 right-0 w-1/2 m-0 p-0"
+          className="md:absolute bottom-0 right-0 w-full md:w-1/2 m-0 p-0"
         />
-      </Box>
     </Stack>
   );
 };

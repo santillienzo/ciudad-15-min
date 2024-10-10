@@ -7,8 +7,8 @@ import buildingLeft from "@/assets/svg/Edificios 1.svg";
 const AboutUs = () => {
   return (
     <Stack
-      id="about-us"
-      className="relative scroll-smooth bg-[#4AAFB2] flex justify-center items-center h-screen w-full overflow-hidden"
+      id="sobre-nosotros"
+      className="relative scroll-smooth bg-[#4AAFB2] flex justify-center items-center min-h-screen w-full overflow-hidden"
     >
       <Box className="flex w-[90%] justify-end items-center h-full relative">
         <Box className="flex flex-col w-1/2 max-sm:w-full gap-8 z-10">
@@ -34,13 +34,11 @@ const AboutUs = () => {
           </Text>
         </Box>
       </Box>
-      <Box className="w-1/2 max-sm:hidden">
-        <Image
-          src={buildingLeft}
-          alt="Edificio"
-          className="absolute bottom-0 left-0 w-1/2 m-0 p-0"
-        />
-      </Box>
+      <Image
+        src={buildingLeft}
+        alt="Edificio"
+        className="md:absolute bottom-0 left-0 w-full md:w-1/2 m-0 p-0"
+      />
     </Stack>
   );
 };

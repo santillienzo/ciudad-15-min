@@ -51,7 +51,7 @@ const Home = () => {
                 rightIcon={<RiArrowRightUpLine />}
                 className="bg-button-cta-primary text-button-cta-secondary-foreground rounded w-full sm:w-auto m-auto mt-4"
               >
-                <a href={"#participate"}>Quiero participar</a>
+                <a href={"#participar"}>Quiero participar</a>
               </Button>
 
               <Button
@@ -64,7 +64,7 @@ const Home = () => {
                   bg: "#E2E8F0",
                 }}
               >
-                <a href={"#about-us"} className="">
+                <a href={"#motivacion"} className="">
                   Más Info
                 </a>
               </Button>
