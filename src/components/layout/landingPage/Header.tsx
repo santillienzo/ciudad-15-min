@@ -42,9 +42,9 @@ const Header = () => {
 
   const navItems = [
     { href: "#home", label: "Inicio" },
-    { href: "#sobre-nosotros", label: "Sobre Nosotros" },
+    { href: "#about-us", label: "Sobre Nosotros" },
     { href: "#evento", label: "El Evento" },
-    { href: "#participa", label: "Participá" },
+    { href: "#participate", label: "Participá" },
     // { href: "#participation", label: "Reglas" },
   ];
 

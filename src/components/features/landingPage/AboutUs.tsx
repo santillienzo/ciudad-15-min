@@ -7,7 +7,7 @@ import buildingLeft from "@/assets/svg/Edificios 1.svg";
 const AboutUs = () => {
   return (
     <Stack
-      id="sobre-nosotros"
+      id="about-us"
       className="relative scroll-smooth bg-[#4AAFB2] flex justify-center items-center h-screen w-full overflow-hidden"
     >
       <Box className="flex w-[90%] justify-end items-center h-full relative">

@@ -3,6 +3,7 @@ import { Button, Image } from "@chakra-ui/react";
 import Countdown from "./Countdown";
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { RiArrowRightUpLine, RiCircleFill, RiMapPinLine } from "react-icons/ri";
+import { GoPlus } from "react-icons/go";
 import { Link } from "react-router-dom";
 import buildingsImg from "../../../assets/svg/Edificios.svg";
 
@@ -46,27 +47,29 @@ const Home = () => {
                 />
               </Box>
             </Box>
+            <div className="flex flex-col">
+              <Button
+                rightIcon={<RiArrowRightUpLine />}
+                className="bg-button-cta-primary text-button-cta-secondary-foreground rounded w-full sm:w-auto m-auto mt-4"
+              >
+                <a href={"#participate"}>Quiero participar</a>
+              </Button>
 
-            <Button
-              rightIcon={<RiArrowRightUpLine />}
-              className="bg-button-cta-primary-foreground text-button-cta-secondary-foreground rounded w-full sm:w-auto m-auto mt-4"
-            >
-              <Link to={"/register"}>Registrarme</Link>
-            </Button>
-
-            <Button
-              className="rounded w-full sm:w-auto m-auto mt-4 text-button-cta-secondary-foreground"
-              variant="outline"
-              color="#E2E8F0"
-              _hover={{
-                color: "#404040",
-                bg: "#E2E8F0",
-              }}
-            >
-              <Link to={"/register"} className="">
-                Más Info
-              </Link>
-            </Button>
+              <Button
+                rightIcon={<GoPlus />}
+                className="rounded w-full m-auto mt-4 text-button-cta-secondary-foreground"
+                variant="outline"
+                color="#E2E8F0"
+                _hover={{
+                  color: "#404040",
+                  bg: "#E2E8F0",
+                }}
+              >
+                <a href={"#about-us"} className="">
+                  Más Info
+                </a>
+              </Button>
+            </div>
           </Box>
         </Box>
 
