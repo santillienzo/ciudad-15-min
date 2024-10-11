@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 // import ClockLoader from "../../../assets/clock-loader.svg";
-import { Spinner } from "@chakra-ui/react";
+import CalendarSkeleton from "@/components/common/CalendarSkeleton";
 
 interface CountdownProps {
   id: string;
@@ -19,6 +19,7 @@ const Countdown: React.FC<CountdownProps> = ({
 
   useEffect(() => {
     const countdownDate = new Date(limitDate).getTime();
+    
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -89,23 +90,14 @@ const Countdown: React.FC<CountdownProps> = ({
       className="bg-background-primary flex items-center justify-center flex-col w-full overflow-x-hidden"
     >
       <div className="flex items-center justify-between h-full max-md:px-16">
-        <div className="text-center">
+        <div className="text-center h-[80px] flex items-center">
           {isLoading ? (
-            <div className="loader flex justify-center items-center overflow-hidden">
-              {/* <span className="text-white text-3xl">
-                <img src={ClockLoader} alt="Loader" />
-              </span> */}
-
-              <Spinner
-                thickness="4px"
-                speed="0.65s"
-                emptyColor="gray.200"
-                color={`#FDB913`}
-                size="xl"
+              <CalendarSkeleton
               />
-            </div>
           ) : (
-            <h2 className="text-4xl max-sm:text-4xl font-bold p-5 text-button-cta-primary">
+            <h2
+              className={`text-4xl max-sm:text-4xl font-bold p-5 text-button-cta-primary`}
+            >
               {timeLeft}
             </h2>
           )}

@@ -73,9 +73,11 @@ const Home = () => {
         </Box>
 
         {/* Imagen oculta en mobile y que ocupa todo el ancho en desktop */}
+
         <Image
           src={buildingsImg}
-          className="block absolute bottom-0 left-0 w-full h-auto z-30"
+          className="block absolute bottom-0 left-0 w-full h-auto z-30 opacity-0 transition-opacity duration-1000 ease-in-out"
+          onLoad={(e) => e.currentTarget.classList.add('opacity-100')}
         />
       </Box>
     </Stack>
