@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { onAuthStateChanged, signOut, User } from "firebase/auth";
+import { onAuthStateChanged, sendPasswordResetEmail, signOut, User } from "firebase/auth";
 import { auth } from "../../lib/firebaseConfig"; // Asegúrate de que este es el archivo donde configuras tu Firebase Auth
 import { ILoginData, IRegisterData, loginUser, registerUser } from "@/lib/auth";
 
@@ -9,7 +9,8 @@ const AuthContext = createContext<{
     register: (formData: IRegisterData) => Promise<void>,
     login: (formData: ILoginData) => Promise<void>,
     logout: (callback: ()=> void) => Promise<void>,
-    isAuth: () => boolean;
+    isAuth: () => boolean,
+    recoverPassword: (email: string, callback: ()=> void) => Promise<void>
 }>({
     loading: true,
     user: null,
@@ -17,7 +18,7 @@ const AuthContext = createContext<{
     login: async () => {},
     logout: async () => {},
     isAuth: () => false,
-
+    recoverPassword: async () => {},
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -47,11 +48,23 @@ export const AuthProvider = ({ children }: Props) => {
   const login = (formData: ILoginData)=> loginUser(formData, auth)
   const logout = async (callback?: ()=> void) => {
     await signOut(auth);
-    callback && callback();
+    callback!();
   };
 
+  const recoverPassword = async (email: string, callback?: ()=> void) => {
+    try {
+      const res = await sendPasswordResetEmail(auth, email)
+
+      console.log(res)
+
+      callback!();
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, loading, register, login, isAuth, logout }}>
+    <AuthContext.Provider value={{ user, loading, register, login, isAuth, logout, recoverPassword }}>
     {!loading && children}
   </AuthContext.Provider>
   );
