@@ -42,8 +42,8 @@ const Header = () => {
 
   const navItems = [
     { href: "#home", label: "Inicio" },
-    { href: "#sobre-nosotros", label: "Motivación" },
-    { href: "#evento", label: "Quiero saber más" },
+    { href: "#motivacion", label: "Motivación" },
+    { href: "#saber-mas", label: "Quiero saber más" },
     { href: "#participar", label: "Participá" },
     // { href: "#participation", label: "Reglas" },
   ];
@@ -52,7 +52,7 @@ const Header = () => {
     <header className="fixed max-sm:bg-transparent flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 top-0 left-0">
       <nav
         ref={menuMobileRef}
-        className={`bg-background-primary fixed w-[80%] md:w-[60%] xl:w-full shadow-xl h-full top-0 ${
+        className={`bg-background-primary fixed w-[80%] md:w-[60%] xl:w-full h-full top-0 ${
           menuMobile ? "left-0" : "-left-full"
         } xl:static xl:h-auto flex-1 justify-center flex flex-col xl:flex-row items-center gap-10 transition-all duration-500 ease-in-out z-40`}
       >

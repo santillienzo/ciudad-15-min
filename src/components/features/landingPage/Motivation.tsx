@@ -4,10 +4,11 @@ import { Image } from "@chakra-ui/react";
 import Logo from "@/assets/svg/Logo blanco.svg";
 import buildingLeft from "@/assets/svg/Edificios 1.svg";
 
-const AboutUs = () => {
+const Motivation = () => {
   return (
     <Stack
-      id="sobre-nosotros"
+      as={"section"}
+      id="motivacion"
       className="relative scroll-smooth bg-[#4AAFB2] flex justify-center items-center min-h-screen w-full overflow-hidden pt-16 md:p-0"
     >
       <Box className="flex w-[90%] justify-end items-center h-full relative">
@@ -43,4 +44,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Motivation;

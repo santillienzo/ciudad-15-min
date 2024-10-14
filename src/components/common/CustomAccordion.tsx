@@ -36,10 +36,11 @@ const CustomAccordion = ({ sections, accordionButtonBgColor }: CustomAccordionPr
             </Box>
             <AccordionIcon />
           </AccordionButton>
-          <AccordionPanel pb={4} className="text-background-secondary-foreground">
-            <div className="p-2">
-              {section.content}
-            </div>
+          <AccordionPanel
+            pb={4}
+            className="text-background-secondary-foreground max-sm:h-[300px] max-sm:overflow-scroll"
+          >
+            <Text className="p-2">{section.content}</Text>
           </AccordionPanel>
         </AccordionItem>
       ))}
