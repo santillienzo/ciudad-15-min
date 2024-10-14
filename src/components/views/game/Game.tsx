@@ -1,7 +1,6 @@
 import ThemeButton from '@/components/common/ThemeButton';
-import CategoryDrawer from '@/components/features/game/CategoryDrawer';
 import { AdvancedMarker, Map } from '@vis.gl/react-google-maps';
-import { QrCode } from 'lucide-react';
+import { QrCode, Star } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -56,7 +55,10 @@ const Game = () => {
           <ThemeButton onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
             Escanear <QrCode size={32}/>
           </ThemeButton>
-          <CategoryDrawer/>
+          <div className='absolute bottom-5 left-5 bg-background-primary p-4 rounded-full text-white shadow-inner cursor-pointer'>
+            <Star fill='#fff' size={28}/>
+          </div>
+          {/* <CategoryDrawer/> */}
       </div>
     </>
   )
