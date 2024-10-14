@@ -57,8 +57,8 @@ const Home = () => {
               {/* <Box className="mt-4"> */}
               <Countdown
                 id="countdown"
-                limitDate="Nov 22, 2024 21:00:00"
-                finalMessage="JUGAR!!"
+                limitDate="Nov 22, 2024 17:00:00"
+                finalMessage=""
               />
               {/* </Box> */}
             </Box>
