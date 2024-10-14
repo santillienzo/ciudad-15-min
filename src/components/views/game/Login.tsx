@@ -84,7 +84,7 @@ const Login = () => {
         <ThemeButton className="w-full mt-6 text-lg" type="submit">
           Iniciar sesión
         </ThemeButton>
-        <Link to="/register" className="w-full mt-6 block text-center">
+        <Link to="/recover-password" className="w-full mt-6 block text-center">
           Olvidé mi contraseña
         </Link>
       </form>

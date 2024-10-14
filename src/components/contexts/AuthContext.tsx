@@ -10,7 +10,7 @@ const AuthContext = createContext<{
     login: (formData: ILoginData) => Promise<void>,
     logout: (callback: ()=> void) => Promise<void>,
     isAuth: () => boolean,
-    recoverPassword: (email: string, callback: ()=> void) => Promise<void>
+    recoverPassword: (email: string) => Promise<void>
 }>({
     loading: true,
     user: null,
@@ -51,17 +51,9 @@ export const AuthProvider = ({ children }: Props) => {
     callback!();
   };
 
-  const recoverPassword = async (email: string, callback?: ()=> void) => {
-    try {
-      const res = await sendPasswordResetEmail(auth, email)
-
-      console.log(res)
-
-      callback!();
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const recoverPassword = async (email: string) => sendPasswordResetEmail(auth, email, {
+    url: window.location.origin + "/login"
+  })
 
   return (
     <AuthContext.Provider value={{ user, loading, register, login, isAuth, logout, recoverPassword }}>
