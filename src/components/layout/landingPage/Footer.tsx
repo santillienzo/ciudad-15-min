@@ -10,7 +10,7 @@ const Footer = () => {
     >
       <Box className="flex items-end gap-5">
         <Text as='span' className="text-gray-800">
-          &#169; {(date.getFullYear())} Todos los derechos reservados
+          &#169; {(date.getFullYear())} En Busca de la Ciudad de 15 Minutos
         </Text>
       </Box>
     </Stack>
