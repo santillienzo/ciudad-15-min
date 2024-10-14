@@ -86,6 +86,11 @@ export default {
           "var(--background-secondary-foreground)",
         "background-secondary-muted": "var(--background-secondary-muted)",
         "collapsable-secondary": "var(--collapsable-secondary)",
+
+        /* Background Secondary */
+        "background-tertiary": "var(--background-tertiary)",
+        "background-tertiary-foreground": "var(--background-tertiary-foreground)",
+        "background-tertiary-muted": "var(--background-tertiary-muted)",
       },
     },
   },
