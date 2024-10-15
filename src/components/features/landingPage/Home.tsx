@@ -50,14 +50,14 @@ const Home = () => {
               <Text className="text-[#FBD491] font-bold font-poppins text-base md:text-lg lg:text-xl pt-2 text-center">
                 Viernes 22/11
                 <RiCircleFill className="h-2 inline-flex mb-1" />
-                17hs
+                18hs
                 <RiCircleFill className="h-2 inline-flex mb-1" />
                 Plaza Independencia
               </Text>
               {/* <Box className="mt-4"> */}
               <Countdown
                 id="countdown"
-                limitDate="Nov 22, 2024 17:00:00"
+                limitDate="Nov 22, 2024 18:00:00"
                 finalMessage=""
               />
               {/* </Box> */}
