@@ -5,6 +5,9 @@ import { Box, Stack, Text } from "@chakra-ui/react";
 import { RiArrowRightUpLine, RiCircleFill, RiMapPinLine } from "react-icons/ri";
 import { GoPlus } from "react-icons/go";
 import buildingsImg from "../../../assets/svg/Edificios.svg";
+import logoMuni  from '@/assets/img/municipalidad.png'
+import logoBloomberg  from '@/assets/img/Bloomberg.png'
+import logoBloomberg2  from '@/assets/img/Bloomberg_2.png'
 
 const Home = () => {
   return (
@@ -17,6 +20,17 @@ const Home = () => {
         as="div"
         className="flex flex-col items-center justify-center min-h-[100vh] w-full px-4 sm:px-6 md:px-16 relative"
       >
+        <div className="absolute top-0 right-0 flex gap-3 p-4">
+          <div className="bg-white shadow-lg p-2 rounded-xl">
+            <img src={logoMuni} className="h-10" alt="Logo de la Municipalidad de la Ciudad de Mendoza" />
+          </div>
+          <div className="bg-white shadow-lg p-2 rounded-xl">
+            <img src={logoBloomberg} className="h-10" alt="Logo de Bloomberg" />
+          </div>
+          <div className="bg-white shadow-lg p-2 rounded-full">
+            <img src={logoBloomberg2} className="h-10" alt="Logo de Bloomberg" />
+          </div>
+        </div>
         <Box
           as="div"
           className="z-40 text-center flex flex-col md:flex-row-reverse w-full justify-center items-center"
