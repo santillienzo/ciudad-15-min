@@ -8,6 +8,9 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { RiCloseLine, RiMenuFill } from "react-icons/ri";
+import logoMuni  from '@/assets/img/municipalidad.png'
+import logoBloomberg  from '@/assets/img/Bloomberg.png'
+import logoBloomberg2  from '@/assets/img/Bloomberg_2.png'
 import { motion } from "framer-motion";
 
 const Header = () => {
@@ -46,12 +49,13 @@ const Header = () => {
         </nav>
       </header>
 
-      <Box className="relative z-[10000]">
+      <Box className="fixed flex p-4 z-[10000] w-full">
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div>
         {" "}
         {/* Wrapper para garantizar que el botón esté por encima del Drawer */}
         <button
           onClick={isOpen ? onClose : onOpen}
-          className="xl:hidden text-2xl p-2 z-[10000] fixed left-4 top-4 bg-button-cta-primary-foreground rounded-full pointer-events-auto"
+          className="xl:hidden text-2xl p-2 z-[10000] bg-button-cta-primary-foreground rounded-full pointer-events-auto"
           style={{ zIndex: 10000 }} // Aseguramos un z-index extremadamente alto
         >
           {isOpen ? (
@@ -78,6 +82,11 @@ const Header = () => {
             </motion.div>
           )}
         </button>
+        <div className="w-full flex justify-end gap-3 z-[10000]">
+          <img src={logoMuni} className="h-10 object-contain" alt="Logo de la Municipalidad de la Ciudad de Mendoza" />
+          <img src={logoBloomberg} className="h-10 object-contain" alt="Logo de Bloomberg" />
+          <img src={logoBloomberg2} className="h-10 object-contain" alt="Logo de Bloomberg" />
+        </div>
       </Box>
 
       {/* Mobile Drawer - Hidden on large screens */}
