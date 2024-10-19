@@ -21,13 +21,13 @@ const Home = () => {
         className="flex flex-col items-center justify-center min-h-[100vh] w-full px-4 sm:px-6 md:px-16 relative"
       >
         <div className="absolute top-0 right-0 flex gap-3 p-4">
-          <div className="bg-white shadow-lg p-2 rounded-xl">
+          <div className="bg-white shadow-lg p-1 rounded-xl">
             <img src={logoMuni} className="h-10" alt="Logo de la Municipalidad de la Ciudad de Mendoza" />
           </div>
-          <div className="bg-white shadow-lg p-2 rounded-xl">
+          <div className="bg-white shadow-lg p-1 rounded-xl">
             <img src={logoBloomberg} className="h-10" alt="Logo de Bloomberg" />
           </div>
-          <div className="bg-white shadow-lg p-2 rounded-full">
+          <div className="bg-white shadow-lg p-1 rounded-full">
             <img src={logoBloomberg2} className="h-10" alt="Logo de Bloomberg" />
           </div>
         </div>
