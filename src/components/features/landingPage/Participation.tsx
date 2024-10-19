@@ -19,7 +19,7 @@ const Participation = () => {
                     variant='secondary'
                     successCallback={register}
                 />
-                <a href="#intrucciones" className='hover:underline'>¿Cómo jugar?</a>
+                <a href="#instrucciones" className='hover:underline'>¿Cómo jugar?</a>
             </Box>
             <Box className='hidden md:flex w-full justify-center'>
                 <Box>
