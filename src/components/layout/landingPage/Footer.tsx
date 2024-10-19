@@ -1,4 +1,3 @@
-import React from "react";
 import { Instagram } from "lucide-react";
 import logo from "@/assets/svg/Logo blanco.svg";
 
