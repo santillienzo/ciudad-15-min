@@ -1,5 +1,5 @@
 import CustomAccordion from "@/components/common/CustomAccordion";
-import { Box, Image, Stack } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import "../../../lib/accordionSections";
 import { accordionSections } from "../../../lib/accordionSections";
 import EdificioArbol from "@/assets/svg/edifico azul con arbol.svg";
@@ -11,27 +11,26 @@ const accordionBgColor = tailwindCustomStyles.getPropertyValue(
 
 const MoreAbout = () => {
   return (
-    <Stack
-      as={"section"}
+    <section
       id="saber-mas"
-      className="relative flex flex-col items-center justify-center h-screen bg-background-primary"
+      className="relative flex flex-col md:flex-row justify-between items-center md:justify-center md:min-h-screen md:h-screen bg-background-primary"
     >
-      <Box className="flex w-[90%] justify-start items-center h-full max-sm:items-start max-sm:h-[500px] relative z-20 overflow-hidden">
-        <Box className="flex flex-col w-1/2 max-sm:w-full gap-8 max-h-full">
-          <CustomAccordion
-            sections={accordionSections}
-            accordionButtonBgColor={accordionBgColor}
-          />
-        </Box>
-      </Box>
-      <Box className="max-sm:absolute bottom-0 z-10 overflow-hidden">
+      <div className="flex w-full justify-start items-center md:h-full overflow-hidden py-16 md:py-0">
+          <div className="w-11/12 m-auto">
+            <CustomAccordion
+              sections={accordionSections}
+              accordionButtonBgColor={accordionBgColor}
+            />
+          </div>
+      </div>
+      <div className="relative flex items-end md:block overflow-hidden w-full h-auto md:h-full">
         <Image
           src={EdificioArbol}
           alt="Edificio"
-          className="md:absolute bottom-0 right-0 w-full md:w-1/2 m-0 p-0"
+          className="relative mx-auto md:absolute bottom-0 right-0 w-11/12 md:w-full m-0 p-0"
         />
-      </Box>
-    </Stack>
+      </div>
+    </section>
   );
 };
 

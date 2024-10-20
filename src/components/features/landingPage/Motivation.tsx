@@ -13,7 +13,7 @@ const Motivation = () => {
     >
       <Box className="flex w-[90%] justify-end items-center h-full relative">
         <Box className="flex flex-col w-1/2 max-sm:w-full gap-8 z-10">
-          <Image src={Logo} alt="Edificio" className="w-96" />
+          <Image src={Logo} alt="Logo de la Ciudad en 15 minutos" className="w-96" />
 
           <Text className="font-semibold text-xl text-button-cta-primary-foreground">
             La{" "}
