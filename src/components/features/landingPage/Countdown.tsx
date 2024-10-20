@@ -87,7 +87,7 @@ const Countdown: React.FC<CountdownProps> = ({
     <section
       id={id}
       ref={countdownRef}
-      className="bg-background-primary flex items-center justify-center flex-col w-full overflow-x-hidden"
+      className=" flex items-center justify-center flex-col w-full overflow-x-hidden"
     >
       <div className="flex items-center justify-between h-full max-md:px-16">
         <div className="text-center h-[80px] flex items-center">
