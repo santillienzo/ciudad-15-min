@@ -11,7 +11,7 @@ const Motivation = () => {
       id="motivacion"
       className="relative scroll-smooth bg-[#4AAFB2] flex justify-center items-center min-h-screen w-full overflow-hidden pt-16 md:p-0"
     >
-      <Box className="flex w-[90%] justify-end items-center h-full relative">
+      <Box className="mb-16  md:mb-0 flex w-[90%] justify-end items-center h-full relative">
         <Box className="flex flex-col w-1/2 max-sm:w-full gap-8 z-10">
           <Image src={Logo} alt="Logo de la Ciudad en 15 minutos" className="w-96" />
 
