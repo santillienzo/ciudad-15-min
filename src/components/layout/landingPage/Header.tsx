@@ -18,7 +18,7 @@ const Header = () => {
     { href: "#motivacion", label: "Motivación" },
     { href: "#saber-mas", label: "Quiero saber más" },
     { href: "#participar", label: "Participá" },
-    // { href: "#participation", label: "Reglas" },
+    { href: "#instrucciones", label: "Instrucciones" },
   ];
 
   // Estilos de iconos

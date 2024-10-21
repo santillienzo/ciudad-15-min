@@ -8,6 +8,7 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 import { AuthProvider } from './components/contexts/AuthContext';
 import Game from './components/views/game/Game';
 import QrReader from './components/features/game/QrReader';
+import RecoverPassword from './components/views/game/RecoverPassword';
 import QrCodeGenerator from './components/features/qrGenerator/QrCodeGenerator';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/game-lobby" element={<GameLobby />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/recover-password" element={<RecoverPassword/>} />
 
         {/* Rutas protegidas  */}
         <Route path="/game" element={<ProtectedRoute component={<Game/>} />} />
