@@ -63,7 +63,7 @@ const RegisterForm = ({variant = 'primary', successCallback}:Props) => {
               type="text"
               variant={variant}
               name="name"
-              placeholder="Gastón"
+              placeholder="Juan"
               className="w-full "
               value={formData.name}
               onChange={handleChange}
@@ -77,7 +77,7 @@ const RegisterForm = ({variant = 'primary', successCallback}:Props) => {
               type="text"
               variant={variant}
               name="lastname"
-              placeholder="Suarez"
+              placeholder="Pérez"
               className="w-full"
               value={formData.lastname}
               onChange={handleChange}
@@ -93,7 +93,7 @@ const RegisterForm = ({variant = 'primary', successCallback}:Props) => {
             type="email"
             variant={variant}
             name="email"
-            placeholder="gaston@gmail.com"
+            placeholder="juan@gmail.com"
             className="w-full"
             value={formData.email}
             onChange={handleChange}
