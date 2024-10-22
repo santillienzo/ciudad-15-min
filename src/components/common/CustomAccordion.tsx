@@ -40,7 +40,10 @@ const CustomAccordion = ({ sections, accordionButtonBgColor }: CustomAccordionPr
             pb={4}
             className="text-background-secondary-foreground max-sm:h-[300px] max-sm:overflow-scroll"
           >
-            <Text className="p-2">{section.content}</Text>
+            <div
+              className="p-4"
+              dangerouslySetInnerHTML={{ __html: section.content }}
+            />
           </AccordionPanel>
         </AccordionItem>
       ))}

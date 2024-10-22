@@ -51,7 +51,7 @@ const Home = () => {
                 className="text-button-cta-primary"
               > juntos </span>{" "}
               Mendoza en una ciudad más
-              <span className="text-button-cta-primary"> saludable </span>,
+              <span className="text-button-cta-primary"> saludable</span>,
               <span className="text-button-cta-primary"> equitativa </span> y
               <span className="text-button-cta-primary"> sostenible </span>
             </motion.p>
