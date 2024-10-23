@@ -1,10 +1,9 @@
 import CustomAccordion from "@/components/common/CustomAccordion";
 import { Image } from "@chakra-ui/react";
-import "../../../lib/accordionSections";
-import { accordionSections } from "../../../lib/accordionSections";
 import EdificioArbol from "@/assets/svg/edifico azul con arbol.svg";
 import { motion } from "framer-motion";
 import { variants } from "@/lib/motionVariants";
+import { accordionSections } from "../../../lib/accordionSections";
 
 
 const tailwindCustomStyles = getComputedStyle(document.documentElement);

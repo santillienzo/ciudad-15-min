@@ -12,15 +12,26 @@ const Participation = () => {
 
   return (
     <section id='participar' className='bg-background-tertiary text-white py-20 overflow-hidden'>
-        <motion.p
-            initial={'bottomHidden'}
-            whileInView={'visible'}
-            viewport={{ once: true }}
-            variants={variants}
-            className='text-4xl text-center text font-semibold mb-16 max-sm:px-3'
-        >
-            <span className='text-background-tertiary-foreground'>Participa</span> en nuestra actividad lúdico-educativa donde descubrirás la cercanía de los <span className='text-background-tertiary-foreground'>servicios esenciales</span> de tu ciudad.
-        </motion.p>
+        <div className='mb-16'>
+            <motion.h2
+                initial={'bottomHidden'}
+                whileInView={'visible'}
+                viewport={{ once: true }}
+                variants={variants}
+                className='text-4xl text-center font-semibold max-sm:px-3 mb-2'
+            >
+                <span className='text-background-tertiary-foreground'>Participá</span> de nuestra actividad <span className='text-background-tertiary-foreground'>En Busca De La Ciudad De 15 Minutos.</span>
+            </motion.h2>
+            <motion.h3
+                initial={'bottomHidden'}
+                whileInView={'visible'}
+                viewport={{ once: true }}
+                variants={variants}
+                className='text-2xl text-center font-medium mb-16 max-sm:px-3 text-gray-50'
+            >
+                Descubrirás la cercanía de los <span className='text-background-tertiary-foreground'>servicios esenciales</span> de tu ciudad.
+            </motion.h3>
+        </div>
         <div className='flex justify-between mx-auto max-sm:w-[90%] '>
             <div className='flex flex-col items-center gap-5 w-full'>
                 <RegisterForm 
