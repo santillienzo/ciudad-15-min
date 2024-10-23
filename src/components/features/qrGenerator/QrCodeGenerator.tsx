@@ -6,6 +6,7 @@ import { Button } from "@chakra-ui/react";
 // import QRCode from "react-qr-code";
 
 interface QRData {
+  id: number;
   location_id: number;
   source: string;
   name: string;
@@ -16,64 +17,17 @@ interface QRData {
   long: number;
 }
 
-// interface Item {
-//   id: string;
-//   name: string;
-// }
-
 const QrCodeGenerator: React.FC = () => {
   const [qrCodes, setQrCodes] = useState<QRData[]>([]);
-  // const [items, setItems] = useState<Item[]>([]);
   const contentRef = useRef<HTMLDivElement>(null);
-  const reactToPrintFn = useReactToPrint({ contentRef });
-
-  // Función para cargar el archivo JSON
-  // const loadQRData = async () => {
-  //   try {
-  //     const response = await fetch(`${qrInfo}`);
-  //     if (!response.ok) {
-  //       throw new Error("Error al cargar los datos del JSON");
-  //     }
-  //     const qrData: QRData[] = await response.json();
-  //     setQrCodes(qrData.slice(0, 50)); // Carga los primeros 50 códigos QR
-  //   } catch (error) {
-  //     console.error("Error al cargar los datos del JSON:", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const querySnapshot = await getDocs(collection(db, "items"));
-  //     const itemsData = querySnapshot.docs.map((doc) => ({
-  //       id: doc.id,
-  //       ...doc.data()
-  //     }))as Item[];
-  //     setItems(itemsData);
-  //   };
-  //   fetchData();
-  // }, []);
+  const reactToPrintFn = useReactToPrint({
+    contentRef,
+  });
+  
 
   useEffect(() => {
     setQrCodes(qrInfo.slice(0, 50)); // Carga los primeros 50 códigos QR
-    // loadQRData();
   }, []);
-
-  // Función para descargar el código QR
-  // const downloadQR = (id: number, name: string) => {
-  //   const svg = document.getElementById(`qr-code-${id}`) as HTMLElement;
-  //   const svgData = new XMLSerializer().serializeToString(svg);
-  //   const svgBlob = new Blob([svgData], {
-  //     type: "image/svg+xml;charset=utf-8",
-  //   });
-  //   const url = URL.createObjectURL(svgBlob);
-
-  //   const downloadLink = document.createElement("a");
-  //   downloadLink.href = url;
-  //   downloadLink.download = `${id}-${name}.svg`;
-  //   document.body.appendChild(downloadLink);
-  //   downloadLink.click();
-  //   document.body.removeChild(downloadLink);
-  // };
 
   return (
     <>
@@ -117,7 +71,7 @@ const QrCodeGenerator: React.FC = () => {
                   <h3>{`${item.name}`}</h3>
                   <div id={`qr-code-${item.location_id}`}>
                     <QRCodeSVG
-                      value={`${item.location_id}, ${item.source}`}
+                      value={`${item.id}, ${item.location_id}, ${item.source}`}
                       level="H"
                       style={{
                         width: "100%" /* Ajustar a 100% del contenedor */,
