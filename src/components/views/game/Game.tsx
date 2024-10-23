@@ -45,7 +45,7 @@ const Game = () => {
       <div className='w-full relative' style={{height: '-webkit-fill-available'}}>
           <div className='absolute w-full h-full'>
             <Map 
-              defaultCenter={currentPosition} 
+              center={currentPosition} 
               defaultZoom={15} 
               mapId='DEMO_MAP_ID'
             >
