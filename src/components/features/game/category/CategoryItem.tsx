@@ -35,7 +35,7 @@ const CategoryItem = ({ name, subcategories }:Props) => {
     return (
         <motion.div
             variants={variants}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
             className="bg-background-secondary-muted p-4 rounded-xl text-white"
             onClick={handleOpen}
