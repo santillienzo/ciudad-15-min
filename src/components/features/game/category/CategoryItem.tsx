@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+import { useState } from "react";
+import svg from "@/assets/svg/game/carnicería.svg"
 
 const variants = {
     open: {
@@ -17,23 +20,67 @@ const variants = {
     }
 };
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
-
 interface Props {
-    i: number;  // 0-4 (index) of the category in the colors array
+    name: string;  // 0-4 (index) of the category in the colors array
 }
 
-const CategoryItem = ({ i }:Props) => {
-    const style = { border: `2px solid ${colors[i]}` };
+const CategoryItem = ({ name }:Props) => {
+    const [open, setOpen] = useState(false)
+
+    const handleOpen = () => {
+        setOpen(!open)
+    }
+
     return (
-        <motion.li
+        <motion.div
             variants={variants}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            className="bg-background-secondary-muted p-4 rounded-xl text-white"
+            onClick={handleOpen}
         >
-            <div className="icon-placeholder" style={style} />
-            <div className="text-placeholder" style={style} />
-        </motion.li>
+            <div className="flex w-full">
+                <span className="flex-1">
+                    {name}
+                </span>
+                <motion.div
+                    animate={{ rotate: open ? 90 : 0 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <ChevronRight />
+                </motion.div>
+            </div>
+            {
+                open && <motion.div 
+                key={`content-${name}`}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{
+                    height: 'auto',
+                    opacity: 1,
+                }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{
+                    height: { duration: 0.3 },
+                    opacity: { duration: 0.2, delay: open ? 0 : 0.1 },
+                }}
+                className="mt-2 divide-y divide-gray-300"
+            >
+                <div className="p-4 flex">
+                    <span className="flex-1">
+                        Carnicería
+                    </span>
+                    <img src={svg} alt="svg" height={24} width={24}/>
+                </div>
+                <div className="p-4 flex">
+                    <span className="flex-1">
+                        Carnicería
+                    </span>
+                    <img src={svg} alt="svg" height={24} width={24}/>
+                </div>
+            </motion.div>
+            }
+            
+        </motion.div>
     )
 }
 

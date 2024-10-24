@@ -38,11 +38,11 @@ const CategoryDrawer = () => {
   // ];
 
   return (
-    <motion.ul variants={variants}>
+    <motion.div variants={variants} className="pt-6 px-4 flex flex-col gap-3">
       {itemIds.map(i => (
-        <CategoryItem i={i} key={i} />
+        <CategoryItem name={"Carnicería"} key={i} />
       ))}
-    </motion.ul>
+    </motion.div>
   );
 };
 

@@ -5,7 +5,7 @@ const Path = (props: SVGMotionProps<SVGPathElement>) => (
     <motion.path
       fill="transparent"
       strokeWidth="3"
-      stroke="hsl(0, 0%, 18%)"
+      stroke="hsl(0, 0%, 100%)"
       strokeLinecap="round"
       {...props}
     />
@@ -19,7 +19,7 @@ const CategoryButton = ({ toggle }: Props) => {
   return (
     <button
         onClick={toggle}
-        className='absolute bottom-[18px] left-[15px] w-[50px] h-[50px] rounded-full cursor bg-transparent'
+        className='absolute bottom-[20px] left-[10px] w-[60px] h-[60px] rounded-full cursor bg-transparent flex items-center justify-center'
     >
         <svg width="23" height="23" viewBox="0 0 23 23">
             <Path
