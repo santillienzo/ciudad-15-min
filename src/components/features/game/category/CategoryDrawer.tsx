@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import CategoryItem from './CategoryItem';
-// import { Drawer, DrawerContent, DrawerTrigger, Button } from 'shadcn-ui'; // Importa los componentes necesarios
+import json from "@/lib/data/categories.json"
 
 const variants = {
   open: {
@@ -12,40 +12,15 @@ const variants = {
 };
 
 const CategoryDrawer = () => {
-  // const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-
-  // const categories = [
-  //   {
-  //     name: 'Comercio',
-  //     subcategories: [
-  //       'Carnicería', 'Panadería', 'Farmacia', 'Verdulería', 'Almacén', 'Supermercado', 'Cajero automático'
-  //     ],
-  //   },
-  //   {
-  //     name: 'Equipamiento básico',
-  //     subcategories: [
-  //       'Cultura', 'Educación', 'Deporte', 'Bienestar social', 'Salud'
-  //     ],
-  //   },
-  //   {
-  //     name: 'Espacios verdes',
-  //     subcategories: ['Plazas'],
-  //   },
-  //   {
-  //     name: 'Movilidad',
-  //     subcategories: ['Metrotranvía', 'Estaciones de bicicleta', 'Paradas de colectivo'],
-  //   },
-  // ];
+  const {categories} = json;
 
   return (
     <motion.div variants={variants} className="pt-6 px-4 flex flex-col gap-3">
-      {itemIds.map(i => (
-        <CategoryItem name={"Carnicería"} key={i} />
+      {categories.map(({name, subcategories}) => (
+        <CategoryItem name={name} subcategories={subcategories} key={name} />
       ))}
     </motion.div>
   );
 };
 
 export default CategoryDrawer;
-
-const itemIds = [0, 1, 2, 3, 4];

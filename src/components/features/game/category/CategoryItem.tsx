@@ -1,7 +1,7 @@
+import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, SearchCheck } from "lucide-react";
 import { useState } from "react";
-import svg from "@/assets/svg/game/carnicería.svg"
 
 const variants = {
     open: {
@@ -22,9 +22,10 @@ const variants = {
 
 interface Props {
     name: string;  // 0-4 (index) of the category in the colors array
+    subcategories: {name: string}[]; //
 }
 
-const CategoryItem = ({ name }:Props) => {
+const CategoryItem = ({ name, subcategories }:Props) => {
     const [open, setOpen] = useState(false)
 
     const handleOpen = () => {
@@ -41,7 +42,7 @@ const CategoryItem = ({ name }:Props) => {
         >
             <div className="flex w-full">
                 <span className="flex-1">
-                    {name}
+                    {formatCategoryName(name)}
                 </span>
                 <motion.div
                     animate={{ rotate: open ? 90 : 0 }}
@@ -65,18 +66,16 @@ const CategoryItem = ({ name }:Props) => {
                 }}
                 className="mt-2 divide-y divide-gray-300"
             >
-                <div className="p-4 flex">
-                    <span className="flex-1">
-                        Carnicería
-                    </span>
-                    <img src={svg} alt="svg" height={24} width={24}/>
-                </div>
-                <div className="p-4 flex">
-                    <span className="flex-1">
-                        Carnicería
-                    </span>
-                    <img src={svg} alt="svg" height={24} width={24}/>
-                </div>
+                {
+                    subcategories.map((subcategory, index) => (
+                        <div key={index} className="p-4 flex">
+                            <span className="flex-1">
+                                {formatSubcategoryName(subcategory.name)}
+                            </span>
+                            <SearchCheck color="#cecece"/>
+                        </div>
+                    ))
+                }
             </motion.div>
             }
             
