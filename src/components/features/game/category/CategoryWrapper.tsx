@@ -9,7 +9,7 @@ const sidebar = {
         const viewportHeight = window.innerHeight;
         const viewportWidth = window.innerWidth;
         return {
-            clipPath: `circle(${viewportHeight}px at ${viewportWidth}px 40px)`,
+            clipPath: `circle(${viewportHeight * 2}px at ${viewportWidth}px 40px)`,
             transition: {
                 type: "spring",
                 stiffness: 20,
