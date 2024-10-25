@@ -81,6 +81,7 @@ const QrCodeGenerator: React.FC = () => {
                           id: item.id,
                           source: item.source,
                           name: item.name,
+                          direction: item.direction,
                           category: item.category,
                           subcategory: item.subcategory,
                         })
