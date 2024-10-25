@@ -77,13 +77,13 @@ const QrCodeGenerator: React.FC = () => {
                   <h3>{`${item.name}`}</h3>
                   <div id={`qr-code-${item.id}`}>
                     <QRCodeSVG
-                      value={`{
-                          "id": "${item.id}",
-                          "source": "${item.source}",
-                          "name": "${item.name}",
-                          "category": "${item.category}",
-                          "subcategory": "${item.subcategory}",
-                        }`
+                      value={JSON.stringify({
+                          id: item.id,
+                          source: item.source,
+                          name: item.name,
+                          category: item.category,
+                          subcategory: item.subcategory,
+                        })
                       }
                       level="L"
                       style={{
