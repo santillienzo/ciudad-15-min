@@ -1,0 +1,90 @@
+{
+    "locations": [
+      {
+        "id": "loc_001",
+        "name": "Mercado Santa Ana",
+        "direction": "Santa Ana, 9 de Julio 1055 Local R, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "carniceria",
+        "coord": {
+            "lat": -32.89061754667962, 
+            "long": -68.84066381712621
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Panadería Trigal (Suc. Espejo)",
+        "direction": " G ESPEJO 231,M5502AVH CAPITAL,MENDOZA, M5502AVH CAPITAL, PROVINCIA DE MENDOZA",
+        "category": "comercio",
+        "subcategory": "panadería",
+        "coord": {
+            "lat": -32.888634104308444,  
+            "long": -68.84193447479782
+        }
+      },
+      {
+        "id": "loc_003",
+        "name": "SUB-SECRETARIA DE CULTURA/ EX BANCO HIPOTECARIO",
+        "category": "equipamiento_basico",
+        "subcategory": "cultura",
+        "coord": {
+            "lat": -32.88816, 
+            "long": -68.84175
+        }
+      },
+      {
+        "id": "loc_004",
+        "name": "Colegio María Auxiliadora Primaria",
+        "direction": "25 de Mayo 1466, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "educacion",
+        "coord": {
+            "lat": -32.885284297599426,
+            "long": -68.84639152896551
+        }
+      },
+      {
+        "id": "loc_005",
+        "name": "Plaza Chile",
+        "category": "espacios_verdes",
+        "subcategory": "espacios_verdes",
+        "coord": {
+            "lat": -32.88631488650245, 
+            "long": -68.84694329605396
+        }
+      },
+      {
+        "id": "loc_006",
+        "name": "Plaza San Martín",
+        "category": "espacios_verdes",
+        "subcategory": "espacios_verdes",
+        "coord": {
+            "lat": -32.8874431477791, 
+            "long": -68.8406295189768
+        }
+      },
+      {
+        "id": "loc_007",
+        "name": "ESTACIÓN BELGRANO",
+        "direction": "Reconquista 100, M5502 Mendoza",
+        "category": "movilidad",
+        "subcategory": "metrotranvia",
+        "coord": {
+            "lat": -32.89034213736829,
+            "long": -68.8501114498518
+        }
+      },
+      {
+        "id": "loc_008",
+        "name": "Bicitran Estación Plaza Independencia",
+        "direction": "Centro, M5502 Capital, Mendoza",
+        "category": "movilidad",
+        "subcategory": "estaciones_de_bicicleta",
+        "coord": {
+            "lat": -32.889224448202434, 
+            "long": -68.8448743219959
+        }
+      }
+    ]
+  }
+  
