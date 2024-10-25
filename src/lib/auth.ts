@@ -17,12 +17,38 @@ export interface ILoginData {
   password: string;
 }
 
+const initialCategoriesVisited = {
+  comercio: {
+    carniceria: false,
+    panaderia: false,
+    farmacia: false,
+    verduleria: false,
+    almacen: false,
+    supermercado: false,
+    cajero_automatico: false
+  },
+  equipamiento_basico: {
+    cultura: false,
+    educacion: false,
+    deporte: false,
+    bienestar_social: false,
+    salud: false
+  },
+  espacios_verdes: {
+    espacios_verdes: false
+  },
+  movilidad: {
+    metrotranvia: false,
+    estaciones_de_bicicleta: false,
+    paradas_de_colectivo: false
+  }
+};
+
 export const validateUser = (data: IRegisterData) => {
     // Validar campos obligatorios
     if (!data.name ||!data.lastname ||!data.dni ||!data.birthday ||!data.email ||!data.password) {
         throw new Error("Todos los campos son obligatorios");
     }
-
 }
 
 export const registerUser = async (formData: IRegisterData, auth: Auth) => {
@@ -45,6 +71,7 @@ export const registerUser = async (formData: IRegisterData, auth: Auth) => {
       birthday: formData.birthday,
       dni: formData.dni,
       email: formData.email,
+      locationVisited: initialCategoriesVisited
     });
   } catch (error: unknown) {
     let errorMsg = "Hubo un error";
