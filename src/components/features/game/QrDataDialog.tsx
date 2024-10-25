@@ -1,7 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"; 
 import { IQR } from "@/lib/types/qr.types";
 import ThemeButton from "@/components/common/ThemeButton";
-import { Star } from "lucide-react";
 import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 
 type QrDataDialogProps = {
@@ -23,11 +22,11 @@ const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps)
         
           <div className="mt-4 space-y-2">
             <div className="flex items-center gap-4">
-                <Star color="#fdba12" strokeWidth={1.75} />
+                <strong>Categoría: </strong>
                 <span>{formatCategoryName(data.category)}</span>
             </div>
             <div className="flex items-center gap-4">
-                <Star color="#fdba12" strokeWidth={1.75} />
+                <strong>Subategoría: </strong>
                 <span>{formatSubcategoryName(data.subcategory)}</span>
             </div>
           </div>
