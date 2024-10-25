@@ -1,6 +1,8 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"; import { IQR } from "@/lib/types/qr.types";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"; 
+import { IQR } from "@/lib/types/qr.types";
 import ThemeButton from "@/components/common/ThemeButton";
 import { Star } from "lucide-react";
+import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 
 type QrDataDialogProps = {
   open: boolean; // Controla si el diálogo está abierto o cerrado
@@ -13,7 +15,7 @@ const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps)
   return (
     <Dialog open={open} onOpenChange={onClose}>
         {data ? (
-      <DialogContent className="w-[90%]">
+      <DialogContent className="w-[90%] rounded-2xl">
         <DialogHeader>
           <DialogTitle>{data.name}</DialogTitle>
           <DialogDescription>{data.direction}</DialogDescription>
@@ -22,11 +24,11 @@ const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps)
           <div className="mt-4 space-y-2">
             <div className="flex items-center gap-4">
                 <Star color="#fdba12" strokeWidth={1.75} />
-                <span>{data.type}</span>
+                <span>{formatCategoryName(data.category)}</span>
             </div>
             <div className="flex items-center gap-4">
                 <Star color="#fdba12" strokeWidth={1.75} />
-                <span>{data.subtype}</span>
+                <span>{formatSubcategoryName(data.subcategory)}</span>
             </div>
           </div>
 
