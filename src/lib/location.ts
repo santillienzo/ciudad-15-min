@@ -50,8 +50,13 @@ export const markLocation = async ({userId, userData, cat, subCat}: {
         };
 
         // Actualiza el documento en Firestore
+        //MEJORAR: actualizar solo el documento que se actualiza
         await updateDoc(docRef, {
-            [`locationVisited.${cat}`]: updatedCategory
+            locationVisited: {
+                ...locationVisited,
+                [cat]: updatedCategory
+            },
+            // [`locationVisited.${cat}`]: updatedCategory
         });
 
         // Actualiza el objeto userData localmente
