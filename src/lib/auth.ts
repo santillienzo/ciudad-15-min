@@ -3,6 +3,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from
 import { doc, setDoc } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
 import { firebaseErrorHandler, generalErrorHandler } from "@/lib/handleError";
+import { initialCategoriesVisited } from "./location";
 
 export interface IRegisterData {
   name: string;
@@ -16,33 +17,6 @@ export interface ILoginData {
   email: string;
   password: string;
 }
-
-const initialCategoriesVisited = {
-  comercio: {
-    carniceria: false,
-    panaderia: false,
-    farmacia: false,
-    verduleria: false,
-    almacen: false,
-    supermercado: false,
-    cajero_automatico: false
-  },
-  equipamiento_basico: {
-    cultura: false,
-    educacion: false,
-    deporte: false,
-    bienestar_social: false,
-    salud: false
-  },
-  espacios_verdes: {
-    espacios_verdes: false
-  },
-  movilidad: {
-    metrotranvia: false,
-    estaciones_de_bicicleta: false,
-    paradas_de_colectivo: false
-  }
-};
 
 export const validateUser = (data: IRegisterData) => {
     // Validar campos obligatorios

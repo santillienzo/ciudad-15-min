@@ -4,13 +4,19 @@ import { X } from 'lucide-react';
 import QrDataDialog from './QrDataDialog';
 import { IQR } from '@/lib/types/qr.types';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/components/contexts/AuthContext';
+import { markLocation } from '@/lib/location';
+import { toast } from 'sonner';
 
 const QrReader = () => {
+  const {user} = useAuth()
   const navigate = useNavigate();
 
   const [result, setResult] = useState<IQR | null>(null);
   const [openDialog, setOpenDialog] = useState(false);
   const [qrPaused, setQrPaused] = useState(false);
+
+  console.log(user?.uid)
 
   const handleScan = (data: IDetectedBarcode[]) => {
     const _result = JSON.parse(data[0].rawValue) as IQR;
@@ -31,12 +37,30 @@ const QrReader = () => {
   }
 
   const handleConfirm = () => {
-    navigate('/game')
+    //Acá hay que cargar los datos del usuario
+    // Referencia al documento
+    if (user && result){
+      const markingLocation = markLocation({
+        userId: user.uid,
+        cat: result.category,
+        subCat: result.subcategory,
+      })
+
+      toast.promise(markingLocation, {
+        loading: 'Marcando ubicación...',
+        success: () => {
+          //redirect to game
+          redirectToGame()
+
+          return 'Ubicación marcada correctamente';
+        },
+        error: (error) => error.message
+      })
+    }
   }
 
   const redirectToGame = () => {
-    setOpenDialog(false);
-    setQrPaused(false);
+    closeDialog()
     navigate('/game')
   }
 
