@@ -48,11 +48,20 @@ export const AuthProvider = ({ children }: Props) => {
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
           const data = userDoc.data() as UserData;
-          const locationVisited = data.locationVisited || initialCategoriesVisited
-          setUserData({
-            ...data,
-            locationVisited
-          }); // Guarda los datos de usuario en el estado
+          const locationVisited = data.locationVisited || initialCategoriesVisited;
+
+          // Reorganiza el objeto locationVisited en el orden deseado
+          const orderedLocationVisited = {
+            comercio: locationVisited.comercio || initialCategoriesVisited.comercio,
+            equipamiento_basico: locationVisited.equipamiento_basico || initialCategoriesVisited.equipamiento_basico,
+            espacios_verdes: locationVisited.espacios_verdes || initialCategoriesVisited.espacios_verdes,
+            movilidad: locationVisited.movilidad || initialCategoriesVisited.movilidad,
+          };
+
+        setUserData({
+          ...data,
+          locationVisited: orderedLocationVisited
+        });
         }
       } else {
         setUserData(null); // Si no hay usuario, resetea UserData
