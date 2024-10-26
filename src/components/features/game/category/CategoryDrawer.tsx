@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import CategoryItem from './CategoryItem';
-import json from "@/lib/data/categories.json"
+import { useAuth } from "@/components/contexts/AuthContext";
 
 const variants = {
   open: {
@@ -12,12 +12,15 @@ const variants = {
 };
 
 const CategoryDrawer = () => {
-  const {categories} = json;
+  const {userData} = useAuth()
+
+  if (!userData) return null;
+
 
   return (
     <motion.div variants={variants} className="pt-6 px-4 flex flex-col gap-3">
-      {categories.map(({name, subcategories}) => (
-        <CategoryItem name={name} subcategories={subcategories} key={name} />
+      {Object.entries(userData.locationVisited).map(([categorie, subcategories]) => (
+        <CategoryItem name={categorie} subcategories={subcategories} key={categorie} />
       ))}
     </motion.div>
   );
