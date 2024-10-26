@@ -1,7 +1,8 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
+import { CategoriesVisited, UserData } from "./types/user.types";
 
-export const initialCategoriesVisited = {
+export const initialCategoriesVisited:CategoriesVisited = {
     comercio: {
       carniceria: false,
       panaderia: false,
@@ -26,38 +27,44 @@ export const initialCategoriesVisited = {
       estaciones_de_bicicleta: false,
       paradas_de_colectivo: false
     }
-  };
+};
 
 // Actualizar el campo
-export const markLocation = async ({userId, cat, subCat}: {
-    userId: string, 
+export const markLocation = async ({userId, userData, cat, subCat}: {
+    userId: string,
+    userData: UserData,
     cat:string,
     subCat: string
-}) => {
+}): Promise<UserData> => {
     try {
         
         // Referencia al documento a actualizar
         const docRef = doc(db, "users", userId);
     
-        // Obtén el documento actual
-        const docSnap = await getDoc(docRef);
-    
-        if (docSnap.exists()) {
-            const userData = docSnap.data();
-    
-            // Verifica si locationVisited ya está definido
-            const locationVisited = userData.locationVisited || initialCategoriesVisited;
-    
-            const updatedCategory = {
-                ...locationVisited[cat],
-                [subCat]: true
-            };
-    
-            // Actualiza el documento en Firestore
-            await updateDoc(docRef, {
-                [`locationVisited.${cat}`]: updatedCategory
-            });
-        }
+        // Verifica si locationVisited ya está definido
+        const locationVisited = userData.locationVisited;
+
+        const updatedCategory = {
+            ...locationVisited[cat],
+            [subCat]: true
+        };
+
+        // Actualiza el documento en Firestore
+        await updateDoc(docRef, {
+            [`locationVisited.${cat}`]: updatedCategory
+        });
+
+        // Actualiza el objeto userData localmente
+        const updatedUserData: UserData = {
+            ...userData,
+            locationVisited: {
+                ...locationVisited,
+                [cat]: updatedCategory
+            }
+        };
+        // Retorna el objeto userData actualizado
+        return updatedUserData;
+
     } catch (error) {
         const errorMsg = "Hubo un error al actualizar el documento"
         console.log(error)

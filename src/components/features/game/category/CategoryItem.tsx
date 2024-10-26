@@ -22,7 +22,7 @@ const variants = {
 
 interface Props {
     name: string;  // 0-4 (index) of the category in the colors array
-    subcategories: {name: string}[]; //
+    subcategories: { [key: string]: boolean; }; //
 }
 
 const CategoryItem = ({ name, subcategories }:Props) => {
@@ -67,12 +67,12 @@ const CategoryItem = ({ name, subcategories }:Props) => {
                 className="mt-2 divide-y divide-gray-300"
             >
                 {
-                    subcategories.map((subcategory, index) => (
-                        <div key={index} className="p-4 flex">
+                    Object.entries(subcategories).map(([subcategory, visited]) => (
+                        <div key={subcategory} className="p-4 flex">
                             <span className="flex-1">
-                                {formatSubcategoryName(subcategory.name)}
+                                {formatSubcategoryName(subcategory)}
                             </span>
-                            <SearchCheck color="#cecece"/>
+                            <SearchCheck color={visited ? "#2213a8": "#cecece"}/>
                         </div>
                     ))
                 }

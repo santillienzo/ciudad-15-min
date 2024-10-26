@@ -1,4 +1,4 @@
-interface CategoriesVisited {
+export interface CategoriesVisited {
     [key: string]: {
         [key: string]: boolean
     };
@@ -10,5 +10,5 @@ export interface UserData {
     birthday: string,
     dni: string,
     email: string,
-    locationVisited?: CategoriesVisited
+    locationVisited: CategoriesVisited
 }

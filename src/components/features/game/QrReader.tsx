@@ -9,14 +9,12 @@ import { markLocation } from '@/lib/location';
 import { toast } from 'sonner';
 
 const QrReader = () => {
-  const {user} = useAuth()
+  const {user, userData, updateUserData} = useAuth()
   const navigate = useNavigate();
 
   const [result, setResult] = useState<IQR | null>(null);
   const [openDialog, setOpenDialog] = useState(false);
   const [qrPaused, setQrPaused] = useState(false);
-
-  console.log(user?.uid)
 
   const handleScan = (data: IDetectedBarcode[]) => {
     const _result = JSON.parse(data[0].rawValue) as IQR;
@@ -39,8 +37,9 @@ const QrReader = () => {
   const handleConfirm = () => {
     //Acá hay que cargar los datos del usuario
     // Referencia al documento
-    if (user && result){
+    if (user && result && userData){
       const markingLocation = markLocation({
+        userData, 
         userId: user.uid,
         cat: result.category,
         subCat: result.subcategory,
@@ -48,9 +47,12 @@ const QrReader = () => {
 
       toast.promise(markingLocation, {
         loading: 'Marcando ubicación...',
-        success: () => {
+        success: (result) => {
           //redirect to game
           redirectToGame()
+
+          //actualiza todo el objeto, mejorar para actualizar solo las ubicaciones
+          updateUserData(result)
 
           return 'Ubicación marcada correctamente';
         },
