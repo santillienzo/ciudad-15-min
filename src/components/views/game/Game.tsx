@@ -4,6 +4,7 @@ import { AdvancedMarker, Map } from '@vis.gl/react-google-maps';
 import { House, QrCode } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {locations} from "@/lib/data/locations.json"
 
 const position = {lat: -32.88943218488501, lng: -68.84481014373047};
 
@@ -60,6 +61,16 @@ const Game = () => {
               clickableIcons={false}
               streetViewControl={false}
             >
+              {/* Acá van los pins de las ubicaciones */}
+              {locations.map(location => (
+                <AdvancedMarker
+                  key={location.id}
+                  position={{ lat: location.coord.lat, lng: location.coord.long }}
+                  // Puedes agregar un title o un evento onClick para mostrar más detalles de la ubicación
+                  title={location.name} 
+                />
+              ))}
+
               <AdvancedMarker position={currentPosition} />
             </Map> 
           </div>
