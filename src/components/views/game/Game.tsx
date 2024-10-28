@@ -72,14 +72,14 @@ const Game = () => {
                     position={{ lat: location.coord.lat, lng: location.coord.long }}
                     // Puedes agregar un title o un evento onClick para mostrar más detalles de la ubicación
                     title={location.name}
-                    
+                    className='relative'
                   >
                     <Pin
-                        background={background}   // Color de fondo según la categoría
-                        borderColor={borderColor}    // Borde blanco
-                        glyphColor={glyphColor}     // Color del texto o símbolo si decides usarlo
-                        scale={1.5}
-                      />
+                      background={background}   // Color de fondo según la categoría
+                      borderColor={borderColor}    // Borde blanco
+                      glyphColor={glyphColor}     // Color del texto o símbolo si decides usarlo
+                      scale={1.5}
+                    />
                   </AdvancedMarker>
                 )
               })}
