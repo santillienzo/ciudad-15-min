@@ -1,9 +1,11 @@
 import ThemeButton from '@/components/common/ThemeButton';
 import CategoryWrapper from '@/components/features/game/category/CategoryWrapper';
-import { AdvancedMarker, Map } from '@vis.gl/react-google-maps';
+import { AdvancedMarker, Map, Pin } from '@vis.gl/react-google-maps';
 import { House, QrCode } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {locations} from "@/lib/data/locations.json"
+import { colorCategoryDictionary } from '@/lib/utils.string';
 
 const position = {lat: -32.88943218488501, lng: -68.84481014373047};
 
@@ -60,6 +62,28 @@ const Game = () => {
               clickableIcons={false}
               streetViewControl={false}
             >
+              {/* Acá van los pins de las ubicaciones */}
+              {locations.map(location => {
+                const {background, borderColor, glyphColor} = colorCategoryDictionary(location.category)
+
+                return (
+                  <AdvancedMarker
+                    key={location.id}
+                    position={{ lat: location.coord.lat, lng: location.coord.long }}
+                    // Puedes agregar un title o un evento onClick para mostrar más detalles de la ubicación
+                    title={location.name}
+                    className='relative'
+                  >
+                    <Pin
+                      background={background}   // Color de fondo según la categoría
+                      borderColor={borderColor}    // Borde blanco
+                      glyphColor={glyphColor}     // Color del texto o símbolo si decides usarlo
+                      scale={1.5}
+                    />
+                  </AdvancedMarker>
+                )
+              })}
+
               <AdvancedMarker position={currentPosition} />
             </Map> 
           </div>
