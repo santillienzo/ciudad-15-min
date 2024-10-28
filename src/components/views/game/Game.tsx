@@ -1,8 +1,11 @@
-import ThemeButton from "@/components/common/ThemeButton";
-import { AdvancedMarker, Map } from "@vis.gl/react-google-maps";
-import { QrCode } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import ThemeButton from '@/components/common/ThemeButton';
+import CategoryWrapper from '@/components/features/game/category/CategoryWrapper';
+import { AdvancedMarker, Map, Pin } from '@vis.gl/react-google-maps';
+import { House, QrCode } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {locations} from "@/lib/data/locations.json"
+import { colorCategoryDictionary } from '@/lib/utils.string';
 
 const position = { lat: -32.88943218488501, lng: -68.84481014373047 };
 
@@ -49,28 +52,55 @@ const Game = () => {
     navigate("/scanner");
   };
 
+    const redirectToLobby = ()=> {
+      navigate('/game-lobby');
+    }
+
   return (
     <>
-      <div
-        className="w-full relative"
-        style={{ height: "-webkit-fill-available" }}
-      >
-        <div className="absolute w-full h-full">
-          <Map
-            center={!isMapDragged ? currentPosition : undefined}
-            defaultZoom={15}
-            mapId="DEMO_MAP_ID"
-            onDragstart={handleCenterChanged}
-          >
-            <AdvancedMarker position={currentPosition} />
-          </Map>
-        </div>
-        <ThemeButton
-          onClick={redirecToScanner}
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4"
-        >
-          Escanear <QrCode size={32} />
-        </ThemeButton>
+      <div className='w-full relative' style={{height: '-webkit-fill-available'}}>
+          <button onClick={redirectToLobby} className='text-white z-50 absolute top-[10px] right-[10px] w-[60px] h-[60px] rounded-full cursor bg-background-secondary flex items-center justify-center'>
+            <House size={26}/>
+          </button>
+          <div className='absolute w-full h-full'>
+            <Map 
+              center={!isMapDragged ? currentPosition : undefined}
+              onDragstart={handleCenterChanged}
+              defaultZoom={15} 
+              mapId='DEMO_MAP_ID'
+              fullscreenControl={false}
+              clickableIcons={false}
+              streetViewControl={false}
+            >
+              {/* Acá van los pins de las ubicaciones */}
+              {locations.map(location => {
+                const {background, borderColor, glyphColor} = colorCategoryDictionary(location.category)
+
+                return (
+                  <AdvancedMarker
+                    key={location.id}
+                    position={{ lat: location.coord.lat, lng: location.coord.long }}
+                    // Puedes agregar un title o un evento onClick para mostrar más detalles de la ubicación
+                    title={location.name}
+                    className='relative'
+                  >
+                    <Pin
+                      background={background}   // Color de fondo según la categoría
+                      borderColor={borderColor}    // Borde blanco
+                      glyphColor={glyphColor}     // Color del texto o símbolo si decides usarlo
+                      scale={1.5}
+                    />
+                  </AdvancedMarker>
+                )
+              })}
+
+              <AdvancedMarker position={currentPosition} />
+            </Map> 
+          </div>
+          <ThemeButton onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
+            Escanear <QrCode size={32}/>
+          </ThemeButton>
+          <CategoryWrapper/>
       </div>
     </>
   );

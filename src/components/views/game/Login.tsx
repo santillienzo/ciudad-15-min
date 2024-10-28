@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/components/contexts/AuthContext";
 import ThemeButton from "@/components/common/ThemeButton";
 import ThemeInput from "@/components/common/ThemeInput";
+import { House } from "lucide-react";
 
 const Login = () => {
   const {login} = useAuth()
@@ -38,9 +39,15 @@ const Login = () => {
     });
   }
 
+  const redirectToLobby = ()=> {
+    navigate('/game-lobby');
+  }
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-background-primary p-6 text-background-primary-foreground">
+    <button onClick={redirectToLobby} className='text-white z-50 absolute top-[10px] right-[10px] w-[60px] h-[60px] rounded-full cursor bg-background-secondary flex items-center justify-center'>
+      <House size={26}/>
+    </button>
     {/* Título de Registro */}
     <h1 className="text-4xl font-bold mb-6">Iniciar sesión</h1>
 

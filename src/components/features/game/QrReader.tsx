@@ -4,8 +4,12 @@ import { X } from 'lucide-react';
 import QrDataDialog from './QrDataDialog';
 import { IQR } from '@/lib/types/qr.types';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/components/contexts/AuthContext';
+import { markLocation } from '@/lib/location';
+import { toast } from 'sonner';
 
 const QrReader = () => {
+  const {user, userData, updateUserData} = useAuth()
   const navigate = useNavigate();
 
   const [result, setResult] = useState<IQR | null>(null);
@@ -31,12 +35,34 @@ const QrReader = () => {
   }
 
   const handleConfirm = () => {
-    navigate('/game')
+    //Acá hay que cargar los datos del usuario
+    // Referencia al documento
+    if (user && result && userData){
+      const markingLocation = markLocation({
+        userData, 
+        userId: user.uid,
+        cat: result.category,
+        subCat: result.subcategory,
+      })
+
+      toast.promise(markingLocation, {
+        loading: 'Marcando ubicación...',
+        success: (result) => {
+          //redirect to game
+          redirectToGame()
+
+          //actualiza todo el objeto, mejorar para actualizar solo las ubicaciones
+          updateUserData(result)
+
+          return 'Ubicación marcada correctamente';
+        },
+        error: (error) => error.message
+      })
+    }
   }
 
   const redirectToGame = () => {
-    setOpenDialog(false);
-    setQrPaused(false);
+    closeDialog()
     navigate('/game')
   }
 

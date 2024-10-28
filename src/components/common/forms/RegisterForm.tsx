@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { ChangeEvent, FormEvent, useState } from 'react';
 import ThemeButton from "@/components/common/ThemeButton";
 import ThemeInput from "@/components/common/ThemeInput";
@@ -15,7 +14,7 @@ type Props = {
 const RegisterForm = ({variant = 'primary', successCallback}:Props) => {
 
     const {register} = useAuth();
-    const navigate = useNavigate();
+    
     const [formData, setFormData] = useState<IRegisterData>({
         name: '',
         lastname: '',
@@ -26,7 +25,6 @@ const RegisterForm = ({variant = 'primary', successCallback}:Props) => {
     });
 
     const success = () => {
-        navigate('/game-lobby')
 
         return `Te registraste correctamente en el evento`;
     }
