@@ -34,8 +34,8 @@ const Footer = () => {
                 <p className="text-gray-400 text-sm">Arquitecto</p>
               </li>
               <li>
-                <span className="font-bold">Dra. Arq. Lorena Córica</span>
-                <p className="text-gray-400 text-sm">Responsable institucional de la Facultad de Ingeniería de la universidad Nacional de Cuyo</p>
+                <span className="font-bold">Lorena Córica</span>
+                <p className="text-gray-400 text-sm">Arquitecta responsable institucional de la Facultad de Ingeniería de la universidad Nacional de Cuyo</p>
               </li>
             </ul>
           </div>
