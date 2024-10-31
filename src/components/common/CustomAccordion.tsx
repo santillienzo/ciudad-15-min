@@ -12,6 +12,7 @@ import {
 interface AccordionData {
   title: string;
   content: string;
+  icon: string;
 }
 
 interface CustomAccordionProps {
@@ -31,7 +32,10 @@ const CustomAccordion = ({ sections, accordionButtonBgColor }: CustomAccordionPr
             _expanded={{ bg: accordionButtonBgColor }}
             className="text-background-secondary-foreground"
           >
-            <Box as="span" flex="1" textAlign="left" className="p-2">
+            <Box flex="1" textAlign="left" className="p-2 flex items-center gap-5">
+              <span className="p-1 bg-background-primary rounded-full flex items-center justify-center h-[40px] w-[40px]">
+                <img className="h-[26px]" src={section.icon} alt={section.title} />
+              </span>
               <Text className="font-bold">{section.title}</Text>
             </Box>
             <AccordionIcon />
