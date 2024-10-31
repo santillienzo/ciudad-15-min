@@ -41,20 +41,29 @@ const Home = () => {
               alt="Logo de la Ciudad en 15 minutos" 
               className="w-11/12 md:w-1/3" 
             />
-            <motion.p
-              initial={{y: -300}}
-              animate={{y: 0}}
-              transition={{duration: .5}}
-              className="text-2xl sm:text-3xl md:text-4xl my-10 md:my-6 w-11/12 md:w-2/3 text-center text-secondary font-bold leading-tight"
-            >
-              Sabías que la ciudad de Mendoza es de{" "}
-              <span
-                className="text-button-cta-primary"
-              > 15 minutos? </span>{" "}
-              Vení a descubrirla
-              <span className="text-button-cta-primary"> jugando </span>
-              con tu familia y amigos.
-            </motion.p>
+            <div className="text-2xl sm:text-3xl md:text-4xl my-10 md:my-6 space-y-2 w-11/12 md:w-full text-center text-secondary font-bold leading-tight">
+              <motion.p
+                initial={{y: -300}}
+                animate={{y: 0}}
+                transition={{duration: .5}}
+                className=""
+              >
+                Sabías que la ciudad de Mendoza es de{" "}
+                <span
+                  className="text-button-cta-primary"
+                > 15 minutos? </span>
+              </motion.p>
+              <motion.p
+                initial={{y: -300}}
+                animate={{y: 0}}
+                transition={{duration: .5}}
+                className=""
+              >
+                Descubrila
+                <span className="text-button-cta-primary"> jugando </span>
+                con tu familia y amigos.
+              </motion.p>
+            </div>
 
             {/* <Box
               as="div"

@@ -77,43 +77,43 @@ const Countdown: React.FC<CountdownProps> = ({
       ref={countdownRef}
       className=" flex items-center justify-center flex-col w-full overflow-x-hidden"
     >
-      <div className="flex items-center justify-between h-full max-md:px-16 overflow-hidden">
+      <div className="flex items-center justify-between h-full max-md:px-16 overflow-hidden max-w-full">
         <div className="text-center flex items-center">
           {isLoading ? (
               <CalendarSkeleton
               />
           ) : (
-            <div className="flex justify-center space-x-4 text-center bg-cover text-[#FDB913] bg-center">
+            <div className=" flex justify-center space-x-2 sm:space-x-4 text-center bg-cover text-[#FDB913] bg-center">
             {/* Días */}
               <div className="flex flex-col items-center">
-                <span className="text-5xl md:text-6xl font-bold">{timeLeft.days.toString().padStart(2, '0')}</span>
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold">{timeLeft.days.toString().padStart(2, '0')}</span>
                 <span className="text-sm tracking-widest mt-2">Días</span>
               </div>
       
             {/* Separador */}
-            <span className="text-5xl md:text-6xl font-bold">:</span>
+            <span className="text-4xl sm:text-5xl md:text-6xl font-bold">:</span>
       
             {/* Horas */}
               <div className="flex flex-col items-center">
-                <span className="text-5xl md:text-6xl font-bold">{timeLeft.hours.toString().padStart(2, '0')}</span>
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold">{timeLeft.hours.toString().padStart(2, '0')}</span>
                 <span className="text-sm tracking-widest mt-2">Horas</span>
               </div>
       
             {/* Separador */}
-            <span className="text-5xl md:text-6xl font-bold">:</span>
+            <span className="text-4xl sm:text-5xl md:text-6xl font-bold">:</span>
       
             {/* Minutos */}
             <div className="flex flex-col items-center">
-              <span className="text-5xl md:text-6xl font-bold">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+              <span className="text-4xl sm:text-5xl md:text-6xl font-bold">{timeLeft.minutes.toString().padStart(2, '0')}</span>
               <span className="text-sm tracking-widest mt-2">Minutos</span>
             </div>
       
             {/* Separador */}
-            <span className="text-5xl md:text-6xl font-bold">:</span>
+            <span className="text-4xl sm:text-5xl md:text-6xl font-bold">:</span>
       
             {/* Segundos */}
             <div className="flex flex-col items-center">
-              <span className="text-5xl md:text-6xl font-bold">{timeLeft.seconds.toString().padStart(2, '0')}</span>
+              <span className="text-4xl sm:text-5xl md:text-6xl font-bold">{timeLeft.seconds.toString().padStart(2, '0')}</span>
               <span className="text-sm tracking-widest mt-2">Segundos</span>
             </div>
           </div>

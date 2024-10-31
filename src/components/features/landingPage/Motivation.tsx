@@ -63,9 +63,9 @@ const Motivation = () => {
             <span className="text-button-cta-primary"> alternativas </span>{" "}
             para usar menos el auto y tener una ciudad{" "}
             <span className="text-button-cta-primary">
-              más sustentable
+              más sustentable.
             </span>
-            Te proponemos un juego interactivo por las calles de la ciudad de Mendoza, 
+            {" "}Te proponemos un juego interactivo por las calles de la ciudad de Mendoza, 
             para que veas que es posible acceder caminando a todos los servicios esenciales, {" "}
             <span className="text-button-cta-primary">
               en menos de 15 minutos. 
