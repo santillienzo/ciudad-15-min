@@ -49,7 +49,6 @@ const Home = () => {
             >
               Sabías que la ciudad de Mendoza es de{" "}
               <span
-                
                 className="text-button-cta-primary"
               > 15 minutos? </span>{" "}
               Vení a descubrirla
