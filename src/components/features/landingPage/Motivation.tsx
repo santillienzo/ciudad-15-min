@@ -23,7 +23,7 @@ const Motivation = () => {
               viewport={{ once: true }}
               variants={variants}
           >
-              <p className="text-[#FBD491] font-bold font-poppins text-base text-lg lg:text-xl pt-2 text-center">
+              <p className="text-[#FBD491] font-bold font-poppins text-lg lg:text-xl pt-2 text-center">
                 Viernes 22/11
                 <RiCircleFill className="h-2 inline-flex mb-1" />
                 18hs
