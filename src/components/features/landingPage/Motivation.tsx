@@ -1,5 +1,4 @@
 // import Logo from "../../../assets/Logo.svg";
-import Logo from "@/assets/svg/Logo blanco.svg";
 import buildingLeft from "@/assets/svg/Edificios 1.svg";
 import { motion } from "framer-motion";
 import { variants } from "@/lib/motionVariants";
@@ -14,15 +13,6 @@ const Motivation = () => {
         className="mb-16  md:mb-0 flex w-[90%] justify-end items-center h-full relative"
       >
         <div className="flex flex-col w-1/2 max-sm:w-full gap-8 z-10">
-          <motion.img
-            initial={'rightHidden'}
-            whileInView={'visible'}
-            viewport={{ once: true }}
-            variants={variants}
-            src={Logo} 
-            alt="Logo de la Ciudad en 15 minutos" 
-            className="w-96" 
-          />
           <motion.p 
             initial={'rightHidden'}
             whileInView={'visible'}

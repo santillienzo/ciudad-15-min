@@ -40,15 +40,15 @@ const Countdown: React.FC<CountdownProps> = ({
 
       /* CALCULO DE LOS MINUTOS */
 
-      // const minutes = (
-      //   "0" + Math.floor((limitTime % (1000 * 60 * 60)) / (1000 * 60))
-      // ).slice(-2);
+      const minutes = (
+        "0" + Math.floor((limitTime % (1000 * 60 * 60)) / (1000 * 60))
+      ).slice(-2);
 
       /* CALCULO DE LOS SEGUNDOS */
 
-      // const seconds = (
-      //   "0" + Math.floor((limitTime % (1000 * 60)) / 1000)
-      // ).slice(-2);
+      const seconds = (
+        "0" + Math.floor((limitTime % (1000 * 60)) / 1000)
+      ).slice(-2);
 
       setTimeLeft(
         // <div className="max-sm:flex max-xl:flex-col max-md:flex-col max-sm:flex-col">
@@ -61,15 +61,15 @@ const Countdown: React.FC<CountdownProps> = ({
             {hours}
           </span>{" "}
           horas{" "}
-          {/* <span className="font-bold text-4xl max-sm:text-2xl pl-2 pr-1 font-poppins">
+          <span className="font-bold text-4xl max-sm:text-2xl pl-2 pr-1 font-poppins">
             {minutes}
           </span>{" "} 
           minutos{" "}
-          */}
-          {/* <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent font-bold text-7xl max-sm:text-5xl">
+          
+          <span className="font-bold text-4xl max-sm:text-2xl pl-2 pr-1 font-poppins">
             {seconds}
           </span>{" "}
-          Segundos{" "} */}
+          Segundos{" "}
         </div>
         // `${days} Días ${hours} Horas ${minutes} Minutos y ${seconds} segundos`
       );
