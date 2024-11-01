@@ -19,14 +19,14 @@ const Home = () => {
     >
         <div className="absolute top-0 left-0 flex justify-end xl:justify-between gap-3 p-4 w-full">
           <div className="flex items-center p-1">
-            <img src={logoMuni} className="h-10" alt="Logo de la Municipalidad de la Ciudad de Mendoza" />
+            <img src={logoMuni} className="h-8 sm:h-9 md:h-12" alt="Logo de la Municipalidad de la Ciudad de Mendoza" />
           </div>
           <div className="flex items-center gap-3">
             <div className="p-1">
-              <img src={logoBloomberg2} className="w-11 h-11" alt="Logo de Bloomberg" />
+              <img src={logoBloomberg2} className="h-9  sm:h-10  md:h-14" alt="Logo de Bloomberg" />
             </div>
             <div className="p-1">
-              <img src={logoBloomberg} className="h-11" alt="Logo de Bloomberg" />
+              <img src={logoBloomberg} className="h-9 sm:h-10 md:h-14" alt="Logo de Bloomberg" />
             </div>
           </div>
         </div>
