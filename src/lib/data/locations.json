@@ -23,6 +23,160 @@
         }
       },
       {
+        "id": "loc_002",
+        "name": "Brod Ciudad",
+        "direction": "Chile 894, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "panaderia",
+        "coord": {
+            "lat": -32.8919, 
+            "long": -68.84662
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Essenza Pastelería",
+        "direction": "5500, BZE, Av. Belgrano 1077, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "panaderia",
+        "coord": {
+            "lat": -32.88904,  
+            "long": -68.84956
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Panadería Trigal (Suc. Av. Espáña)",
+        "direction": "Av. España 991, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "panaderia",
+        "coord": {
+            "lat": -32.89126,  
+            "long": -68.84023
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Farmacia Del Águila Las Heras",
+        "direction": "Av. Las Heras 150, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "farmacia",
+        "coord": {
+            "lat": -32.88611,  
+            "long": -68.84034
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Farmacia Del Puente (Suc. Ciudad)",
+        "direction": "Av. San Martín 1288, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "farmacia",
+        "coord": {
+            "lat": -32.88878,  
+            "long": -68.83919
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Farmacia Nueva Sanidad 2",
+        "direction": "San Lorenzo 552, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "farmacia",
+        "coord": {
+            "lat": -32.8927, 
+            "long": -68.84737
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Farmacia Mitre",
+        "direction": "Primera Sección, Av. Colón 361, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "farmacia",
+        "coord": {
+            "lat": -32.89395, 
+            "long": -68.8451
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Verdulería Mini Feria Belgrano",
+        "direction": "Avenida Belgrano, Montevideo &, M5502 Capital, Mendoza",
+        "category": "comercio",
+        "subcategory": "verduleria",
+        "coord": {
+            "lat": -32.88442502442965,  
+            "long": -68.85076811778478
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Markstore Mini Market",
+        "direction": "Gral. Espejo 511, M5502AVN Mendoza",
+        "category": "comercio",
+        "subcategory": "almacen",
+        "coord": {
+            "lat": -32.88804335503571,  
+            "long": -68.84578482883576
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Carrefour",
+        "direction": "-",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.88484,  
+            "long": -68.84842
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Cerca",
+        "direction": "-",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.8894,  
+            "long": -68.84185
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Super Uno",
+        "direction": "-",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.89379,
+            "long": -68.84606
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Super A",
+        "direction": "-",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.89407, 
+            "long": -68.84049
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Cajero Automático Link",
+        "direction": "Banco Industrial, Av. San Martín 1126, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "cajero_automatico",
+        "coord": {
+            "lat": -32.890021230724116,   
+            "long": -68.83945218650729
+        }
+      },
+      {
         "id": "loc_003",
         "name": "SUB-SECRETARIA DE CULTURA/ EX BANCO HIPOTECARIO",
         "category": "equipamiento_basico",
@@ -30,6 +184,39 @@
         "coord": {
             "lat": -32.88816, 
             "long": -68.84175
+        }
+      },
+      {
+        "id": "loc_003",
+        "name": "ESPACIO CONTEMPORÁNEO DE ARTE 'ELIANA MOLINELLI'",
+        "direction": "9 de Julio S/n, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "cultura",
+        "coord": {
+            "lat": -32.88815, 
+            "long": -68.84006
+        }
+      },
+      {
+        "id": "loc_003",
+        "name": "MUSEO DEL PASADO CUYANO",
+        "direction": "-",
+        "category": "equipamiento_basico",
+        "subcategory": "cultura",
+        "coord": {
+            "lat": -32.89162,  
+            "long": -68.84705
+        }
+      },
+      {
+        "id": "loc_003",
+        "name": "MMAMM",
+        "direction": "Gral. Espejo, M5502 Capital, Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "cultura",
+        "coord": {
+            "lat": -32.89005,
+            "long": -68.84464
         }
       },
       {
@@ -41,6 +228,39 @@
         "coord": {
             "lat": -32.885284297599426,
             "long": -68.84639152896551
+        }
+      },
+      {
+        "id": "loc_004",
+        "name": "Club de Gimnasia y Esgrima Mendoza",
+        "direction": "Gutiérrez 261, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "deporte",
+        "coord": {
+            "lat": -32.88777,
+            "long": -68.84206
+        }
+      },
+      {
+        "id": "loc_004",
+        "name": "Óptica Visión",
+        "direction": "Av. España 1194, M5500 DXY, Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "salud",
+        "coord": {
+            "lat": -32.8892, 
+            "long": -68.84182
+        }
+      },
+      {
+        "id": "loc_004",
+        "name": "ALEXANDER FLEMING",
+        "direction": "-",
+        "category": "equipamiento_basico",
+        "subcategory": "salud",
+        "coord": {
+            "lat": -32.8937, 
+            "long": -68.8466
         }
       },
       {
@@ -64,8 +284,28 @@
         }
       },
       {
+        "id": "loc_006",
+        "name": "Plaza Italia",
+        "category": "espacios_verdes",
+        "subcategory": "espacios_verdes",
+        "coord": {
+            "lat": -32.89151,
+            "long": -68.84862
+        }
+      },
+      {
+        "id": "loc_006",
+        "name": "Plaza España",
+        "category": "espacios_verdes",
+        "subcategory": "espacios_verdes",
+        "coord": {
+            "lat": -32.89296, 
+            "long": -68.84204
+        }
+      },
+      {
         "id": "loc_007",
-        "name": "ESTACIÓN BELGRANO",
+        "name": "Estación Belgrano",
         "direction": "Reconquista 100, M5502 Mendoza",
         "category": "movilidad",
         "subcategory": "metrotranvia",
@@ -83,6 +323,28 @@
         "coord": {
             "lat": -32.889224448202434, 
             "long": -68.8448743219959
+        }
+      },
+      {
+        "id": "loc_008",
+        "name": "Parada Bicitran",
+        "direction": "Av. Las Heras 798, M5500 Mendoza",
+        "category": "movilidad",
+        "subcategory": "estaciones_de_bicicleta",
+        "coord": {
+            "lat": -32.88397760960046, 
+            "long": -68.8484464
+        }
+      },
+      {
+        "id": "loc_008",
+        "name": "Parada Perú y Espejo",
+        "direction": " M5502 Capital, Mendoza, Argentina",
+        "category": "movilidad",
+        "subcategory": "paradas_de_colectivo",
+        "coord": {
+            "lat": -32.88812570849165, 
+            "long": -68.8481247865073 
         }
       }
     ]
