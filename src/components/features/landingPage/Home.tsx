@@ -17,15 +17,17 @@ const Home = () => {
       id="home"
       className="relative overflow-hidden bg-background-primary flex items-center flex-col w-full min-h-screen md:min-h-[110vh] overflow-x-hidden"
     >
-        <div className="absolute top-0 right-0 flex gap-3 p-4">
-          <div className="">
-            <img src={logoMuni} className="h-11" alt="Logo de la Municipalidad de la Ciudad de Mendoza" />
+        <div className="absolute top-0 left-0 flex justify-end xl:justify-between gap-3 p-4 w-full">
+          <div className="flex items-center p-1">
+            <img src={logoMuni} className="h-10" alt="Logo de la Municipalidad de la Ciudad de Mendoza" />
           </div>
-          <div className="p-1">
-            <img src={logoBloomberg} className="h-11" alt="Logo de Bloomberg" />
-          </div>
-          <div>
-            <img src={logoBloomberg2} className="w-11 h-11" alt="Logo de Bloomberg" />
+          <div className="flex items-center gap-3">
+            <div className="p-1">
+              <img src={logoBloomberg2} className="w-11 h-11" alt="Logo de Bloomberg" />
+            </div>
+            <div className="p-1">
+              <img src={logoBloomberg} className="h-11" alt="Logo de Bloomberg" />
+            </div>
           </div>
         </div>
         <Box
