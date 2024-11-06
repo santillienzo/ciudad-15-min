@@ -1,5 +1,6 @@
 import { Instagram } from "lucide-react";
 import logo from "@/assets/svg/Logo blanco.svg";
+import logoUNC from "@/assets/img/uncuyo_blanco.png";
 
 const Footer = () => {
   return (
@@ -42,44 +43,50 @@ const Footer = () => {
 
           {/* Sección de redes sociales */}
           <div className="flex flex-col items-center lg:items-start">
-            <h3 className="text-xl md:text-lg font-semibold mb-4">Redes Sociales</h3>
-            <div className="mb-4">
-              <h4 className="font-semibold mb-2">En Busca de la Ciudad en 15 Minutos</h4>
-              <a 
-                href="https://www.instagram.com/ciudad_15mza/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-300"
-              >
-                <Instagram className="h-6 w-6 text-pink-500" />
-                <span>Instagram (@ciudad_15mza)</span>
-              </a>
+            <div className="mb-8">
+              <h3 className="text-xl md:text-lg font-semibold mb-4">Instituciones vinculantes</h3>
+              <img src={logoUNC} alt="Logo de la Universidad Nacional de Cuyo" className="h-10" />
             </div>
-            <div className="mb-4">
-              <h4 className="font-semibold mb-2">Bloomberg Philanthropies</h4>
-              <a 
-                href="https://www.instagram.com/bloombergdotorg/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-300"
-              >
-                <Instagram className="h-6 w-6 text-pink-500" />
-                <span>Instagram (@bloombergdotorg)</span>
-              </a>
+            <div>
+                <h3 className="text-xl md:text-lg font-semibold mb-4">Redes Sociales</h3>
+                <div className="mb-4">
+                  <h4 className="font-semibold mb-2">En Busca de la Ciudad en 15 Minutos</h4>
+                  <a 
+                    href="https://www.instagram.com/ciudad_15mza/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-300"
+                  >
+                    <Instagram className="h-6 w-6 text-pink-500" />
+                    <span>Instagram (@ciudad_15mza)</span>
+                  </a>
+                </div>
+                <div className="mb-4">
+                  <h4 className="font-semibold mb-2">Bloomberg Philanthropies</h4>
+                  <a 
+                    href="https://www.instagram.com/bloombergdotorg/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-300"
+                  >
+                    <Instagram className="h-6 w-6 text-pink-500" />
+                    <span>Instagram (@bloombergdotorg)</span>
+                  </a>
+                </div>
+                <div className="mb-4">
+                  <h4 className="font-semibold mb-2">Ciudad de Mendoza</h4>
+                  <a 
+                    href="https://www.instagram.com/mendozaciudad/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-300"
+                  >
+                    <Instagram className="h-6 w-6 text-pink-500" />
+                    <span>Instagram (@mendozaciudad)</span>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="mb-4">
-              <h4 className="font-semibold mb-2">Ciudad de Mendoza</h4>
-              <a 
-                href="https://www.instagram.com/mendozaciudad/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-gray-300"
-              >
-                <Instagram className="h-6 w-6 text-pink-500" />
-                <span>Instagram (@mendozaciudad)</span>
-              </a>
-            </div>
-          </div>
 
           {/* Logo del evento */}
           <div className="flex justify-center lg:justify-end">
