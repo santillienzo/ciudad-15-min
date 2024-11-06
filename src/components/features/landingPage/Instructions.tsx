@@ -28,7 +28,7 @@ const Instructions = () => {
                 <SquarePen />
             </div>
             <div className="ml-4">
-              <h3 className="text-2xl font-bold">Regístrate</h3>
+              <h3 className="text-2xl font-bold">Registrate</h3>
               <p className="text-xl">Ingresá tus datos y esperá la cuenta regresiva para el evento. ¡Preparáte para el desafío en la ciudad de Mendoza!</p>
             </div>
           </motion.div>
