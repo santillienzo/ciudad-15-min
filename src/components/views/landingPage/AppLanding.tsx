@@ -8,6 +8,7 @@ import Header from '@/components/layout/landingPage/Header';
 import Participation from '@/components/features/landingPage/Participation';
 import AboutUs from '@/components/features/landingPage/Motivation';
 import Instructions from '@/components/features/landingPage/Instructions';
+import Sponsors from '@/components/features/landingPage/Sponsors';
 // import Layout from './components/layout/landingPage/Layout';
 // import Countdown from './components/views/landingPage/Countdown';
 
@@ -20,6 +21,7 @@ const AppLanding = () => {
       <MoreAbout />
       <Participation/>
       <Instructions/>
+      <Sponsors/>
       <Footer />
     </ChakraProvider>
   );
