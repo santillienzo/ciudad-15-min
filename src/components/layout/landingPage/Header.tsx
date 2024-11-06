@@ -30,9 +30,9 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed max-sm:hidden flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 top-0 left-0">
+      <header className="fixed max-sm:hidden flex items-center justify-between xl:justify-start w-full py-4 px-6 md:px-8 h-16 md:h-20 z-50 top-2 left-0">
         {/* Desktop Menu */}
-        <nav className="hidden xl:flex w-full justify-center gap-10 items-center">
+        <nav className="hidden xl:flex w-full justify-center  gap-10 items-center">
           <ul className="flex flex-row items-center gap-8 text-button-cta-secondary-foreground">
             {navItems.map(({ href, label }) => (
               <a key={label} href={href} className="font-semibold text-md">

@@ -28,8 +28,8 @@ const Instructions = () => {
                 <SquarePen />
             </div>
             <div className="ml-4">
-              <h3 className="text-2xl font-bold">Regístrate</h3>
-              <p className="text-xl">Ingresa tus datos y espera la cuenta regresiva para el evento. ¡Prepárate para el desafío en la ciudad de Mendoza!</p>
+              <h3 className="text-2xl font-bold">Registrate</h3>
+              <p className="text-xl">Ingresá tus datos y esperá la cuenta regresiva para el evento. ¡Preparáte para el desafío en la ciudad de Mendoza!</p>
             </div>
           </motion.div>
 
@@ -45,7 +45,7 @@ const Instructions = () => {
             </div>
             <div className="ml-4">
               <h3 className="text-2xl font-bold">Explorá y Escaneá</h3>
-              <p className="text-xl">Durante el evento, usa el mapa interactivo para caminar hacia los lugares cercanos de la ciudad y escanear los códigos QR.</p>
+              <p className="text-xl">Durante el evento, usá el mapa interactivo para caminar hacia los lugares cercanos de la ciudad y escaneá los códigos QR.</p>
             </div>
           </motion.div>
 
@@ -61,7 +61,7 @@ const Instructions = () => {
             </div>
             <div className="ml-4">
               <h3 className="text-2xl font-bold">Regresá y Ganá</h3>
-              <p className="text-xl">Vuelve al punto de inicio en la Plaza Independencia y escanea el QR final en el tiempo determinado. ¡Todos los que lo logran participan en un sorteo!</p>
+              <p className="text-xl">Volvé al punto de inicio en la Plaza Independencia y escaneá el QR final en el tiempo determinado. ¡Todos los que lo logran participan en un sorteo!</p>
             </div>
           </motion.div>
         </div>
