@@ -3,19 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import qrInfo from "@/lib/data/locations.json";
 import { useReactToPrint } from "react-to-print";
 import { Button } from "@chakra-ui/react";
+import { Location } from "@/lib/types/location.types";
 // import QRCode from "react-qr-code";
 
-interface QRData {
-  id: string;
+interface QRData extends Location {
   source: string;
-  name: string;
-  category: string;
-  subcategory: string;
-  direction?: string;
-  coord: {
-    lat: number;
-    long: number;
-  }
 }
 
 const QrCodeGenerator: React.FC = () => {
@@ -36,10 +28,10 @@ const QrCodeGenerator: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <div>
-        <div className="w-[90%] px-[2rem]">
-          <h2 className="text-3xl text-center">QrCodeGen App</h2>
+    <div>
+      <div className="mb-6">
+        <h2 className="text-3xl text-center">QrCodeGen App</h2>
+        <div className="flex justify-center">
           <Button
             onClick={()=> reactToPrintFn()}
             style={{
@@ -58,49 +50,37 @@ const QrCodeGenerator: React.FC = () => {
             Imprimir / Guardar PDF
           </Button>
         </div>
-        <div ref={contentRef}>
-          <div className="qrcode-container">
-            {qrCodes.map((item, index) => (
-              <div key={index} className="qrcode-item">
-                <div
-                  style={{
-                    backgroundColor: "#fff",
-                    width: "100%",
-                    height: "auto",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    paddingBottom: "2rem",
-                  }}
-                >
-                  <h3>{`${item.name}`}</h3>
-                  <div id={`qr-code-${item.id}`}>
-                    <QRCodeSVG
-                      value={JSON.stringify({
-                          id: item.id,
-                          source: item.source,
-                          name: item.name,
-                          direction: item.direction,
-                          category: item.category,
-                          subcategory: item.subcategory,
-                        })
-                      }
-                      level="L"
-                      style={{
-                        width: "100%" /* Ajustar a 100% del contenedor */,
-                        height: "auto",
-                        maxWidth: "200px" /* Tamaño máximo en la web */,
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
-    </>
+      <div ref={contentRef} className="m-auto pt-2">
+        {qrCodes.map((item, index) => (
+                  <div key={index} className="h-full border-2 border-gray-300 mb-1 flex justify-between p-5">
+                    <div className="mb-6 w-1/2">
+                      <h3 className="font-bold text-5xl mb-6 block">{`${item.name}`}</h3>
+                      <p className="text-xs">{`${item.direction ? item.direction : '-'}`}</p>
+                    </div>
+                    <div id={`qr-code-${item.id}`} className="flex justify-center items-center  w-1/2">
+                      <QRCodeSVG
+                        value={JSON.stringify({
+                            id: item.id,
+                            source: item.source,
+                            name: item.name,
+                            direction: item.direction,
+                            category: item.category,
+                            subcategory: item.subcategory,
+                          })
+                        }
+                        level="L"
+                        style={{
+                          width: "100%" /* Ajustar a 100% del contenedor */,
+                          height: "auto" /* Tamaño máximo en la web */,
+                          maxWidth: "300px"
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+      </div>
+    </div>
   );
 };
 

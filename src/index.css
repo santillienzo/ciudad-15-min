@@ -118,24 +118,6 @@ body {
   height: 100%;
 }
 
-/* Estilos generales para la web y la impresión */
-.qrcode-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 1 QR por columna en pantallas pequeñas, más en grandes */
-  gap: 20px; /* Espacio entre QR en la web */
-  padding: 20px;
-}
-
-.qrcode-item {
-  /* background-color: #f0f0f0; */
-  padding: 10px;
-  /* border-radius: 5px; */
-  text-align: center;
-}
-
-.qrcode-item h3 {
-  margin-bottom: 10px;
-}
 
 /* Estilos para impresión */
 @media print {

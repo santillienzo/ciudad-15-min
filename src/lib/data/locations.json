@@ -212,6 +212,17 @@
       {
         "id": "loc_002",
         "name": "CAJERO AUTOMATICO BANCO MACRO",
+        "direction": "9 de Julio 1401, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "cajero_automatico",
+        "coord": {
+            "lat": -32.88690172485609,
+            "long": -68.83964556931389
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "CAJERO AUTOMATICO BANCO MACRO",
         "direction": "Av. Colón 737, M5500 Mendoza",
         "category": "comercio",
         "subcategory": "cajero_automatico",
