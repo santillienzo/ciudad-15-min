@@ -16,7 +16,6 @@ export const initialCategoriesVisited:CategoriesVisited = {
       cultura: false,
       educacion: false,
       deporte: false,
-      bienestar_social: false,
       salud: false
     },
     espacios_verdes: {
