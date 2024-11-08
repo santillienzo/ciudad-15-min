@@ -1,6 +1,6 @@
 import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 import { motion } from "framer-motion";
-import { ChevronRight, SearchCheck } from "lucide-react";
+import { ChevronRight, Eye, EyeOff, SearchCheck } from "lucide-react";
 import { useState } from "react";
 
 const variants = {
@@ -23,13 +23,20 @@ const variants = {
 interface Props {
     name: string;  // 0-4 (index) of the category in the colors array
     subcategories: { [key: string]: boolean; }; //
+    visibility: { [key: string]: boolean; };
+    handleVisibility: (category: string) => void;
 }
 
-const CategoryItem = ({ name, subcategories }:Props) => {
+const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Props) => {
     const [open, setOpen] = useState(false)
 
     const handleOpen = () => {
         setOpen(!open)
+    }
+
+    const handleVisibilityClick = (event: React.MouseEvent<HTMLDivElement>) => {
+        event.stopPropagation()
+        handleVisibility(name)
     }
 
     return (
@@ -41,6 +48,11 @@ const CategoryItem = ({ name, subcategories }:Props) => {
             onClick={handleOpen}
         >
             <div className="flex w-full">
+                <div className="mr-2" onClick={handleVisibilityClick}>
+                    {
+                        visibility[name] ? <Eye color="white" /> : <EyeOff color="white"/>
+                    }
+                </div>
                 <span className="flex-1">
                     {formatCategoryName(name)}
                 </span>
