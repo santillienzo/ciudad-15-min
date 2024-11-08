@@ -32,7 +32,12 @@ const sidebar = {
     }
 };
 
-const CategoryWrapper = () => {
+interface Props {
+    visibility: { [key: string]: boolean };
+    handleVisibility: (category: string) => void;
+}
+
+const CategoryWrapper = ({visibility, handleVisibility}: Props) => {
     //Toggle open
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
@@ -47,7 +52,7 @@ const CategoryWrapper = () => {
             className="absolute bottom-0 left-0 w-full h-2/3 bg-background-secondary rounded-t-2xl overflow-hidden"
             variants={sidebar}
         >
-            <CategoryDrawer />
+            <CategoryDrawer visibility={visibility} handleVisibility={handleVisibility}/>
             <CategoryButton toggle={() => toggleOpen()}/>
         </motion.nav>
     )

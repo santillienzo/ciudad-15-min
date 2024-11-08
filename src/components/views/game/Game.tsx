@@ -6,17 +6,36 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {locations} from "@/lib/data/locations.json"
 import { colorCategoryDictionary } from '@/lib/utils.string';
+import { Location } from '@/lib/types/location.types';
 
 const position = { lat: -32.88943218488501, lng: -68.84481014373047 };
 
 const Game = () => {
   const navigate = useNavigate();
-
+  const [visibility, setVisibility] = useState<{ [key: string]: boolean }>({
+    comercio: true,
+    equipamiento_basico: false,
+    espacios_verdes: false,
+    movilidad: false,
+  });
+  const [renderLocations, setRenderLocations] = useState<Location[]>([]);
+  
   const [currentPosition, setCurrentPosition] = useState<{
     lat: number;
     lng: number;
   }>(position);
   const [isMapDragged, setIsMapDragged] = useState(false);
+
+  const handleVisibility = (category: string) => {
+    setVisibility({
+      ...visibility,
+      [category]: !visibility[category]
+    });
+  };
+
+  useEffect(() => {
+    setRenderLocations(locations.filter(({category}) => visibility[category]))
+  }, [visibility])
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -52,9 +71,9 @@ const Game = () => {
     navigate("/scanner");
   };
 
-    const redirectToLobby = ()=> {
-      navigate('/game-lobby');
-    }
+  const redirectToLobby = ()=> {
+    navigate('/game-lobby');
+  }
 
   return (
     <>
@@ -73,15 +92,15 @@ const Game = () => {
               streetViewControl={false}
             >
               {/* Acá van los pins de las ubicaciones */}
-              {locations.map(location => {
-                const {background, borderColor, glyphColor} = colorCategoryDictionary(location.category)
+              {renderLocations.map(({category, coord, name, id}) => {
+                const {background, borderColor, glyphColor} = colorCategoryDictionary(category)
 
                 return (
                   <AdvancedMarker
-                    key={location.id}
-                    position={{ lat: location.coord.lat, lng: location.coord.long }}
+                    key={id}
+                    position={{ lat: coord.lat, lng: coord.long }}
                     // Puedes agregar un title o un evento onClick para mostrar más detalles de la ubicación
-                    title={location.name}
+                    title={name}
                     className='relative'
                   >
                     <Pin
@@ -100,7 +119,7 @@ const Game = () => {
           <ThemeButton onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
             Escanear <QrCode size={32}/>
           </ThemeButton>
-          <CategoryWrapper/>
+          <CategoryWrapper visibility={visibility} handleVisibility={handleVisibility}/>
       </div>
     </>
   );
