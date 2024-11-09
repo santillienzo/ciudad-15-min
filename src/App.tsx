@@ -17,15 +17,15 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<AppLanding/>} />
-        <Route path="/game-lobby" element={<GameLobby />} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/recover-password" element={<RecoverPassword/>} />
+        <Route path="/lobby-juego" element={<GameLobby />} />
+        <Route path="/iniciar-sesion" element={<Login/>} />
+        <Route path="/registrarse" element={<Register/>} />
+        <Route path="/recuperar-contraseña" element={<RecoverPassword/>} />
 
         {/* Rutas protegidas  */}
-        <Route path="/game" element={<ProtectedRoute component={<Game/>} />} />
-        <Route path="/scanner" element={<ProtectedRoute component={<QrReader/>} />} />
-        <Route path="/qr-generator" element={<ProtectedRoute component={<QrCodeGenerator/>} />} />
+        <Route path="/juego" element={<ProtectedRoute component={<Game/>} />} />
+        <Route path="/lector-qr" element={<ProtectedRoute component={<QrReader/>} />} />
+        <Route path="/generador-qr" element={<ProtectedRoute component={<QrCodeGenerator/>} />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

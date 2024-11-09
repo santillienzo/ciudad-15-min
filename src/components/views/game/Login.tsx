@@ -30,7 +30,7 @@ const Login = () => {
     toast.promise(registeredUser, {
       loading: 'Controlando info...',
       success: () => {
-        navigate('/game-lobby')
+        navigate('/lobby-juego')
         return `Iniciaste sesión correctamente`;
       },
       error: (error) => {
@@ -40,7 +40,7 @@ const Login = () => {
   }
 
   const redirectToLobby = ()=> {
-    navigate('/game-lobby');
+    navigate('/lobby-juego');
   }
 
   return (
@@ -54,7 +54,7 @@ const Login = () => {
     {/* Texto de redirección al login */}
     <p className="mb-6">
       ¿No tenés cuenta?{" "}
-      <Link to="/register">
+      <Link to="/registrarse">
         Registrate
       </Link>
     </p>
@@ -91,7 +91,7 @@ const Login = () => {
         <ThemeButton className="w-full mt-6 text-lg" type="submit">
           Iniciar sesión
         </ThemeButton>
-        <Link to="/recover-password" className="w-full mt-6 block text-center">
+        <Link to="/recuperar-contraseña" className="w-full mt-6 block text-center">
           Olvidé mi contraseña
         </Link>
       </form>

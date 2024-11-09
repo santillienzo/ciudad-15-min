@@ -69,11 +69,11 @@ const Game = () => {
   };
 
   const redirecToScanner = () => {
-    navigate("/scanner");
+    navigate("/lector-qr");
   };
 
   const redirectToLobby = ()=> {
-    navigate('/game-lobby');
+    navigate('/lobby-juego');
   }
 
   return (
