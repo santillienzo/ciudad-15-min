@@ -5,10 +5,11 @@ export interface CategoriesVisited {
 }
 
 export interface UserData {
+    id?: string,
     name: string,
     lastname: string,
     birthday: string,
     dni: string,
     email: string,
-    locationVisited: CategoriesVisited
+    locationVisited?: CategoriesVisited
 }
