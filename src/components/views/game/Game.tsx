@@ -1,12 +1,13 @@
 import ThemeButton from '@/components/common/ThemeButton';
 import CategoryWrapper from '@/components/features/game/category/CategoryWrapper';
 import { AdvancedMarker, Map, Pin } from '@vis.gl/react-google-maps';
-import { House, QrCode } from 'lucide-react';
+import { House, QrCode} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {locations} from "@/lib/data/locations.json"
 import { colorCategoryDictionary } from '@/lib/utils.string';
 import { Location } from '@/lib/types/location.types';
+import UserMarker from '@/components/features/game/map/UserMarker';
 
 const position = { lat: -32.88943218488501, lng: -68.84481014373047 };
 
@@ -91,6 +92,9 @@ const Game = () => {
               clickableIcons={false}
               streetViewControl={false}
             >
+              {/* Pin de la ubicación actual */}
+              <UserMarker currentPosition={currentPosition}/>
+
               {/* Acá van los pins de las ubicaciones */}
               {renderLocations.map(({category, coord, name, id}) => {
                 const {background, borderColor, glyphColor} = colorCategoryDictionary(category)
@@ -112,8 +116,6 @@ const Game = () => {
                   </AdvancedMarker>
                 )
               })}
-
-              <AdvancedMarker position={currentPosition} />
             </Map> 
           </div>
           <ThemeButton onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
