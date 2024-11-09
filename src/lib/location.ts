@@ -44,7 +44,7 @@ export const markLocation = async ({userId, userData, cat, subCat}: {
         const locationVisited = userData.locationVisited;
 
         const updatedCategory = {
-            ...locationVisited[cat],
+            ...locationVisited?.[cat],
             [subCat]: true
         };
 
