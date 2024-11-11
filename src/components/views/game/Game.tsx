@@ -73,7 +73,7 @@ const Game = () => {
   };
 
   const redirectToLobby = ()=> {
-    navigate('/lobby-juego');
+    navigate('/lobby');
   }
 
   return (

@@ -12,7 +12,7 @@ const Register = () => {
   }
 
   const redirectToLobby = ()=> {
-    navigate('/lobby-juego');
+    navigate('/lobby');
   }
 
   return (

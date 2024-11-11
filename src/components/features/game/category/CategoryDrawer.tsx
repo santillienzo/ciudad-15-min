@@ -26,7 +26,8 @@ const CategoryDrawer = ({visibility, handleVisibility}: Props) => {
 
   return (
     <motion.div variants={variants} className="pt-6 px-4 flex flex-col gap-3 h-full overflow-auto">
-      {Object.entries(userData.locationVisited).map(([categorie, subcategories]) => (
+
+      {userData.locationVisited && Object.entries(userData.locationVisited).map(([categorie, subcategories]) => (
         <CategoryItem name={categorie} subcategories={subcategories} key={categorie} visibility={visibility} handleVisibility={handleVisibility} />
       ))}
     </motion.div>
