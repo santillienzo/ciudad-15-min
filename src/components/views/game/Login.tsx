@@ -30,7 +30,7 @@ const Login = () => {
     toast.promise(registeredUser, {
       loading: 'Controlando info...',
       success: () => {
-        navigate('/lobby-juego')
+        navigate('/lobby')
         return `Iniciaste sesión correctamente`;
       },
       error: (error) => {
@@ -40,7 +40,7 @@ const Login = () => {
   }
 
   const redirectToLobby = ()=> {
-    navigate('/lobby-juego');
+    navigate('/lobby');
   }
 
   return (

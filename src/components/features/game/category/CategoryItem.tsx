@@ -1,7 +1,8 @@
 import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 import { motion } from "framer-motion";
-import { ChevronRight, Eye, EyeOff, SearchCheck } from "lucide-react";
+import { ChevronRight, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { categories } from "@/lib/data/categories";
 
 const variants = {
     open: {
@@ -29,6 +30,7 @@ interface Props {
 
 const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Props) => {
     const [open, setOpen] = useState(false)
+    const category = categories.find((category) => category.name === name)
 
     const handleOpen = () => {
         setOpen(!open)
@@ -80,11 +82,14 @@ const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Prop
             >
                 {
                     Object.entries(subcategories).map(([subcategory, visited]) => (
-                        <div key={subcategory} className="p-4 flex">
+                        <div key={subcategory} className="p-4 flex items-center">
                             <span className="flex-1">
                                 {formatSubcategoryName(subcategory)}
                             </span>
-                            <SearchCheck color={visited ? "#2213a8": "#cecece"}/>
+                            {
+                                visited ?  <img src={category?.icons.enable} alt={name} width={40} height={40}/> : 
+                                            <img src={category?.icons.disable} alt={name} width={40} height={40}/>
+                            }
                         </div>
                     ))
                 }

@@ -18,7 +18,7 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<AppLanding/>} />
-        <Route path="/lobby-juego" element={<GameLobby />} />
+        <Route path="/lobby" element={<GameLobby />} />
         <Route path="/iniciar-sesion" element={<Login/>} />
         <Route path="/registrarse" element={<Register/>} />
         <Route path="/recuperar-contraseña" element={<RecoverPassword/>} />
