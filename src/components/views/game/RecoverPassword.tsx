@@ -22,7 +22,7 @@ const RecoverPassword = () => {
       toast.promise(response, {
         loading: 'Enviando email...',
         success: () => {
-          navigate('/login')
+          navigate('/iniciar-sesion')
           return `El email se envió correctamente. Revisa tu bandeja de entrada`;
         },
         error: (error) => {

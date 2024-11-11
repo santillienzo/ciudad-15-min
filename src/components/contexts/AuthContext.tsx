@@ -89,7 +89,7 @@ export const AuthProvider = ({ children }: Props) => {
   }
 
   const recoverPassword = async (email: string) => sendPasswordResetEmail(auth, email, {
-    url: window.location.origin + "/login"
+    url: window.location.origin + "/iniciar-sesion"
   })
 
   return (
