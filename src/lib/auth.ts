@@ -3,7 +3,7 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from
 import { doc, setDoc } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
 import { firebaseErrorHandler, generalErrorHandler } from "@/lib/handleError";
-import { initialCategoriesVisited } from "./location";
+import { initialCategoriesVisited } from "./userActions";
 
 export interface IRegisterData {
   name: string;

@@ -4,7 +4,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Skeleton } from "@/components/ui/skeleton";
 import { db } from "@/lib/firebaseConfig";
 import { UserData } from "@/lib/types/user.types";
-import { hasVisitedAllCategories } from "@/lib/utils";
+import { hasVisitedAllCategories } from "@/lib/userActions";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 

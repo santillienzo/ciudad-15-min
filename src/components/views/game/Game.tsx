@@ -10,7 +10,7 @@ import { Location } from '@/lib/types/location.types';
 import UserMarker from '@/components/features/game/map/UserMarker';
 import { useAuth } from '@/components/contexts/AuthContext';
 import { toast } from 'sonner';
-import { hasVisitedAllCategories } from '@/lib/utils';
+import { hasVisitedAllCategories } from '@/lib/userActions';
 
 const squarePosition = { lat: -32.88943218488501, lng: -68.84481014373047 };
 
