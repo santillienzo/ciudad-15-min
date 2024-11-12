@@ -1,18 +1,24 @@
 import ThemeButton from '@/components/common/ThemeButton';
 import CategoryWrapper from '@/components/features/game/category/CategoryWrapper';
 import { AdvancedMarker, Map, Pin } from '@vis.gl/react-google-maps';
-import { House, QrCode} from 'lucide-react';
+import { House, QrCode, Undo2} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {locations} from "@/lib/data/locations.json"
 import { colorCategoryDictionary } from '@/lib/utils.string';
 import { Location } from '@/lib/types/location.types';
 import UserMarker from '@/components/features/game/map/UserMarker';
+import { useAuth } from '@/components/contexts/AuthContext';
+import { toast } from 'sonner';
+import { hasVisitedAllCategories } from '@/lib/utils';
 
-const position = { lat: -32.88943218488501, lng: -68.84481014373047 };
+const squarePosition = { lat: -32.88943218488501, lng: -68.84481014373047 };
 
 const Game = () => {
   const navigate = useNavigate();
+  const {userData} = useAuth()
+
+  const [isMounted, setIsMounted] = useState(false);
   const [visibility, setVisibility] = useState<{ [key: string]: boolean }>({
     comercio: true,
     equipamiento_basico: false,
@@ -24,7 +30,7 @@ const Game = () => {
   const [currentPosition, setCurrentPosition] = useState<{
     lat: number;
     lng: number;
-  }>(position);
+  }>(squarePosition);
   const [isMapDragged, setIsMapDragged] = useState(false);
 
   const handleVisibility = (category: string) => {
@@ -37,6 +43,7 @@ const Game = () => {
   useEffect(() => {
     setRenderLocations(locations.filter(({category}) => visibility[category]))
   }, [visibility])
+
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -62,6 +69,26 @@ const Game = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!isMounted || !userData) return
+    
+    if (userData.locationVisited) {
+      const {locationVisited} = userData
+      if (hasVisitedAllCategories(locationVisited)) {
+        toast('Es hora de volver', {
+          description: 'Regresá a Plaza Independencia y escaneá el QR final.',
+          className: 'gap-4 bg-background-primary text-white',
+          classNames: {
+            closeButton: 'top-2 left-2 border-none',
+          },
+          icon: <Undo2 size={24}/>,
+          closeButton: true,
+          duration: Infinity,
+        });
+      }
+    }
+  }, [userData, isMounted])
+
   const handleCenterChanged = () => {
     if (!isMapDragged) {
       setIsMapDragged(true);
@@ -75,6 +102,12 @@ const Game = () => {
   const redirectToLobby = ()=> {
     navigate('/lobby');
   }
+
+  // Add useEffect for mounting
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
 
   return (
     <>

@@ -3,7 +3,8 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Skeleton } from "@/components/ui/skeleton";
 import { db } from "@/lib/firebaseConfig";
-import { CategoriesVisited, UserData } from "@/lib/types/user.types";
+import { UserData } from "@/lib/types/user.types";
+import { hasVisitedAllCategories } from "@/lib/utils";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
@@ -44,19 +45,6 @@ const Ranking = () => {
     
         fetchUsersWithAllCategoriesVisited();
       }, [showCompletedUsers]);
-
-    const hasVisitedAllCategories = (categoriesVisited:CategoriesVisited) => {
-        if (!categoriesVisited) return false;
-
-        for (const category in categoriesVisited) {
-            for (const subCategory in categoriesVisited[category]) {
-            if (!categoriesVisited[category][subCategory]) {
-                return false;
-            }
-            }
-        }
-        return true;
-    };
 
     const closeRankingDialog = () => {
         setIsOpenDialog(false);
