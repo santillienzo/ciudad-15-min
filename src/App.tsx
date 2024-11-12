@@ -13,6 +13,7 @@ import ListQrGenerator from './components/views/qrGenerator/ListQrGenerator';
 import Ranking from './components/views/game/Ranking';
 import GameQr from './components/views/qrGenerator/GameQr';
 import FinishEventQr from './components/views/qrGenerator/FinishEventQr';
+import FinishGame from './components/views/game/FinishGame';
 
 function App() {
 
@@ -29,6 +30,8 @@ function App() {
         <Route path="/juego" element={<ProtectedRoute component={<Game/>} />} />
         <Route path="/ranking" element={<ProtectedRoute component={<Ranking/>} />} />
         <Route path="/lector-qr" element={<ProtectedRoute component={<QrReader/>} />} />
+        <Route path="/finalizar-juego" element={<ProtectedRoute component={<FinishGame/>} />} />
+        
         <Route path="/generador-lista-qr" element={<ProtectedRoute component={<ListQrGenerator/>} />} />
         <Route path="/generador-juego-qr" element={<ProtectedRoute component={<GameQr/>} />} />
         <Route path="/generador-finalizar-qr" element={<ProtectedRoute component={<FinishEventQr/>} />} />

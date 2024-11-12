@@ -93,7 +93,7 @@ const QrReader = () => {
 
   const redirectToFinishGame = () => {
     closeDialog()
-    navigate('/finalizar')
+    navigate('/finalizar-juego')
   }
 
   return (
