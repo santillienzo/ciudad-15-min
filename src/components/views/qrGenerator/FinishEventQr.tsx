@@ -12,7 +12,7 @@ const FinishEventQr = () => {
                 <QRCodeSVG 
                     value={encryptQr(JSON.stringify({
                         source: "ciudad-15-minutos",
-                        event: "finish"
+                        event: "finish-game"
                     }))} 
                     width={'45vmin'} 
                     height={'45vmin'}
