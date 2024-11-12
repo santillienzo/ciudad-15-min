@@ -28,10 +28,11 @@ function App() {
 
         {/* Rutas protegidas  */}
         <Route path="/juego" element={<ProtectedRoute component={<Game/>} />} />
-        <Route path="/ranking" element={<ProtectedRoute component={<Ranking/>} />} />
         <Route path="/lector-qr" element={<ProtectedRoute component={<QrReader/>} />} />
         <Route path="/finalizar-juego" element={<ProtectedRoute component={<FinishGame/>} />} />
-        
+
+        {/* Rutas protegidas para el administrador */}
+        <Route path="/ranking" element={<ProtectedRoute component={<Ranking/>} />} />
         <Route path="/generador-lista-qr" element={<ProtectedRoute component={<ListQrGenerator/>} />} />
         <Route path="/generador-juego-qr" element={<ProtectedRoute component={<GameQr/>} />} />
         <Route path="/generador-finalizar-qr" element={<ProtectedRoute component={<FinishEventQr/>} />} />

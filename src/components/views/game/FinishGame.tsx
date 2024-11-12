@@ -1,22 +1,20 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import confetti from "canvas-confetti"
+import logo from "@/assets/svg/Logo blanco.svg"
+import ThemeButton from "@/components/common/ThemeButton"
 
 const FinishGame = () => {
-    const [show, setShow] = useState(false)
-
     useEffect(() => {
       // Simulate the event completion
       const timer = setTimeout(() => {
-        setShow(true)
         // Trigger confetti effect
         confetti({
-          particleCount: 100,
+          particleCount: 200,
           spread: 70,
           origin: { y: 0.6 }
         })
-      }, 1000)
+      }, 200)
   
       return () => clearTimeout(timer)
     }, [])
@@ -40,33 +38,39 @@ const FinishGame = () => {
     }
   
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-primary/20 to-background">
-        {show && (
-          <motion.div
-            className="text-center p-8 rounded-lg bg-card shadow-lg"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.h2 
-              className="text-3xl font-bold mb-4 text-primary"
-              variants={itemVariants}
-            >
-              ¡Felicitaciones! Completaste el desafío
-            </motion.h2>
-            <motion.p 
-              className="text-xl mb-8 text-muted-foreground"
-              variants={itemVariants}
-            >
-              Gracias por jugar!
-            </motion.p>
+      <div className="h-full bg-background-primary">
+        <motion.div
+          className="flex flex-col justify-between items-center text-center p-4 h-full"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="flex flex-col absolute top-16 left-1/2 -translate-x-1/2  gap-7 w-11/12">
+            <div className="flex flex-col gap-2">
+              <motion.h2 
+                className="text-4xl font-bold text-primary text-white"
+                variants={itemVariants}
+              >
+                ¡Felicitaciones!
+              </motion.h2>
+              <motion.h2 
+                className="text-4xl font-bold mb-4 text-primary text-white"
+                variants={itemVariants}
+              >
+                Completaste
+              </motion.h2>
+            </div>
+            <motion.img src={logo} className="w-full" />
             <motion.div variants={itemVariants}>
-              <Button size="lg" onClick={() => console.log("Continue clicked")}>
+              <ThemeButton size="lg" onClick={() => console.log("Continue clicked")}>
                 Continuar
-              </Button>
+              </ThemeButton>
             </motion.div>
-          </motion.div>
-        )}
+          </div>
+          <p className="absolute bottom-7 text-white">
+            Gracias por jugar!
+          </p>
+        </motion.div>
       </div>
     )
 }
