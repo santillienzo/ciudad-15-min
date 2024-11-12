@@ -9,6 +9,7 @@ import { markLocation } from '@/lib/location';
 import { toast } from 'sonner';
 import { decryptQr } from '@/lib/utils';
 
+
 const QrReader = () => {
   const {user, userData, updateUserData} = useAuth()
   const navigate = useNavigate();

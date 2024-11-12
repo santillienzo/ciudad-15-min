@@ -65,6 +65,7 @@ const QrCodeGenerator: React.FC = () => {
                             direction: item.direction,
                             category: item.category,
                             subcategory: item.subcategory,
+                            event: item.event
                         })
                       )}
                         level="L"
