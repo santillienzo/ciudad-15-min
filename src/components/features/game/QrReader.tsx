@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/components/contexts/AuthContext';
 import { markLocation } from '@/lib/location';
 import { toast } from 'sonner';
+import { decryptQr } from '@/lib/utils';
 
 const QrReader = () => {
   const {user, userData, updateUserData} = useAuth()
@@ -17,15 +18,18 @@ const QrReader = () => {
   const [qrPaused, setQrPaused] = useState(false);
 
   const handleScan = (data: IDetectedBarcode[]) => {
-    const _result = JSON.parse(data[0].rawValue) as IQR;
+    const _result = JSON.parse(decryptQr(data[0].rawValue)) as IQR;
 
     if (_result.source !== 'ciudad-15-minutos') {
       return
     }
 
-    setResult(_result);
-    setOpenDialog(true);
-    setQrPaused(true); // Pausamos el escáner para evitar que se vuelva a leer el código QR
+    //Si es para marcar la ubicación, se muestra el diálogo
+    if (_result.event === 'mark-location') {
+      setResult(_result);
+      setOpenDialog(true);
+      setQrPaused(true); // Pausamos el escáner para evitar que se vuelva a leer el código QR
+    }
   };
 
   const closeDialog = ()=>{
@@ -41,8 +45,8 @@ const QrReader = () => {
       const markingLocation = markLocation({
         userData, 
         userId: user.uid,
-        cat: result.category,
-        subCat: result.subcategory,
+        cat: result.category || '',
+        subCat: result.subcategory || '',
       })
 
       toast.promise(markingLocation, {

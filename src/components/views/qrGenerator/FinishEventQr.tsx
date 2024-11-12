@@ -1,5 +1,6 @@
 import { QRCodeSVG } from "qrcode.react";
 import background from '../../../assets/svg/Edificios.svg'
+import { encryptQr } from "@/lib/utils";
 
 
 const FinishEventQr = () => {
@@ -9,10 +10,10 @@ const FinishEventQr = () => {
             <h1 className="text-[10vmin] font-bold p-4 pt-10 text-center text-white">¡Escaneá el siguiente QR para finalizar el juego!</h1>
             <div className="flex flex-1 justify-center items-center w-full relative">
                 <QRCodeSVG 
-                    value={JSON.stringify({
+                    value={encryptQr(JSON.stringify({
                         source: "ciudad-15-minutos",
                         event: "finish"
-                    })} 
+                    }))} 
                     width={'45vmin'} 
                     height={'45vmin'}
                     className="z-10"

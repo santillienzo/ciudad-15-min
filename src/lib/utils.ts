@@ -18,3 +18,11 @@ export const hasVisitedAllCategories = (categoriesVisited:CategoriesVisited) => 
   }
   return true;
 };
+
+export const encryptQr = (value: string) => {
+  return btoa(value);
+}
+
+export const decryptQr = (value: string) => {
+  return atob(value);
+}
