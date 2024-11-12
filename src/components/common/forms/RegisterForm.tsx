@@ -24,9 +24,26 @@ const RegisterForm = ({variant = 'primary', successCallback}:Props) => {
         password: '',
     });
 
-    const success = () => {
+    const resetForm = () => {
+      setFormData({
+          name: '',
+          lastname: '',
+          dni: '',
+          birthday: '',
+          email: '',
+          password: '',
+      });
+  };
 
+    const defaultSuccess = () => {
         return `Te registraste correctamente en el evento`;
+    }
+
+    const handleSuccess = ()=>{
+      resetForm()
+
+       if(successCallback) return successCallback();
+       return defaultSuccess();
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> ) => {
@@ -42,11 +59,11 @@ const RegisterForm = ({variant = 'primary', successCallback}:Props) => {
         const registeredUser = register(formData)
 
         toast.promise(registeredUser, {
-        loading: 'Controlando info...',
-        success: successCallback || success,
-        error: (error) => {
-            return error.message
-        }
+          loading: 'Controlando info...',
+          success: handleSuccess,
+          error: (error) => {
+              return error.message
+          }
         });
     }
 

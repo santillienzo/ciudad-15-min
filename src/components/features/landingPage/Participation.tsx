@@ -53,7 +53,7 @@ const Participation = () => {
                             <span className='block bg-background-primary p-2 rounded-full'>
                                 <CalendarHeart />
                             </span>
-                            <p>Viernes 22/11 <RiCircleFill className="h-2 inline-flex mb-1" /> 17hs</p>
+                            <p>Viernes 22/11 <RiCircleFill className="h-2 inline-flex mb-1" /> 18hs</p>
                         </motion.div>
                         <motion.div 
                             initial={'rightHidden'}

@@ -1,7 +1,8 @@
 import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 import { motion } from "framer-motion";
-import { ChevronRight, SearchCheck } from "lucide-react";
+import { ChevronRight, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { categories } from "@/lib/data/categories";
 
 const variants = {
     open: {
@@ -23,24 +24,37 @@ const variants = {
 interface Props {
     name: string;  // 0-4 (index) of the category in the colors array
     subcategories: { [key: string]: boolean; }; //
+    visibility: { [key: string]: boolean; };
+    handleVisibility: (category: string) => void;
 }
 
-const CategoryItem = ({ name, subcategories }:Props) => {
+const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Props) => {
     const [open, setOpen] = useState(false)
+    const category = categories.find((category) => category.name === name)
 
     const handleOpen = () => {
         setOpen(!open)
     }
 
+    const handleVisibilityClick = (event: React.MouseEvent<HTMLDivElement>) => {
+        event.stopPropagation()
+        handleVisibility(name)
+    }
+
     return (
         <motion.div
             variants={variants}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.95 }}
+            // whileHover={{ scale: 1.02 }}
+            // whileTap={{ scale: 0.95 }}
             className="bg-background-secondary-muted p-4 rounded-xl text-white"
             onClick={handleOpen}
         >
             <div className="flex w-full">
+                <div className="mr-2" onClick={handleVisibilityClick}>
+                    {
+                        visibility[name] ? <Eye color="white" /> : <EyeOff color="white"/>
+                    }
+                </div>
                 <span className="flex-1">
                     {formatCategoryName(name)}
                 </span>
@@ -68,11 +82,14 @@ const CategoryItem = ({ name, subcategories }:Props) => {
             >
                 {
                     Object.entries(subcategories).map(([subcategory, visited]) => (
-                        <div key={subcategory} className="p-4 flex">
+                        <div key={subcategory} className="p-4 flex items-center">
                             <span className="flex-1">
                                 {formatSubcategoryName(subcategory)}
                             </span>
-                            <SearchCheck color={visited ? "#2213a8": "#cecece"}/>
+                            {
+                                visited ?  <img src={category?.icons.enable} alt={name} width={40} height={40}/> : 
+                                            <img src={category?.icons.disable} alt={name} width={40} height={40}/>
+                            }
                         </div>
                     ))
                 }

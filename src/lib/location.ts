@@ -16,7 +16,6 @@ export const initialCategoriesVisited:CategoriesVisited = {
       cultura: false,
       educacion: false,
       deporte: false,
-      bienestar_social: false,
       salud: false
     },
     espacios_verdes: {
@@ -45,7 +44,7 @@ export const markLocation = async ({userId, userData, cat, subCat}: {
         const locationVisited = userData.locationVisited;
 
         const updatedCategory = {
-            ...locationVisited[cat],
+            ...locationVisited?.[cat],
             [subCat]: true
         };
 

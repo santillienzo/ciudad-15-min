@@ -1,4 +1,39 @@
 
+export const colorCategoryDictionary = (str:string) => {
+    const namesMap: {[kl: string] : {
+        background: string;
+        borderColor: string;
+        glyphColor: string;
+    }} = {
+        "comercio": {
+            background: "#2190A6",
+            borderColor: "#2190A6",
+            glyphColor: "#fff"
+        },
+        "equipamiento_basico": {
+            background: "#EF3C76",
+            borderColor: "#EF3C76",
+            glyphColor: "#fff"
+        },
+        "espacios_verdes": {
+            background: "#A3D063",
+            borderColor: "#A3D063",
+            glyphColor: "#fff"
+        },
+        "movilidad": {
+            background: "#fff",
+            borderColor: "#2190A6",
+            glyphColor: "#2190A6"
+        }
+    };
+    
+    return namesMap[str] || {
+        background: "#fff",
+        borderColor: "#fff",
+        glyphColor: "#2190A6"
+    }; // Si no hay coincidencia, devuelve la cadena original.
+}
+
 export const subcategoriesDictionary = (str:string):string => {
     const namesMap: {[kl: string] : string} = {
       "carniceria": "Carnicería",

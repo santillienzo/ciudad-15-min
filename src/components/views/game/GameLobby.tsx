@@ -8,9 +8,9 @@ const GameLobby = () => {
   const { isAuth, logout } = useAuth();
   const navigate = useNavigate();
   
-  const toPlayRedirect = isAuth() ? '/game' : '/login'
+  const toPlayRedirect = isAuth() ? '/juego' : '/iniciar-sesion'
 
-  const handleLogout = () => logout(()=> navigate("/login"))
+  const handleLogout = () => logout(()=> navigate("/iniciar-sesion"))
 
   return (
     <div className="h-screen flex flex-col justify-between items-center bg-background-primary p-6">
@@ -35,7 +35,7 @@ const GameLobby = () => {
         </Link>
         {
           !isAuth() ?
-            <Link to="/register" className="block">
+            <Link to="/registrarse" className="block">
               <ThemeButton className="w-full text-lg " variant="secondary">
                 Registrarte
               </ThemeButton>

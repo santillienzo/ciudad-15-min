@@ -117,3 +117,26 @@ body {
 #root{ 
   height: 100%;
 }
+
+
+/* Estilos para impresión */
+@media print {
+  @page {
+    size: A4;
+    /* margin: 10mm; */
+  }
+
+  .qrcode-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas por fila en A4 */
+    gap: 10mm;
+    padding: 10mm;
+  }
+
+  .qrcode-item {
+    page-break-inside: avoid;
+  }
+
+  h2, button {
+    display: none; /* Ocultar título y botón en la impresión */
+  }
+}

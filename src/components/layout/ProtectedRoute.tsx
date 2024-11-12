@@ -15,7 +15,7 @@ const ProtectedRoute = ({ component:Component }: Props) => {
 
   // Si no está autenticado, redirige al login
   if (!isAuth()) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/iniciar-sesion" />;
   }
 
   // Si está autenticado, renderiza el componente protegido

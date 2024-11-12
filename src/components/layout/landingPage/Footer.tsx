@@ -1,5 +1,6 @@
 import { Instagram } from "lucide-react";
 import logo from "@/assets/svg/Logo blanco.svg";
+import logoUNC from "@/assets/img/uncuyo_blanco.png";
 
 const Footer = () => {
   return (
@@ -14,45 +15,78 @@ const Footer = () => {
             <h3 className="text-xl md:text-lg font-semibold mb-4">Organizadores del evento</h3>
             <ul className="space-y-4">
               <li>
-                <span className="font-bold">Sánchez Arnau Amparo Pilar</span>
+                <span className="font-bold">Amparo Sánchez</span>
                 <p className="text-gray-400 text-sm">Estudiante de Arquitectura Fing Uncuyo</p>
               </li>
               <li>
-                <span className="font-bold">Copia Leiva Marcos Ezequiel</span>
+                <span className="font-bold">Ezequiel Copia</span>
                 <p className="text-gray-400 text-sm">Estudiante de Arquitectura Fing Uncuyo</p>
               </li>
               <li>
-                <span className="font-bold">Luján Mariana</span>
+                <span className="font-bold">Mariana Luján</span>
                 <p className="text-gray-400 text-sm">Estudiante de Arquitectura Fing Uncuyo</p>
               </li>
               <li>
-                <span className="font-bold">Viazzo Sophía</span>
+                <span className="font-bold">Sophía Viazzo</span>
                 <p className="text-gray-400 text-sm">Estudiante de Arquitectura Fing Uncuyo</p>
               </li>
               <li>
-                <span className="font-bold">Pennesi Leonardo</span>
+                <span className="font-bold">Leonardo Pennesi</span>
                 <p className="text-gray-400 text-sm">Arquitecto</p>
               </li>
               <li>
-                <span className="font-bold">Dra. Arq. Lorena Córica</span>
-                <p className="text-gray-400 text-sm">Responsable institucional de la Facultad de Ingeniería de la universidad Nacional de Cuyo</p>
+                <span className="font-bold">Lorena Córica</span>
+                <p className="text-gray-400 text-sm">Arquitecta responsable institucional de la Facultad de Ingeniería de la universidad Nacional de Cuyo</p>
               </li>
             </ul>
           </div>
 
           {/* Sección de redes sociales */}
           <div className="flex flex-col items-center lg:items-start">
-            <h3 className="text-xl md:text-lg font-semibold mb-4">Redes Sociales</h3>
-            <a 
-              href="https://www.instagram.com/ciudad_15mza/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2"
-            >
-              <Instagram className="h-6 w-6 text-pink-500" />
-              <span>Instagram</span>
-            </a>
-          </div>
+            <div className="mb-8">
+              <h3 className="text-xl md:text-lg font-semibold mb-4">Instituciones vinculantes</h3>
+              <img src={logoUNC} alt="Logo de la Universidad Nacional de Cuyo" className="h-10" />
+            </div>
+            <div>
+                <h3 className="text-xl md:text-lg font-semibold mb-4">Redes Sociales</h3>
+                <div className="mb-4">
+                  <h4 className="font-semibold mb-2">En Busca de la Ciudad en 15 Minutos</h4>
+                  <a 
+                    href="https://www.instagram.com/ciudad_15mza/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-300"
+                  >
+                    <Instagram className="h-6 w-6 text-pink-500" />
+                    <span>Instagram (@ciudad_15mza)</span>
+                  </a>
+                </div>
+                <div className="mb-4">
+                  <h4 className="font-semibold mb-2">Bloomberg Philanthropies</h4>
+                  <a 
+                    href="https://www.instagram.com/bloombergdotorg/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-300"
+                  >
+                    <Instagram className="h-6 w-6 text-pink-500" />
+                    <span>Instagram (@bloombergdotorg)</span>
+                  </a>
+                </div>
+                <div className="mb-4">
+                  <h4 className="font-semibold mb-2">Ciudad de Mendoza</h4>
+                  <a 
+                    href="https://www.instagram.com/mendozaciudad/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-300"
+                  >
+                    <Instagram className="h-6 w-6 text-pink-500" />
+                    <span>Instagram (@mendozaciudad)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
 
           {/* Logo del evento */}
           <div className="flex justify-center lg:justify-end">

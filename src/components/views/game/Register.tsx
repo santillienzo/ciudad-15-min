@@ -12,7 +12,7 @@ const Register = () => {
   }
 
   const redirectToLobby = ()=> {
-    navigate('/game-lobby');
+    navigate('/lobby');
   }
 
   return (
@@ -26,7 +26,7 @@ const Register = () => {
     {/* Texto de redirección al login */}
     <p className="mb-6">
       ¿Ya tenés una cuenta?{" "}
-      <Link to="/login">
+      <Link to="/iniciar-sesion">
         Iniciá sesión
       </Link>
     </p>
