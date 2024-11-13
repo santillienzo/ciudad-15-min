@@ -1,18 +1,24 @@
 import ThemeButton from '@/components/common/ThemeButton';
 import CategoryWrapper from '@/components/features/game/category/CategoryWrapper';
 import { AdvancedMarker, Map, Pin } from '@vis.gl/react-google-maps';
-import { House, QrCode} from 'lucide-react';
+import { House, QrCode, Undo2} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {locations} from "@/lib/data/locations.json"
 import { colorCategoryDictionary } from '@/lib/utils.string';
 import { Location } from '@/lib/types/location.types';
 import UserMarker from '@/components/features/game/map/UserMarker';
+import { useAuth } from '@/components/contexts/AuthContext';
+import { toast } from 'sonner';
+import { hasVisitedAllCategories } from '@/lib/userActions';
 
-const position = { lat: -32.88943218488501, lng: -68.84481014373047 };
+const squarePosition = { lat: -32.88943218488501, lng: -68.84481014373047 };
 
 const Game = () => {
   const navigate = useNavigate();
+  const {userData} = useAuth()
+
+  const [isMounted, setIsMounted] = useState(false);
   const [visibility, setVisibility] = useState<{ [key: string]: boolean }>({
     comercio: true,
     equipamiento_basico: false,
@@ -24,7 +30,7 @@ const Game = () => {
   const [currentPosition, setCurrentPosition] = useState<{
     lat: number;
     lng: number;
-  }>(position);
+  }>(squarePosition);
   const [isMapDragged, setIsMapDragged] = useState(false);
 
   const handleVisibility = (category: string) => {
@@ -37,6 +43,7 @@ const Game = () => {
   useEffect(() => {
     setRenderLocations(locations.filter(({category}) => visibility[category]))
   }, [visibility])
+
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -62,6 +69,26 @@ const Game = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!isMounted || !userData) return
+    
+    if (userData.locationVisited) {
+      const {locationVisited, isFinalized} = userData
+      if (hasVisitedAllCategories(locationVisited) && !isFinalized) {
+        toast('Es hora de volver', {
+          description: 'Regresá a Plaza Independencia y escaneá el QR final.',
+          className: 'gap-4 bg-background-primary text-white',
+          classNames: {
+            closeButton: 'top-2 left-2 border-none',
+          },
+          icon: <Undo2 size={24}/>,
+          closeButton: true,
+          duration: Infinity,
+        });
+      }
+    }
+  }, [userData, isMounted])
+
   const handleCenterChanged = () => {
     if (!isMapDragged) {
       setIsMapDragged(true);
@@ -76,7 +103,13 @@ const Game = () => {
     navigate('/lobby');
   }
 
-  return (
+  // Add useEffect for mounting
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+
+  return isMounted && (
     <>
       <div className='w-full relative' style={{height: '-webkit-fill-available'}}>
           <button onClick={redirectToLobby} className='text-white z-50 absolute top-[10px] right-[10px] w-[60px] h-[60px] rounded-full cursor bg-background-secondary flex items-center justify-center'>
@@ -118,7 +151,7 @@ const Game = () => {
               })}
             </Map> 
           </div>
-          <ThemeButton onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
+          <ThemeButton disabled={userData?.isFinalized} onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
             Escanear <QrCode size={32}/>
           </ThemeButton>
           <CategoryWrapper visibility={visibility} handleVisibility={handleVisibility}/>
@@ -128,66 +161,3 @@ const Game = () => {
 };
 
 export default Game;
-
-// import ThemeButton from '@/components/common/ThemeButton';
-// import { AdvancedMarker, Map } from '@vis.gl/react-google-maps';
-// import { QrCode } from 'lucide-react';
-// import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-
-// const position = {lat: -32.88943218488501, lng: -68.84481014373047};
-// const Game = () => {
-//   const navigate = useNavigate();
-
-//     const [currentPosition, setCurrentPosition] = useState<{ lat: number; lng: number }>(position);
-
-//     useEffect(() => {
-//       if ('geolocation' in navigator) {
-//         const watcher = navigator.geolocation.watchPosition(
-//           (position) => {
-//             const { latitude, longitude } = position.coords;
-//             setCurrentPosition({
-//               lat: latitude,
-//               lng: longitude,
-//             });
-//           },
-//           (error) => {
-//             console.error('Error obteniendo la geolocalización: ', error);
-//           },
-//           {
-//             enableHighAccuracy: true, // Mayor precisión (consume más batería)
-//             maximumAge: 10000, // No obtener ubicaciones anteriores a 10 segundos
-//             timeout: 5000, // Tiempo máximo para esperar una respuesta
-//           }
-//         );
-
-//         // Limpia el watcher cuando el componente se desmonte
-//         return () => navigator.geolocation.clearWatch(watcher);
-//       }
-//     }, []);
-
-//     const redirecToScanner = ()=> {
-//       navigate('/scanner');
-//     }
-
-//   return (
-//     <>
-//       <div className='w-full relative' style={{height: '-webkit-fill-available'}}>
-//           <div className='absolute w-full h-full'>
-//             <Map
-//               defaultCenter={currentPosition}
-//               defaultZoom={15}
-//               mapId='DEMO_MAP_ID'
-//             >
-//               <AdvancedMarker position={currentPosition} />
-//             </Map>
-//           </div>
-//           <ThemeButton onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
-//             Escanear <QrCode size={32}/>
-//           </ThemeButton>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default Game

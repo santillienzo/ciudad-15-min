@@ -3,15 +3,12 @@ import React, { useEffect, useRef, useState } from "react";
 import qrInfo from "@/lib/data/locations.json";
 import { useReactToPrint } from "react-to-print";
 import { Button } from "@chakra-ui/react";
-import { Location } from "@/lib/types/location.types";
+import { encryptQr } from "@/lib/utils";
+import { IQR } from "@/lib/types/qr.types";
 // import QRCode from "react-qr-code";
 
-interface QRData extends Location {
-  source: string;
-}
-
 const QrCodeGenerator: React.FC = () => {
-  const [qrCodes, setQrCodes] = useState<QRData[]>([]);
+  const [qrCodes, setQrCodes] = useState<IQR[]>([]);
   const contentRef = useRef<HTMLDivElement>(null);
   const reactToPrintFn = useReactToPrint({
     contentRef,
@@ -22,7 +19,8 @@ const QrCodeGenerator: React.FC = () => {
     setQrCodes(qrInfo.locations.map(location =>{
       return {
         ...location,
-        source: 'ciudad-15-minutos'
+        source: 'ciudad-15-minutos',
+        event: 'mark-location'
       }
     })); // Carga los primeros 50 códigos QR
   }, []);
@@ -60,15 +58,16 @@ const QrCodeGenerator: React.FC = () => {
                     </div>
                     <div id={`qr-code-${item.id}`} className="flex justify-center items-center  w-1/2">
                       <QRCodeSVG
-                        value={JSON.stringify({
+                        value={encryptQr(JSON.stringify({
                             id: item.id,
                             source: item.source,
                             name: item.name,
                             direction: item.direction,
                             category: item.category,
                             subcategory: item.subcategory,
-                          })
-                        }
+                            event: item.event
+                        })
+                      )}
                         level="L"
                         style={{
                           width: "100%" /* Ajustar a 100% del contenedor */,
