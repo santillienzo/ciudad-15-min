@@ -15,6 +15,7 @@ import GameQr from './components/views/qrGenerator/GameQr';
 import FinishEventQr from './components/views/qrGenerator/FinishEventQr';
 import FinishGame from './components/views/game/FinishGame';
 import UsersTable from './components/views/game/UsersTable';
+import QrCodeGenerator from './components/views/qrGenerator/ListQrGenerator';
 
 function App() {
 
