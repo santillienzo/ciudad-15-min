@@ -73,8 +73,8 @@ const Game = () => {
     if (!isMounted || !userData) return
     
     if (userData.locationVisited) {
-      const {locationVisited} = userData
-      if (hasVisitedAllCategories(locationVisited)) {
+      const {locationVisited, isFinalized} = userData
+      if (hasVisitedAllCategories(locationVisited) && !isFinalized) {
         toast('Es hora de volver', {
           description: 'Regresá a Plaza Independencia y escaneá el QR final.',
           className: 'gap-4 bg-background-primary text-white',
