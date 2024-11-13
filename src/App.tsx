@@ -11,6 +11,7 @@ import QrReader from './components/features/game/QrReader';
 import RecoverPassword from './components/views/game/RecoverPassword';
 import QrCodeGenerator from './components/features/qrGenerator/QrCodeGenerator';
 import Ranking from './components/views/game/Ranking';
+import UsersTable from './components/views/game/UsersTable';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/ranking" element={<ProtectedRoute component={<Ranking/>} />} />
         <Route path="/lector-qr" element={<ProtectedRoute component={<QrReader/>} />} />
         <Route path="/generador-qr" element={<ProtectedRoute component={<QrCodeGenerator/>} />} />
+        <Route path="/usuarios" element={<ProtectedRoute component={<UsersTable/>} />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
