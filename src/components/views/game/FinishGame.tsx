@@ -38,9 +38,9 @@ const FinishGame = () => {
     }
   
     return (
-      <div className="h-full bg-background-primary">
+      <div className="min-h-screen bg-background-primary">
         <motion.div
-          className="flex flex-col justify-between items-center text-center p-4 h-full"
+          className="flex flex-col justify-between items-center text-center p-4 h-full bg-background-primary"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
