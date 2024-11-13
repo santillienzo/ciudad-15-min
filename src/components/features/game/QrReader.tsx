@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/components/contexts/AuthContext';
 import { finishGame, markLocation } from '@/lib/userActions';
 import { toast } from 'sonner';
-import { decryptQr } from '@/lib/utils';
 import { hasVisitedAllCategories } from '@/lib/userActions';
 
 const QrReader = () => {
@@ -19,18 +18,12 @@ const QrReader = () => {
   const [qrPaused, setQrPaused] = useState(false);
 
   const handleScan = (data: IDetectedBarcode[]) => {
-    const _result = JSON.parse(decryptQr(data[0].rawValue)) as IQR;
+    const _result = JSON.parse(data[0].rawValue) as IQR;
 
     if (_result.source !== 'ciudad-15-minutos') {
       return
     }
 
-    //Si es para marcar la ubicación, se muestra el diálogo
-    if (_result.event === 'mark-location') {
-      setResult(_result);
-      setOpenDialog(true);
-      setQrPaused(true); // Pausamos el escáner para evitar que se vuelva a leer el código QR
-    }
 
     //Si es para finalizar el juego, se redirige a la pantalla de finalización
     if (_result.event === 'finish-game') {
@@ -51,6 +44,10 @@ const QrReader = () => {
         // Si el usuario no ha visitado todas las categorías, se muestra un toast
         toast.error('No has visitado todas las categorías')
       }
+    }else{
+      setResult(_result);
+      setOpenDialog(true);
+      setQrPaused(true); // Pausamos el escáner para evitar que se vuelva a leer el código QR
     }
   };
 

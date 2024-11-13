@@ -6,5 +6,6 @@ export type IQR = {
     subcategory?: string,
     direction?: string,
     source: 'ciudad-15-minutos',
-    event: 'mark-location' | 'finish-game'
+    // event: 'mark-location' | 'finish-game'
+    event?: 'finish-game'
 }
