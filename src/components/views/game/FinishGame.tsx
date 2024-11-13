@@ -3,8 +3,10 @@ import { motion } from "framer-motion"
 import confetti from "canvas-confetti"
 import logo from "@/assets/svg/Logo blanco.svg"
 import ThemeButton from "@/components/common/ThemeButton"
+import { useNavigate } from "react-router-dom"
 
 const FinishGame = () => {
+  const navigate = useNavigate()
     useEffect(() => {
       // Simulate the event completion
       const timer = setTimeout(() => {
@@ -36,6 +38,10 @@ const FinishGame = () => {
       hidden: { opacity: 0, y: 20 },
       visible: { opacity: 1, y: 0 }
     }
+
+    const redirectToGame = () => {
+      navigate('/juego')
+    }
   
     return (
       <div className="min-h-screen bg-background-primary">
@@ -62,8 +68,8 @@ const FinishGame = () => {
             </div>
             <motion.img src={logo} className="w-full" />
             <motion.div variants={itemVariants}>
-              <ThemeButton size="lg" onClick={() => console.log("Continue clicked")}>
-                Continuar
+              <ThemeButton size="lg" onClick={redirectToGame}>
+                Volver al juego
               </ThemeButton>
             </motion.div>
           </div>

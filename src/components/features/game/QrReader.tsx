@@ -42,6 +42,7 @@ const QrReader = () => {
       if (locationVisited && hasVisitedAllCategories(locationVisited)) {
         try {
           finishGame({userId: uid})
+          updateUserData({...userData, isFinalized: true})
           redirectToFinishGame()
         } catch (error) {
           toast.error('Error al finalizar el juego: ' + error)
