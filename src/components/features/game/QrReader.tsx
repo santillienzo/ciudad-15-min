@@ -5,8 +5,9 @@ import QrDataDialog from './QrDataDialog';
 import { IQR } from '@/lib/types/qr.types';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/components/contexts/AuthContext';
-import { markLocation } from '@/lib/location';
+import { finishGame, markLocation } from '@/lib/userActions';
 import { toast } from 'sonner';
+import { hasVisitedAllCategories } from '@/lib/userActions';
 
 const QrReader = () => {
   const {user, userData, updateUserData} = useAuth()
@@ -23,9 +24,31 @@ const QrReader = () => {
       return
     }
 
-    setResult(_result);
-    setOpenDialog(true);
-    setQrPaused(true); // Pausamos el escáner para evitar que se vuelva a leer el código QR
+
+    //Si es para finalizar el juego, se redirige a la pantalla de finalización
+    if (_result.event === 'finish-game') {
+      if (!userData || !user) return
+
+      const {uid} = user
+      const {locationVisited} = userData
+      // Si el usuario ha visitado todas las categorías, se redirige a la pantalla de finalización
+      if (locationVisited && hasVisitedAllCategories(locationVisited)) {
+        try {
+          finishGame({userId: uid})
+          updateUserData({...userData, isFinalized: true})
+          redirectToFinishGame()
+        } catch (error) {
+          toast.error('Error al finalizar el juego: ' + error)
+        }
+      } else {
+        // Si el usuario no ha visitado todas las categorías, se muestra un toast
+        toast.error('No has visitado todas las categorías')
+      }
+    }else{
+      setResult(_result);
+      setOpenDialog(true);
+      setQrPaused(true); // Pausamos el escáner para evitar que se vuelva a leer el código QR
+    }
   };
 
   const closeDialog = ()=>{
@@ -41,8 +64,8 @@ const QrReader = () => {
       const markingLocation = markLocation({
         userData, 
         userId: user.uid,
-        cat: result.category,
-        subCat: result.subcategory,
+        cat: result.category || '',
+        subCat: result.subcategory || '',
       })
 
       toast.promise(markingLocation, {
@@ -64,6 +87,11 @@ const QrReader = () => {
   const redirectToGame = () => {
     closeDialog()
     navigate('/juego')
+  }
+
+  const redirectToFinishGame = () => {
+    closeDialog()
+    navigate('/finalizar-juego')
   }
 
   return (

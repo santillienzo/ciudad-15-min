@@ -11,6 +11,13 @@
         ]
       }
     },
+    "ciudad-15-minutos-dev-2": {
+      "hosting": {
+        "stage": [
+          "ciudad-15-minutos-dev-2"
+        ]
+      }
+    },
     "ciudad-15-minutos-prod": {
       "hosting": {
         "prod": [

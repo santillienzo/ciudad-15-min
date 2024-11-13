@@ -4,7 +4,7 @@ import { auth, db } from "../../lib/firebaseConfig"; // Asegúrate de que este e
 import { ILoginData, IRegisterData, loginUser, registerUser } from "@/lib/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { UserData } from "@/lib/types/user.types";
-import { initialCategoriesVisited } from "@/lib/location";
+import { initialCategoriesVisited } from "@/lib/userActions";
 
 const AuthContext = createContext<{
     user: User | null,

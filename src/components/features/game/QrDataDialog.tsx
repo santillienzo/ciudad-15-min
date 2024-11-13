@@ -23,11 +23,11 @@ const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps)
           <div className="mt-4 space-y-2">
             <div className="flex items-center gap-4">
                 <strong>Categoría: </strong>
-                <span>{formatCategoryName(data.category)}</span>
+                <span>{formatCategoryName(data.category || '')}</span>
             </div>
             <div className="flex items-center gap-4">
-                <strong>Subategoría: </strong>
-                <span>{formatSubcategoryName(data.subcategory)}</span>
+                <strong>Subcategoría: </strong>
+                <span>{formatSubcategoryName(data.subcategory || '')}</span>
             </div>
           </div>
 
