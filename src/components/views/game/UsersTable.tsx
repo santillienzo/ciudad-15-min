@@ -24,14 +24,8 @@ const UsersTable = () => {
         const filteredUsers: UserData[] = [];
 
         usersSnapshot.forEach((doc) => {
-          console.log(doc.metadata);
           
           const userData = doc.data() as UserData;
-
-                  // Accede a la fecha de creación del documento usando doc.metadata
-        // const creationDate = doc.metadata.hasPendingWrites ? null : doc.createTime.toDate();
-          
-          
 
             filteredUsers.push({
               ...userData,
