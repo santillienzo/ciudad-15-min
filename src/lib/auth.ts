@@ -45,6 +45,7 @@ export const registerUser = async (formData: IRegisterData, auth: Auth) => {
       birthday: formData.birthday,
       dni: formData.dni,
       email: formData.email,
+      createdAt: new Date().toISOString(),
       locationVisited: initialCategoriesVisited
     });
   } catch (error: unknown) {

@@ -88,6 +88,7 @@ const UsersTable = () => {
                   zIndex={1}
                 >
                   <Th maxWidth="50px">N°</Th>
+                  <Th>Fecha de registro</Th>
                   <Th>Nombre</Th>
                   <Th>Apellido</Th>
                   <Th>DNI</Th>
@@ -100,6 +101,9 @@ const UsersTable = () => {
                     <Tr key={user.id}>
                       <Td className="p-3 text-center border-y border-gray-800 overflow-hidden" maxWidth="50px">
                         {index + 1}
+                      </Td>
+                      <Td className="p-3 text-center border-y border-gray-800">
+                        {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : '-'}
                       </Td>
                       <Td className="p-3 text-center border-y border-gray-800">
                         {user.name}
