@@ -27,7 +27,6 @@ function App() {
         <Route path="/iniciar-sesion" element={<Login/>} />
         <Route path="/registrarse" element={<Register/>} />
         <Route path="/recuperar-contraseña" element={<RecoverPassword/>} />
-        <Route path="/usuarios" element={<UsersTable/>}/>
 
         {/* Rutas protegidas  */}
         <Route path="/juego" element={<ProtectedRoute component={<Game/>} />} />
@@ -40,7 +39,7 @@ function App() {
         <Route path="/generador-juego-qr" element={<ProtectedRoute component={<GameQr/>} />} />
         <Route path="/generador-finalizar-qr" element={<ProtectedRoute component={<FinishEventQr/>} />} />
         <Route path="/generador-qr" element={<ProtectedRoute component={<QrCodeGenerator/>} />} />
-        {/* <Route path="/usuarios" element={<ProtectedRoute component={<UsersTable/>} />} /> */}
+        <Route path="/usuarios" element={<ProtectedRoute component={<UsersTable/>} />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
