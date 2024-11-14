@@ -1,13 +1,19 @@
-import { db, auth } from "@/lib/firebaseConfig";
+import { db } from "@/lib/firebaseConfig";
 import { UserData } from "@/lib/types/user.types";
 import { Skeleton, TableContainer } from "@chakra-ui/react";
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Table, Thead, Tbody, Tr, Th, Td, Box } from "@chakra-ui/react";
+import { useReactToPrint } from "react-to-print";
 
 const UsersTable = () => {
   const [users, setUsers] = useState<UserData[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const contentRef = useRef<HTMLDivElement>(null);
+  const reactToPrintFn = useReactToPrint({
+    contentRef,
+  });
 
   useEffect(() => {
     setLoading(true);
@@ -18,17 +24,19 @@ const UsersTable = () => {
         const filteredUsers: UserData[] = [];
 
         usersSnapshot.forEach((doc) => {
+          console.log(doc.metadata);
+          
           const userData = doc.data() as UserData;
-          const user = auth.currentUser;
-          if (user) {
-            const metadata = user.metadata;
+
+                  // Accede a la fecha de creación del documento usando doc.metadata
+        // const creationDate = doc.metadata.hasPendingWrites ? null : doc.createTime.toDate();
+          
+          
+
             filteredUsers.push({
               ...userData,
               id: doc.id, // Agrega el ID del documento
-              creationTime: new Date(metadata.creationTime).toLocaleString(),
-              lastSignInTime: new Date(metadata.lastSignInTime).toLocaleString(),
             });
-          }
         });
 
         setUsers(filteredUsers);
@@ -47,15 +55,22 @@ const UsersTable = () => {
         <Skeleton height="125px" width="100%" borderRadius="xl" />
       ) : (
         <Box
-          maxHeight="80vh"
-          width="90%"
+          width="100%"
           maxWidth="auto"
-          className="flex justify-start"
         >
+          <Box className="w-full flex justify-end p-4">
+            <button
+              onClick={() => reactToPrintFn()}
+              className="bg-background-primary text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-opacity-90 transition-all"
+            >
+              <span>Imprimir PDF</span>
+            </button>
+          </Box>
+
           <TableContainer
-            className="my-8 w-full"
+            className="w-full"
             overflowY="auto"
-            maxHeight="80vh"
+            ref={contentRef}
           >
             <Table
               size="xl"
@@ -72,21 +87,19 @@ const UsersTable = () => {
                   top={0}
                   zIndex={1}
                 >
-                  <Th>ID</Th>
+                  <Th maxWidth="50px">N°</Th>
                   <Th>Nombre</Th>
                   <Th>Apellido</Th>
                   <Th>DNI</Th>
                   <Th>Email</Th>
-                  <Th>Fecha de creacion</Th>
-                  <Th>Ultimo inicio de sesión</Th>
                 </Tr>
               </Thead>
               <Tbody className="text-gray-800 bg-background-primary-foreground">
                 {users.length > 0 ? (
-                  users.map((user) => (
+                  users.map((user, index) => (
                     <Tr key={user.id}>
-                      <Td className="p-3 text-left border-y border-gray-800 w-[3rem]">
-                        {user.id}
+                      <Td className="p-3 text-center border-y border-gray-800 overflow-hidden" maxWidth="50px">
+                        {index + 1}
                       </Td>
                       <Td className="p-3 text-center border-y border-gray-800">
                         {user.name}
@@ -99,12 +112,6 @@ const UsersTable = () => {
                       </Td>
                       <Td className="p-3 text-center border-y border-gray-800">
                         {user.email}
-                      </Td>
-                      <Td className="p-3 text-center border-y border-gray-800">
-                        {user.creationTime || "N/A"}
-                      </Td>
-                      <Td className="p-3 text-center border-y border-gray-800">
-                        {user.lastSignInTime || "N/A"}
                       </Td>
                     </Tr>
                   ))
