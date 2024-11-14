@@ -82,7 +82,7 @@ const UsersTable = () => {
                   zIndex={1}
                 >
                   <Th maxWidth="50px">N°</Th>
-                  <Th>Fecha de registro</Th>
+                  {/* <Th maxWidth="70px">Registrado</Th> */}
                   <Th>Nombre</Th>
                   <Th>Apellido</Th>
                   <Th>DNI</Th>
@@ -96,9 +96,9 @@ const UsersTable = () => {
                       <Td className="p-3 text-center border-y border-gray-800 overflow-hidden" maxWidth="50px">
                         {index + 1}
                       </Td>
-                      <Td className="p-3 text-center border-y border-gray-800">
+                      {/* <Td className="p-3 text-center border-y border-gray-800 overflow-hidden" maxWidth="70px">
                         {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : '-'}
-                      </Td>
+                      </Td> */}
                       <Td className="p-3 text-center border-y border-gray-800">
                         {user.name}
                       </Td>
@@ -108,7 +108,7 @@ const UsersTable = () => {
                       <Td className="p-3 text-center border-y border-gray-800">
                         {user.dni}
                       </Td>
-                      <Td className="p-3 text-center border-y border-gray-800">
+                      <Td className="p-3 text-center border-y border-gray-800 text-sm">
                         {user.email}
                       </Td>
                     </Tr>
