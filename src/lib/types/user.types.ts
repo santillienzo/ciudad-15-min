@@ -11,6 +11,7 @@ export interface UserData {
     birthday: string,
     dni: string,
     email: string,
+    createdAt?: string,
     isFinalized?: boolean,
     locationVisited?: CategoriesVisited
 }
