@@ -25,8 +25,8 @@ export const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// const usermetadata = auth.currentUser?.metadata;
-// console.log(usermetadata);
+const usermetadata = auth.currentUser?.metadata;
+console.log(usermetadata);
 
-// export { auth, db, usermetadata };
-export { auth, db };
+export { auth, db, usermetadata };
+// export { auth, db };

@@ -21,12 +21,12 @@ const UsersTable = () => {
           const userData = doc.data() as UserData;
           const user = auth.currentUser;
           if (user) {
-            // const metadata = user.metadata;
+            const metadata = user.metadata;
             filteredUsers.push({
               ...userData,
               id: doc.id, // Agrega el ID del documento
-              // creationTime: new Date(metadata.creationTime).toLocaleString(),
-              // lastSignInTime: new Date(metadata.lastSignInTime).toLocaleString(),
+              creationTime: new Date(metadata.creationTime).toLocaleString(),
+              lastSignInTime: new Date(metadata.lastSignInTime).toLocaleString(),
             });
           }
         });
@@ -100,12 +100,12 @@ const UsersTable = () => {
                       <Td className="p-3 text-center border-y border-gray-800">
                         {user.email}
                       </Td>
-                      {/* <Td className="p-3 text-center border-y border-gray-800">
+                      <Td className="p-3 text-center border-y border-gray-800">
                         {user.creationTime || "N/A"}
                       </Td>
                       <Td className="p-3 text-center border-y border-gray-800">
                         {user.lastSignInTime || "N/A"}
-                      </Td> */}
+                      </Td>
                     </Tr>
                   ))
                 ) : (
