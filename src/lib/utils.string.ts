@@ -11,13 +11,13 @@ export const colorCategoryDictionary = (str:string) => {
             glyphColor: "#fff"
         },
         "equipamiento_basico": {
-            background: "#EF3C76",
-            borderColor: "#EF3C76",
+            background: "#A3D063",
+            borderColor: "#A3D063",
             glyphColor: "#fff"
         },
         "espacios_verdes": {
-            background: "#A3D063",
-            borderColor: "#A3D063",
+            background: "#EF1F73",
+            borderColor: "#EF1F73",
             glyphColor: "#fff"
         },
         "movilidad": {
@@ -60,7 +60,7 @@ export const subcategoriesDictionary = (str:string):string => {
 export const categoriesDictionary = (str: string) : string => {
     const namesMap: {[kl: string] : string} = {
         "comercio": "Comercio",
-        "equipamiento_basico": "Equipamiento Básico",
+        "equipamiento_basico": "Servicios escenciales",
         "espacios_verdes": "Espacios Verdes",
         "movilidad": "Movilidad",
     }
