@@ -7,15 +7,21 @@ import { motion } from "framer-motion";
 import logoMuni  from '@/assets/img/municipalidad.png'
 import logoBloomberg  from '@/assets/img/Bloomberg.png'
 import logoBloomberg2  from '@/assets/img/Bloomberg_2.png'
+import { useState } from "react";
+import LogoutModal from "@/components/features/game/LogoutModal";
 
 
 const GameLobby = () => {
   const { isAuth, logout } = useAuth();
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const navigate = useNavigate();
   
   const toPlayRedirect = isAuth() ? '/juego' : '/iniciar-sesion'
 
   const handleLogout = () => logout(()=> navigate("/iniciar-sesion"))
+
+  const handleOpenLogoutModal = () => setIsLogoutModalOpen(true)
+  const handleCloseLogoutModal = () => setIsLogoutModalOpen(false)
 
   return (
     <motion.div 
@@ -89,15 +95,17 @@ const GameLobby = () => {
         </Link>
         {
           !isAuth() ?
-            <Link to="/registrarse" className="block">
+            <Link to="/registrarse" className="block shadow-2xl">
               <ThemeButton className="w-full text-lg " variant="secondary">
                 Registrarte
               </ThemeButton>
-            </Link> : <ThemeButton className="w-full text-lg flex gap-4" variant='secondary' onClick={handleLogout}>
+            </Link> : <ThemeButton className="w-full text-lg flex gap-4" variant='secondary' onClick={handleOpenLogoutModal}>
               <LogOut /> <span>Cerrar sesión</span>
             </ThemeButton>
         }
       </motion.div>
+
+      <LogoutModal isOpen={isLogoutModalOpen} onClose={handleCloseLogoutModal} handleLogout={handleLogout} />
 
       </motion.div>
   )
