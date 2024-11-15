@@ -4,6 +4,7 @@ import { LogOut } from 'lucide-react';
 import { Link, useNavigate } from "react-router-dom"
 import logo from '@/assets/svg/Logo blanco.svg'
 
+
 const GameLobby = () => {
   const { isAuth, logout } = useAuth();
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const GameLobby = () => {
       </div>
 
       {/* Botones en la parte inferior con safe-area-inset */}
-      <div className="w-full max-w-md space-y-4 mb-32">
+      <div className="w-full max-w-md space-y-4 mb-32 z-10">
         <Link to={toPlayRedirect} className="block">
           <ThemeButton className="w-full text-lg">
             Jugar
