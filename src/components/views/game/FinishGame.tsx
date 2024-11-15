@@ -4,24 +4,8 @@ import FinishPageTwo from "@/components/features/game/finishPages/FinishPageTwo"
 import { useState } from "react"
 import UClogo from "@/assets/img/uncuyo_blanco.png"
 import { motion } from "framer-motion"
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
-}
-
-const containerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-      staggerChildren: 0.2
-    }
-  }
-}
+import { itemVariants } from "@/components/features/game/finishPages/motionsVariant"
+import { containerVariants } from "@/components/features/game/finishPages/motionsVariant"
 
 const FinishGame = () => {
   const [page, setPage] = useState(1)
