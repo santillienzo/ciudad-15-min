@@ -23,8 +23,20 @@ const FinishPageTwo = ({nextPage}: Props) => {
             >
                 Agradecimiento especial a Bloomberg Philanthropies y a la municipalidad  de Mendoza  por hacer posible este evento.
             </motion.h2>
-            <motion.img src={bloombergLogo} className="w-11/12 mx-auto" />
-            <motion.img src={mendozaLogo} className="w-11/12 mx-auto" />
+            <motion.img 
+                src={bloombergLogo}  
+                className="w-11/12 mx-auto"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            />
+            <motion.img 
+                src={mendozaLogo}  
+                className="w-11/12 mx-auto"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+            />
         </div>
         <motion.div variants={itemVariants}>
             <ThemeButton size="lg" onClick={nextPage} className="w-">
