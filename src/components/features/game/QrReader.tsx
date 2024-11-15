@@ -117,7 +117,7 @@ const QrReader = () => {
             height: '100%',
             objectFit: 'cover', // Para que el video llene la pantalla manteniendo las proporciones
           },
-          finderBorder: 15,
+          finderBorder: 28,
         }}
       />
 
