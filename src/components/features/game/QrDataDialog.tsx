@@ -15,6 +15,10 @@ type QrDataDialogProps = {
 const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps) => {
   const category = categories.find((category) => category.name === data?.category)
 
+  if (!category) return null;
+
+  const subcategory = category.subcategories.find((subcategory) => subcategory.name === data?.subcategory)
+
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
@@ -29,7 +33,7 @@ const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps)
         
           <div className="">
             <div className="flex w-full justify-center mb-4">
-              <img src={category?.icons.enable} alt={data.category} width={60} height={60} className="drop-shadow-xl"/>
+              <img src={subcategory?.icons.enable} alt={data.category} width={60} height={60} className="drop-shadow-xl"/>
             </div>
             <div className="grid grid-cols-2 gap-4">
                 <div className="bg-background-secondary p-4 rounded-xl shadow-xl">

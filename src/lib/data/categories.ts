@@ -10,53 +10,112 @@ import movilidad_disabled from "@/assets/img/categories/movilidad_disabled.png"
 export const categories = [
       {
         "name": "comercio",
-        "icons": {
-          "enable": comercio,
-          "disable": comercio_disabled
-        },
         "subcategories": [
-          { "name": "carniceria" },
-          { "name": "panaderia" },
-          { "name": "farmacia" },
-          { "name": "verduleria" },
-          { "name": "almacen" },
-          { "name": "supermercado" },
-          { "name": "cajero_automatico" }
+          { "name": "carniceria", 
+            "icons": {
+              "enable": comercio,
+              "disable": comercio_disabled
+            }
+          },
+          { "name": "panaderia",
+            "icons": {
+              "enable": comercio,
+              "disable": comercio_disabled
+            }
+          },
+          { "name": "farmacia",
+            "icons": {
+              "enable": comercio,
+              "disable": comercio_disabled
+            }
+          },
+          { "name": "verduleria",
+            "icons": {
+              "enable": comercio,
+              "disable": comercio_disabled
+            }
+          },
+          { "name": "almacen",
+            "icons": {
+              "enable": comercio,
+              "disable": comercio_disabled
+            }
+          },
+          { "name": "supermercado",
+            "icons": {
+              "enable": comercio,
+              "disable": comercio_disabled
+            }
+          },
+          { "name": "cajero_automatico",
+            "icons": {
+              "enable": comercio,
+              "disable": comercio_disabled
+            }
+          }
         ]
       },
       {
         "name": "equipamiento_basico",
-        "icons": {
-          "enable": equipamiento_basico,
-          "disable": equipamiento_basico_disabled
-        },
         "subcategories": [
-          { "name": "cultura" },
-          { "name": "educacion" },
-          { "name": "deporte" },
-          { "name": "salud" }
+          { "name": "cultura",
+            "icons": {
+              "enable": equipamiento_basico,
+              "disable": equipamiento_basico_disabled
+            }
+          },
+          { "name": "educacion",
+            "icons": {
+              "enable": equipamiento_basico,
+              "disable": equipamiento_basico_disabled
+            }
+          },
+          { "name": "deporte",
+            "icons": {
+              "enable": equipamiento_basico,
+              "disable": equipamiento_basico_disabled
+            }
+          },
+          { "name": "salud",
+            "icons": {
+              "enable": equipamiento_basico,
+              "disable": equipamiento_basico_disabled
+            }
+          }
         ]
       },
       {
         "name": "espacios_verdes",
-        "icons": {
-          "enable": espacios_verdes,
-          "disable": espacios_verdes_disabled
-        },
         "subcategories": [
-          { "name": "espacios_verdes" }
+          { "name": "espacios_verdes",
+            "icons": {
+              "enable": espacios_verdes,
+              "disable": espacios_verdes_disabled
+            }
+          }
         ]
       },
       {
         "name": "movilidad",
-        "icons": {
-          "enable": movilidad,
-          "disable": movilidad_disabled
-        },
         "subcategories": [
-          { "name": "metrotranvia" },
-          { "name": "estaciones_de_bicicleta" },
-          { "name": "paradas_de_colectivo" }
+          { "name": "metrotranvia",
+            "icons": {
+              "enable": movilidad,
+              "disable": movilidad_disabled
+            }
+          },
+          { "name": "estaciones_de_bicicleta",
+            "icons": {
+              "enable": movilidad,
+              "disable": movilidad_disabled
+            }
+          },
+          { "name": "paradas_de_colectivo",
+            "icons": {
+              "enable": movilidad,
+              "disable": movilidad_disabled
+            }
+          }
         ]
       }
 ]

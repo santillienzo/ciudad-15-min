@@ -11,6 +11,7 @@ import UserMarker from '@/components/features/game/map/UserMarker';
 import { useAuth } from '@/components/contexts/AuthContext';
 import { toast } from 'sonner';
 import { hasVisitedAllCategories } from '@/lib/userActions';
+// import { categories } from '@/lib/data/categories';
 
 const squarePosition = { lat: -32.88943218488501, lng: -68.84481014373047 };
 
@@ -131,6 +132,7 @@ const Game = () => {
               {/* Acá van los pins de las ubicaciones */}
               {renderLocations.map(({category, coord, name, id}) => {
                 const {background, borderColor, glyphColor} = colorCategoryDictionary(category)
+                // const iconCategory = categories.find(({name}) => name === category)?.icons.enable
 
                 return (
                   <AdvancedMarker
@@ -138,13 +140,14 @@ const Game = () => {
                     position={{ lat: coord.lat, lng: coord.long }}
                     // Puedes agregar un title o un evento onClick para mostrar más detalles de la ubicación
                     title={name}
-                    className='relative'
+                    className='absolute'
                   >
                     <Pin
                       background={background}   // Color de fondo según la categoría
                       borderColor={borderColor}    // Borde blanco
                       glyphColor={glyphColor}     // Color del texto o símbolo si decides usarlo
                       scale={1.5}
+                      // glyph={<img src={iconCategory} alt={category}/>}
                     />
                   </AdvancedMarker>
                 )

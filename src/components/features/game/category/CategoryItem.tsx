@@ -32,6 +32,8 @@ const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Prop
     const [open, setOpen] = useState(false)
     const category = categories.find((category) => category.name === name)
 
+    if (!category) return null;
+
     const handleOpen = () => {
         setOpen(!open)
     }
@@ -81,17 +83,22 @@ const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Prop
                 className="mt-2 divide-y divide-gray-300"
             >
                 {
-                    Object.entries(subcategories).map(([subcategory, visited]) => (
-                        <div key={subcategory} className="p-4 flex items-center">
-                            <span className="flex-1">
+                    Object.entries(subcategories).map(([subcategory, visited]) => {
+                        const icons = category.subcategories.find((subcategory) => subcategory.name === Object.keys(subcategories)[0])?.icons
+                        if (!icons) return null;
+
+                        return (
+                            <div key={subcategory} className="p-4 flex items-center">
+                                <span className="flex-1">
                                 {formatSubcategoryName(subcategory)}
                             </span>
                             {
-                                visited ?  <img src={category?.icons.enable} alt={name} width={40} height={40}/> : 
-                                            <img src={category?.icons.disable} alt={name} width={40} height={40}/>
+                                visited ?  <img src={icons.enable} alt={name} width={40} height={40}/> : 
+                                            <img src={icons.disable} alt={name} width={40} height={40}/>
                             }
-                        </div>
-                    ))
+                            </div>
+                        )
+                    })
                 }
             </motion.div>
             }
