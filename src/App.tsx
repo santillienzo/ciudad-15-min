@@ -34,12 +34,12 @@ function App() {
         <Route path="/finalizar-juego" element={<ProtectedRoute component={<FinishGame/>} />} />
 
         {/* Rutas protegidas para el administrador */}
-        <Route path="/ranking" element={<ProtectedRoute component={<Ranking/>} />} />
-        <Route path="/generador-lista-qr" element={<ProtectedRoute component={<ListQrGenerator/>} />} />
-        <Route path="/generador-juego-qr" element={<ProtectedRoute component={<GameQr/>} />} />
-        <Route path="/generador-finalizar-qr" element={<ProtectedRoute component={<FinishEventQr/>} />} />
-        <Route path="/generador-qr" element={<ProtectedRoute component={<QrCodeGenerator/>} />} />
-        <Route path="/usuarios" element={<ProtectedRoute component={<UsersTable/>} />} />
+        <Route path="/ranking" element={<ProtectedRoute component={<Ranking/>} adminOnly />} />
+        <Route path="/generador-lista-qr" element={<ProtectedRoute component={<ListQrGenerator/>} adminOnly />} />
+        <Route path="/generador-juego-qr" element={<ProtectedRoute component={<GameQr/>} adminOnly />} />
+        <Route path="/generador-finalizar-qr" element={<ProtectedRoute component={<FinishEventQr/>} adminOnly />} />
+        <Route path="/generador-qr" element={<ProtectedRoute component={<QrCodeGenerator/>} adminOnly />} />
+        <Route path="/usuarios" element={<ProtectedRoute component={<UsersTable/>} adminOnly />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

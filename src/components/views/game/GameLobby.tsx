@@ -9,16 +9,37 @@ import logoBloomberg  from '@/assets/img/Bloomberg.png'
 import logoBloomberg2  from '@/assets/img/Bloomberg_2.png'
 import { useState } from "react";
 import LogoutModal from "@/components/features/game/LogoutModal";
+import { Button } from "@/components/ui/button";
 
 
 const GameLobby = () => {
-  const { isAuth, logout } = useAuth();
+  const { isAuth, logout, userData } = useAuth();
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const navigate = useNavigate();
   
   const toPlayRedirect = isAuth() ? '/juego' : '/iniciar-sesion'
 
   const handleLogout = () => logout(()=> navigate("/iniciar-sesion"))
+
+  const redirectToQrGenerator = () => {
+    navigate('/generador-qr');
+  }
+  
+  const redirectToGameQrGenerator = () => {
+    navigate('/generador-juego-qr');
+  }
+
+  const redirectToFinishGameQrGenerator = () => {
+    navigate('/generador-finalizar-qr');
+  }
+  
+  const redirectToUsers = () => {
+    navigate('/usuarios');
+  }
+
+  const redirectToRanking = () => {
+    navigate('/ranking');
+  }
 
   const handleOpenLogoutModal = () => setIsLogoutModalOpen(true)
   const handleCloseLogoutModal = () => setIsLogoutModalOpen(false)
@@ -93,6 +114,27 @@ const GameLobby = () => {
             Jugar
           </ThemeButton>
         </Link>
+        {
+          userData?.isAdmin && (
+            <>
+              <Button variant="default" className="w-full text-lg text-white rounded-xl" onClick={redirectToQrGenerator}>
+                Generador de QR
+              </Button>
+              <Button variant="default" className="w-full text-lg text-white rounded-xl" onClick={redirectToGameQrGenerator}>
+                Generador de QR para el juego
+              </Button>
+              <Button variant="default" className="w-full text-lg text-white rounded-xl" onClick={redirectToFinishGameQrGenerator}>
+                Generador de QR para finalizar el juego
+              </Button>
+              <Button variant="default" className="w-full text-lg text-white rounded-xl" onClick={redirectToUsers}>
+                Usuarios
+              </Button>
+              <Button variant="default" className="w-full text-lg text-white rounded-xl" onClick={redirectToRanking}>
+                Ranking
+              </Button>
+            </>
+          )
+        }
         {
           !isAuth() ?
             <Link to="/registrarse" className="block shadow-2xl">

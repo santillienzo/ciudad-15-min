@@ -7,6 +7,7 @@ export interface CategoriesVisited {
 export interface UserData {
     id?: string,
     name: string,
+    isAdmin?: boolean,
     lastname: string,
     birthday: string,
     dni: string,
