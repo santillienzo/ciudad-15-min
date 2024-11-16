@@ -1,7 +1,7 @@
 import ThemeButton from '@/components/common/ThemeButton';
 import CategoryWrapper from '@/components/features/game/category/CategoryWrapper';
 import { AdvancedMarker, Map } from '@vis.gl/react-google-maps';
-import { House, QrCode, Undo2} from 'lucide-react';
+import { Hourglass, House, QrCode, Undo2} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {locations} from "@/lib/data/locations.json"
@@ -12,6 +12,9 @@ import { useAuth } from '@/components/contexts/AuthContext';
 import { toast } from 'sonner';
 import { hasVisitedAllCategories } from '@/lib/userActions';
 import { categories } from '@/lib/data/categories';
+import { gameSettings } from '@/lib/utils';
+import GameCountdown from '@/components/features/game/GameCountdown';
+import { motion } from 'framer-motion';
 // import { categories } from '@/lib/data/categories';
 
 const squarePosition = { lat: -32.88943218488501, lng: -68.84481014373047 };
@@ -21,6 +24,7 @@ const Game = () => {
   const {userData} = useAuth()
 
   const [isMounted, setIsMounted] = useState(false);
+  const [showCountdown, setShowCountdown] = useState(false);
   const [visibility, setVisibility] = useState<{ [key: string]: boolean }>({
     comercio: true,
     equipamiento_basico: true,
@@ -105,6 +109,10 @@ const Game = () => {
     navigate('/lobby');
   }
 
+  const toggleCountdown = () => {
+    setShowCountdown(!showCountdown);
+  }
+
   // Add useEffect for mounting
   useEffect(() => {
     setIsMounted(true);
@@ -114,11 +122,28 @@ const Game = () => {
   return isMounted && (
     <>
       <div className='w-full relative' style={{height: '-webkit-fill-available'}}>
-          <button onClick={redirectToLobby} className='text-white z-50 absolute top-[10px] right-[10px] w-[60px] h-[60px] rounded-full cursor bg-background-secondary flex items-center justify-center'>
-            <House size={26}/>
-          </button>
-          <div className='absolute w-full h-full'>
-            <Map 
+        
+          <div className='absolute w-full h-full flex flex-col'>
+            {showCountdown && (
+              <motion.div 
+                className='bg-background-primary p-2'
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <span className='text-white text-center w-full block'>Hora de finalización: {new Date(gameSettings.date.end).toLocaleTimeString([], { minute: '2-digit', hour: '2-digit' })} hs</span>
+                <span className='text-white text-center w-full block text-2xl font-bold'><GameCountdown endDate={gameSettings.date.end}/></span>
+              </motion.div>
+            )}
+            <div className='flex-1 relative'>
+              <button onClick={redirectToLobby} className='text-white z-50 absolute top-[10px] right-[10px] w-[60px] h-[60px] rounded-full cursor bg-background-secondary flex items-center justify-center'>
+                <House size={26}/>
+              </button>
+              <button onClick={toggleCountdown} className='text-white z-50 absolute top-[10px] right-[75px] w-[60px] h-[60px] rounded-full cursor bg-background-secondary flex items-center justify-center'>
+                <Hourglass size={26}/>
+              </button>
+              <Map 
               center={!isMapDragged ? currentPosition : undefined}
               onDragstart={handleCenterChanged}
               defaultZoom={15} 
@@ -154,7 +179,8 @@ const Game = () => {
                   </AdvancedMarker>
                 )
               })}
-            </Map> 
+              </Map> 
+            </div>
           </div>
           <ThemeButton disabled={userData?.isFinalized} onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
             Escanear <QrCode size={32}/>
