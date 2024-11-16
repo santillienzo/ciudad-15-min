@@ -130,7 +130,7 @@ const Game = () => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.1 }}
               >
                 <span className='text-white text-center w-full block'>Hora de finalización: {new Date(gameSettings.date.end).toLocaleTimeString([], { minute: '2-digit', hour: '2-digit' })} hs</span>
                 <span className='text-white text-center w-full block text-2xl font-bold'><GameCountdown endDate={gameSettings.date.end}/></span>
