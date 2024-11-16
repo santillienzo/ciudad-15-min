@@ -1,6 +1,6 @@
 import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 import { motion } from "framer-motion";
-import { ChevronRight, Eye, EyeOff } from "lucide-react";
+import { ChevronRight, Eye, EyeOff, MapPin, MapPinCheckInside } from "lucide-react";
 import { useState } from "react";
 import { categories } from "@/lib/data/categories";
 
@@ -31,6 +31,11 @@ interface Props {
 const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Props) => {
     const [open, setOpen] = useState(false)
     const category = categories.find((category) => category.name === name)
+
+    if (!category) return null;
+
+    const color = category.color
+    const iconColor = category.iconColor
 
     const handleOpen = () => {
         setOpen(!open)
@@ -81,17 +86,32 @@ const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Prop
                 className="mt-2 divide-y divide-gray-300"
             >
                 {
-                    Object.entries(subcategories).map(([subcategory, visited]) => (
-                        <div key={subcategory} className="p-4 flex items-center">
-                            <span className="flex-1">
+                    Object.entries(subcategories).map(([subcategory, visited]) => {
+
+
+                        return (
+                            <div key={subcategory} className="p-4 flex items-center">
+                                <span className="flex-1">
                                 {formatSubcategoryName(subcategory)}
                             </span>
                             {
-                                visited ?  <img src={category?.icons.enable} alt={name} width={40} height={40}/> : 
-                                            <img src={category?.icons.disable} alt={name} width={40} height={40}/>
+                                visited ? 
+                                    <div 
+                                        className={`flex items-center justify-center w-10 h-10 rounded-full`} 
+                                        style={{ 
+                                            backgroundColor: color, 
+                                            color: iconColor ? iconColor : "white"
+                                        }}
+                                    >
+                                        <MapPinCheckInside />
+                                    </div> : 
+                                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-400 text-white">
+                                        <MapPin />
+                                    </div>
                             }
-                        </div>
-                    ))
+                            </div>
+                        )
+                    })
                 }
             </motion.div>
             }
