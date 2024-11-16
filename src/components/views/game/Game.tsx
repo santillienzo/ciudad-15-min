@@ -1,16 +1,17 @@
 import ThemeButton from '@/components/common/ThemeButton';
 import CategoryWrapper from '@/components/features/game/category/CategoryWrapper';
-import { AdvancedMarker, Map, Pin } from '@vis.gl/react-google-maps';
+import { AdvancedMarker, Map } from '@vis.gl/react-google-maps';
 import { House, QrCode, Undo2} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {locations} from "@/lib/data/locations.json"
-import { colorCategoryDictionary } from '@/lib/utils.string';
+// import { colorCategoryDictionary } from '@/lib/utils.string';
 import { Location } from '@/lib/types/location.types';
 import UserMarker from '@/components/features/game/map/UserMarker';
 import { useAuth } from '@/components/contexts/AuthContext';
 import { toast } from 'sonner';
 import { hasVisitedAllCategories } from '@/lib/userActions';
+import { categories } from '@/lib/data/categories';
 // import { categories } from '@/lib/data/categories';
 
 const squarePosition = { lat: -32.88943218488501, lng: -68.84481014373047 };
@@ -22,9 +23,9 @@ const Game = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [visibility, setVisibility] = useState<{ [key: string]: boolean }>({
     comercio: true,
-    equipamiento_basico: false,
-    espacios_verdes: false,
-    movilidad: false,
+    equipamiento_basico: true,
+    espacios_verdes: true,
+    movilidad: true,
   });
   const [renderLocations, setRenderLocations] = useState<Location[]>([]);
   
@@ -130,10 +131,15 @@ const Game = () => {
               <UserMarker currentPosition={currentPosition}/>
 
               {/* Acá van los pins de las ubicaciones */}
-              {renderLocations.map(({category, coord, name, id}) => {
-                const {background, borderColor, glyphColor} = colorCategoryDictionary(category)
-                // const iconCategory = categories.find(({name}) => name === category)?.icons.enable
+              {renderLocations.map(({category, coord, name, id, subcategory}) => {
+                // const {background, borderColor, glyphColor} = colorCategoryDictionary(category)
+                const _category = categories.find((cat) => cat.name === category)
 
+                if (!_category) return null;
+
+                const icons = _category.subcategories.find((sub) => sub.name === subcategory)?.icons
+
+                if (!icons) return null;
                 return (
                   <AdvancedMarker
                     key={id}
@@ -142,13 +148,9 @@ const Game = () => {
                     title={name}
                     className='absolute'
                   >
-                    <Pin
-                      background={background}   // Color de fondo según la categoría
-                      borderColor={borderColor}    // Borde blanco
-                      glyphColor={glyphColor}     // Color del texto o símbolo si decides usarlo
-                      scale={1.5}
-                      // glyph={<img src={iconCategory} alt={category}/>}
-                    />
+                    <div className='flex items-center justify-center'>
+                      <img src={icons.enable} alt={category} width={35} height={35} />
+                    </div>
                   </AdvancedMarker>
                 )
               })}

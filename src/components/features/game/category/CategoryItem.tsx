@@ -1,6 +1,6 @@
 import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 import { motion } from "framer-motion";
-import { ChevronRight, Eye, EyeOff } from "lucide-react";
+import { ChevronRight, Eye, EyeOff, MapPin, MapPinCheckInside } from "lucide-react";
 import { useState } from "react";
 import { categories } from "@/lib/data/categories";
 
@@ -33,6 +33,9 @@ const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Prop
     const category = categories.find((category) => category.name === name)
 
     if (!category) return null;
+
+    const color = category.color
+    const iconColor = category.iconColor
 
     const handleOpen = () => {
         setOpen(!open)
@@ -84,8 +87,7 @@ const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Prop
             >
                 {
                     Object.entries(subcategories).map(([subcategory, visited]) => {
-                        const icons = category.subcategories.find((subcategory) => subcategory.name === Object.keys(subcategories)[0])?.icons
-                        if (!icons) return null;
+
 
                         return (
                             <div key={subcategory} className="p-4 flex items-center">
@@ -93,8 +95,19 @@ const CategoryItem = ({ name, subcategories, visibility, handleVisibility }:Prop
                                 {formatSubcategoryName(subcategory)}
                             </span>
                             {
-                                visited ?  <img src={icons.enable} alt={name} width={40} height={40}/> : 
-                                            <img src={icons.disable} alt={name} width={40} height={40}/>
+                                visited ? 
+                                    <div 
+                                        className={`flex items-center justify-center w-10 h-10 rounded-full`} 
+                                        style={{ 
+                                            backgroundColor: color, 
+                                            color: iconColor ? iconColor : "white"
+                                        }}
+                                    >
+                                        <MapPinCheckInside />
+                                    </div> : 
+                                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-400 text-white">
+                                        <MapPin />
+                                    </div>
                             }
                             </div>
                         )
