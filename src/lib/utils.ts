@@ -12,3 +12,10 @@ export const encryptQr = (value: string) => {
 export const decryptQr = (value: string) => {
   return atob(value);
 }
+
+export const gameSettings = {
+  date: {
+    start: "2024-11-22 18:00:00",
+    end: "2024-11-22 20:00:00"
+  }
+}
