@@ -5,6 +5,7 @@ import { variants } from "@/lib/motionVariants";
 import { RiCircleFill } from "react-icons/ri";
 import Countdown from "./Countdown";
 import { Divider } from "@chakra-ui/react";
+import { gameSettings } from "@/lib/utils";
 
 const Motivation = () => {
   return (
@@ -33,7 +34,7 @@ const Motivation = () => {
               <div className="mt-4">
               <Countdown
                 id="countdown"
-                limitDate="Nov 22, 2024 18:00:00"
+                limitDate={gameSettings.date.start}
                 finalMessage=""
               /> 
             </div>

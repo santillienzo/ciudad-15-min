@@ -10,6 +10,7 @@ import logoBloomberg  from '@/assets/img/Bloomberg.png'
 import logoBloomberg2  from '@/assets/img/Bloomberg_2.png'
 import {motion} from 'framer-motion'
 import { variants } from "@/lib/motionVariants";
+import { gameSettings } from "@/lib/utils";
 
 const Home = () => {
   return (
@@ -100,13 +101,26 @@ const Home = () => {
                   delay: 1
                 }}
               >
-                <Button
-                  rightIcon={<RiArrowRightUpLine />}
-                  className="bg-button-cta-primary text-button-cta-secondary-foreground rounded w-full sm:w-auto m-auto mt-4"
-                  onClick={()=> window.location.href = "#participar"}
-                >
-                  Quiero participar
-                </Button>
+                {
+                  new Date() > new Date(gameSettings.date.start) ? (
+                    <Button
+                      rightIcon={<RiArrowRightUpLine />}
+                      className="bg-button-cta-primary text-button-cta-secondary-foreground rounded w-full sm:w-auto m-auto mt-4"
+                      onClick={()=> window.location.href = "/lobby"}
+                    >
+                      Ir al juego
+                    </Button>
+                  ) : (
+                    <Button
+                      rightIcon={<RiArrowRightUpLine />}
+                      className="bg-button-cta-primary text-button-cta-secondary-foreground rounded w-full sm:w-auto m-auto mt-4"
+                      onClick={()=> window.location.href = "#participar"}
+                    >
+                      Quiero participar
+                    </Button>
+                  )
+                }
+
               </motion.div>
 
               <motion.div
