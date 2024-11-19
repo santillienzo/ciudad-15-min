@@ -16,6 +16,6 @@ export const decryptQr = (value: string) => {
 export const gameSettings = {
   date: {
     start: "2024-11-22 18:00:00",
-    end: "2024-11-22 20:00:00"
+    end: "2024-11-22 19:45:00"
   }
 }

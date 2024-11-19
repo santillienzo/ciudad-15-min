@@ -14,7 +14,6 @@ import { hasVisitedAllCategories } from '@/lib/userActions';
 import { categories } from '@/lib/data/categories';
 import { gameSettings } from '@/lib/utils';
 import GameCountdown from '@/components/features/game/GameCountdown';
-import { motion } from 'framer-motion';
 // import { categories } from '@/lib/data/categories';
 
 const squarePosition = { lat: -32.88943218488501, lng: -68.84481014373047 };
@@ -24,6 +23,7 @@ const Game = () => {
   const {userData} = useAuth()
 
   const [isMounted, setIsMounted] = useState(false);
+  const [timeIsFinalized, setTimeIsFinalized] = useState(false);
   const [showCountdown, setShowCountdown] = useState(false);
   const [visibility, setVisibility] = useState<{ [key: string]: boolean }>({
     comercio: true,
@@ -45,6 +45,10 @@ const Game = () => {
       [category]: !visibility[category]
     });
   };
+
+  const handleTimeFinalized = () => {
+    setTimeIsFinalized(true);
+  }
 
   useEffect(() => {
     setRenderLocations(locations.filter(({category}) => visibility[category]))
@@ -124,18 +128,7 @@ const Game = () => {
       <div className='w-full relative' style={{height: '-webkit-fill-available'}}>
         
           <div className='absolute w-full h-full flex flex-col'>
-            {showCountdown && (
-              <motion.div 
-                className='bg-background-primary p-2'
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.1 }}
-              >
-                <span className='text-white text-center w-full block'>Hora de finalización: {new Date(gameSettings.date.end).toLocaleTimeString([], { minute: '2-digit', hour: '2-digit' })} hs</span>
-                <span className='text-white text-center w-full block text-2xl font-bold'><GameCountdown endDate={gameSettings.date.end}/></span>
-              </motion.div>
-            )}
+            <GameCountdown endDate={gameSettings.date.end} showCountdown={showCountdown} onFinish={handleTimeFinalized}/>
             <div className='flex-1 relative'>
               <button onClick={redirectToLobby} className='text-white z-50 absolute top-[10px] right-[10px] w-[60px] h-[60px] rounded-full cursor bg-background-secondary flex items-center justify-center'>
                 <House size={26}/>
@@ -182,7 +175,7 @@ const Game = () => {
               </Map> 
             </div>
           </div>
-          <ThemeButton disabled={userData?.isFinalized} onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
+          <ThemeButton disabled={userData?.isFinalized || timeIsFinalized} onClick={redirecToScanner} className='absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xl p-6 items-center flex gap-4'>
             Escanear <QrCode size={32}/>
           </ThemeButton>
           <CategoryWrapper visibility={visibility} handleVisibility={handleVisibility}/>
