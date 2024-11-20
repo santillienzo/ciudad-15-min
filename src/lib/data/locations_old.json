@@ -1,0 +1,530 @@
+{
+    "locations": [
+      {
+        "id": "loc_001",
+        "name": "Mercado Santa Ana",
+        "direction": "Santa Ana, 9 de Julio 1055 Local R, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "carniceria",
+        "coord": {
+            "lat": -32.89061754667962, 
+            "long": -68.84066381712621
+        }
+      },
+      {
+        "id": "loc_003",
+        "name": "Brod Ciudad",
+        "direction": "Chile 894, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "panaderia",
+        "coord": {
+            "lat": -32.8919, 
+            "long": -68.84662
+        }
+      },
+      {
+        "id": "loc_004",
+        "name": "Essenza Pastelería",
+        "direction": "5500, BZE, Av. Belgrano 1077, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "panaderia",
+        "coord": {
+            "lat": -32.88904,  
+            "long": -68.84956
+        }
+      },
+      {
+        "id": "loc_005",
+        "name": "Panadería Trigal (Suc. Av. Espáña)",
+        "direction": "Av. España 991, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "panaderia",
+        "coord": {
+            "lat": -32.89126,  
+            "long": -68.84023
+        }
+      },
+      {
+        "id": "loc_006",
+        "name": "Farmacia Del Águila Las Heras",
+        "direction": "Av. Las Heras 150, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "farmacia",
+        "coord": {
+            "lat": -32.88611,  
+            "long": -68.84034
+        }
+      },
+      {
+        "id": "loc_007",
+        "name": "Farmacia Del Puente (Suc. Ciudad)",
+        "direction": "Av. San Martín 1288, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "farmacia",
+        "coord": {
+            "lat": -32.88878,  
+            "long": -68.83919
+        }
+      },
+      {
+        "id": "loc_008",
+        "name": "Farmacia Nueva Sanidad 2",
+        "direction": "San Lorenzo 552, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "farmacia",
+        "coord": {
+            "lat": -32.8927, 
+            "long": -68.84737
+        }
+      },
+      {
+        "id": "loc_009",
+        "name": "Farmacia Mitre",
+        "direction": "Primera Sección, Av. Colón 361, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "farmacia",
+        "coord": {
+            "lat": -32.89395, 
+            "long": -68.8451
+        }
+      },
+      {
+        "id": "loc_010",
+        "name": "Verdulería Mini Feria Belgrano",
+        "direction": "Avenida Belgrano, Montevideo &, M5502 Capital, Mendoza",
+        "category": "comercio",
+        "subcategory": "verduleria",
+        "coord": {
+            "lat": -32.89103340551639,
+            "long": -68.85008842883576
+        }
+      },
+      {
+        "id": "loc_011",
+        "name": "Frutas y verduras Nápoli",
+        "direction": "Rivadavia 211, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "verduleria",
+        "coord": {
+            "lat": -32.89104191457047,  
+            "long": -68.8424341269854
+        }
+      },
+      {
+        "id": "loc_012",
+        "name": "Markstore Mini Market",
+        "direction": "Gral. Espejo 511, M5502AVN Mendoza",
+        "category": "comercio",
+        "subcategory": "almacen",
+        "coord": {
+            "lat": -32.88804335503571,  
+            "long": -68.84578482883576
+        }
+      },
+      {
+        "id": "loc_013",
+        "name": "Almacén 962",
+        "direction": "Chile 962, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "almacen",
+        "coord": {
+            "lat": -32.89079502311732,   
+            "long": -68.84636594232846
+        }
+      },
+      {
+        "id": "loc_014",
+        "name": "OK MINIMARKET PEATONAL",
+        "direction": "Peatonal Sarmiento 17, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "almacen",
+        "coord": {
+            "lat": -32.890576631768916,
+            "long": -68.83971865767154
+        }
+      },
+      {
+        "id": "loc_020",
+        "name": "CAJERO AUTOMATICO BANCO MACRO",
+        "direction": "9 de Julio 1401, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "cajero_automatico",
+        "coord": {
+            "lat": -32.88690172485609,
+            "long": -68.83964556931389
+        }
+      },
+      {
+        "id": "loc_021",
+        "name": "CAJERO AUTOMATICO BANCO MACRO",
+        "direction": "Av. Colón 737, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "cajero_automatico",
+        "coord": {
+            "lat": -32.89291288755686,
+            "long": -68.85018405264543
+        }
+      },
+      {
+        "id": "loc_022",
+        "name": "SUB-SECRETARIA DE CULTURA/ EX BANCO HIPOTECARIO",
+        "category": "equipamiento_basico",
+        "subcategory": "cultura",
+        "coord": {
+            "lat": -32.88816, 
+            "long": -68.84175
+        }
+      },
+      {
+        "id": "loc_023",
+        "name": "ESPACIO CONTEMPORÁNEO DE ARTE 'ELIANA MOLINELLI'",
+        "direction": "9 de Julio S/n, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "cultura",
+        "coord": {
+            "lat": -32.88815, 
+            "long": -68.84006
+        }
+      },
+      {
+        "id": "loc_024",
+        "name": "MUSEO DEL PASADO CUYANO",
+        "direction": "-",
+        "category": "equipamiento_basico",
+        "subcategory": "cultura",
+        "coord": {
+            "lat": -32.89162,  
+            "long": -68.84705
+        }
+      },
+      {
+        "id": "loc_025",
+        "name": "MMAMM",
+        "direction": "Gral. Espejo, M5502 Capital, Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "cultura",
+        "coord": {
+            "lat": -32.89005,
+            "long": -68.84464
+        }
+      },
+      {
+        "id": "loc_026",
+        "name": "Colegio María Auxiliadora Primaria",
+        "direction": "25 de Mayo 1466, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "educacion",
+        "coord": {
+            "lat": -32.885284297599426,
+            "long": -68.84639152896551
+        }
+      },
+      {
+        "id": "loc_027",
+        "name": "ESCUELA No. 1 MERCEDITAS DE SAN MARTIN/ PATRICIAS MENDOCINAS",
+        "direction": "Gutiérrez 380, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "educacion",
+        "coord": {
+            "lat": -32.88782, 
+            "long": -68.84361
+        }
+      },
+      {
+        "id": "loc_028",
+        "name": "CEF SAN BUENAVENTURA",
+        "direction": "Patricias Mendocinas 1475, M5502 Capital, Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "educacion",
+        "coord": {
+            "lat": -32.88602,
+            "long": -68.84209
+        }
+      },
+      {
+        "id": "loc_029",
+        "name": "ESC. COLEGIO NACIONAL AGUSTÍN ÁLVAREZ",
+        "direction": "Chile 1050, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "educacion",
+        "coord": {
+            "lat": -32.88983322998204,
+            "long": -68.84621540603746
+        }
+      },
+      {
+        "id": "loc_030",
+        "name": "ESCUELA N°9-002 NORMAL TOMÁS GODOY CRUZ",
+        "direction": "Rivadavia 350, M5502 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "educacion",
+        "coord": {
+            "lat": -32.89114,
+            "long": -68.84427
+        }
+      },
+      {
+        "id": "loc_031",
+        "name": "COLEGIO SAN LUIS GONZAGA",
+        "direction": " 9 de Julio 777, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "educacion",
+        "coord": {
+            "lat": -32.8941,
+            "long": -68.84149
+        }
+      },
+      {
+        "id": "loc_032",
+        "name": "Club de Gimnasia y Esgrima Mendoza",
+        "direction": "Gutiérrez 261, M5500 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "deporte",
+        "coord": {
+            "lat": -32.88777,
+            "long": -68.84206
+        }
+      },
+      {
+        "id": "loc_034",
+        "name": "ALEXANDER FLEMING",
+        "direction": "-",
+        "category": "equipamiento_basico",
+        "subcategory": "salud",
+        "coord": {
+            "lat": -32.8937, 
+            "long": -68.8466
+        }
+      },
+      {
+        "id": "loc_035",
+        "name": "CLINICA FRANCESA",
+        "direction": "Av. Colón 547, M5500GEF M5500GEF, Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "salud",
+        "coord": {
+            "lat": -32.8935,
+            "long": -68.84756
+        }
+      },
+      {
+        "id": "loc_036",
+        "name": "CLINICA SAN LORENZO",
+        "direction": "San Lorenzo 375, M5502 Mendoza",
+        "category": "equipamiento_basico",
+        "subcategory": "salud",
+        "coord": {
+            "lat": -32.8929, 
+            "long": -68.84474
+        }
+      },
+      {
+        "id": "loc_037",
+        "name": "Plaza Chile",
+        "category": "espacios_verdes",
+        "subcategory": "espacios_verdes",
+        "coord": {
+            "lat": -32.88631488650245, 
+            "long": -68.84694329605396
+        }
+      },
+      {
+        "id": "loc_038",
+        "name": "Plaza San Martín",
+        "category": "espacios_verdes",
+        "subcategory": "espacios_verdes",
+        "coord": {
+            "lat": -32.8874431477791, 
+            "long": -68.8406295189768
+        }
+      },
+      {
+        "id": "loc_039",
+        "name": "Plaza Italia",
+        "category": "espacios_verdes",
+        "subcategory": "espacios_verdes",
+        "coord": {
+            "lat": -32.89151,
+            "long": -68.84862
+        }
+      },
+      {
+        "id": "loc_040",
+        "name": "Plaza España",
+        "category": "espacios_verdes",
+        "subcategory": "espacios_verdes",
+        "coord": {
+            "lat": -32.89296, 
+            "long": -68.84204
+        }
+      },
+      {
+        "id": "loc_041",
+        "name": "Estación Belgrano",
+        "direction": "Reconquista 100, M5502 Mendoza",
+        "category": "movilidad",
+        "subcategory": "metrotranvia",
+        "coord": {
+            "lat": -32.89034213736829,
+            "long": -68.8501114498518
+        }
+      },
+      {
+        "id": "loc_042",
+        "name": "Bicitran Estación Plaza Independencia",
+        "direction": "Centro, M5502 Capital, Mendoza",
+        "category": "movilidad",
+        "subcategory": "estaciones_de_bicicleta",
+        "coord": {
+            "lat": -32.889224448202434, 
+            "long": -68.8448743219959
+        }
+      },
+      {
+        "id": "loc_043",
+        "name": "Parada Bicitran",
+        "direction": "Av. Las Heras 798, M5500 Mendoza",
+        "category": "movilidad",
+        "subcategory": "estaciones_de_bicicleta",
+        "coord": {
+            "lat": -32.88397760960046, 
+            "long": -68.8484464
+        }
+      },
+      {
+        "id": "loc_044",
+        "name": "Parada Perú y Espejo",
+        "direction": "M5502 Capital, Mendoza, Argentina",
+        "category": "movilidad",
+        "subcategory": "paradas_de_colectivo",
+        "coord": {
+            "lat": -32.88812570849165, 
+            "long": -68.8481247865073 
+        }
+      },
+      {
+        "id": "loc_045",
+        "name": "PARADA AVENIDA 9 DE JULIO Y GUTIERREZ",
+        "direction": "M5502 Capital, Mendoza, Argentina",
+        "category": "movilidad",
+        "subcategory": "paradas_de_colectivo",
+        "coord": {
+            "lat": -32.88730719386301,
+            "long": -68.84003927116424
+        }
+      },
+      {
+        "id": "loc_046",
+        "name": "PARADA MONTEVIDEO Y PERÚ",
+        "direction": "M5502 Capital, Mendoza, Argentina",
+        "category": "movilidad",
+        "subcategory": "paradas_de_colectivo",
+        "coord": {
+            "lat": -32.891432051376206, 
+            "long": -68.84892947116424
+        }
+      },
+      {
+        "id": "loc_047",
+        "name": "PARADA AVENIDA ESPAÑA Y RIVADAVIA",
+        "direction": "M5502 Capital, Mendoza, Argentina",
+        "category": "movilidad",
+        "subcategory": "paradas_de_colectivo",
+        "coord": {
+            "lat": -32.89135216025068,
+            "long": -68.84210522698541
+        }
+      },
+
+
+      {
+        "id": "loc_016",
+        "name": "Supermercado España",
+        "direction": "-",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.8894,  
+            "long": -68.84185
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Panadería Trigal (Suc. Espejo)",
+        "direction": " G ESPEJO 231,M5502AVH CAPITAL,MENDOZA, M5502AVH CAPITAL, PROVINCIA DE MENDOZA",
+        "category": "comercio",
+        "subcategory": "panaderia",
+        "coord": {
+            "lat": -32.888824111110274, 
+            "long": -68.84193234031223
+        }
+      },
+      {
+        "id": "loc_019",
+        "name": "Cajero Automático Link",
+        "direction": "Montemar, Av. San Martín 1126, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "cajero_automatico",
+        "coord": {
+            "lat": -32.890021230724116,   
+            "long": -68.83945218650729
+        }
+      },
+      {
+        "id": "loc_048",
+        "name": "Vea Express",
+        "direction": "Gral. Espejo 131, M5500 Capital, Mendoza",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.889091453017976,   
+            "long": -68.84083973601071
+        }
+      },
+      {
+        "id": "loc_049",
+        "name": "Cajero Automático Banco Nación",
+        "direction": "Gutiérrez 21, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "cajero_automatico",
+        "coord": {
+            "lat": -32.88827919911958,   
+            "long": -68.83904824847629 
+        }
+      },
+      {
+        "id": "loc_015",
+        "name": "Carrefour",
+        "direction": "Av. Las Heras 798, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.88484,  
+            "long": -68.84842
+        }
+      },
+      {
+        "id": "loc_017",
+        "name": "Super Uno",
+        "direction": "Av. Colón 423, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.89379,
+            "long": -68.84606
+        }
+      },
+      {
+        "id": "loc_018",
+        "name": "Super A",
+        "direction": "Av. San Martín 800, M5500EOD Mendoza",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.89407, 
+            "long": -68.84049
+        }
+      }
+    ]
+  }
+  
