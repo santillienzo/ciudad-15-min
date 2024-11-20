@@ -1,28 +1,6 @@
 {
     "locations": [
       {
-        "id": "loc_001",
-        "name": "Mercado Santa Ana",
-        "direction": "Santa Ana, 9 de Julio 1055 Local R, M5500 Mendoza",
-        "category": "comercio",
-        "subcategory": "carniceria",
-        "coord": {
-            "lat": -32.89061754667962, 
-            "long": -68.84066381712621
-        }
-      },
-      {
-        "id": "loc_002",
-        "name": "Panadería Trigal (Suc. Espejo)",
-        "direction": " G ESPEJO 231,M5502AVH CAPITAL,MENDOZA, M5502AVH CAPITAL, PROVINCIA DE MENDOZA",
-        "category": "comercio",
-        "subcategory": "panaderia",
-        "coord": {
-            "lat": -32.888634104308444,  
-            "long": -68.84193447479782
-        }
-      },
-      {
         "id": "loc_003",
         "name": "Brod Ciudad",
         "direction": "Chile 894, M5500 Mendoza",
@@ -166,17 +144,6 @@
         }
       },
       {
-        "id": "loc_016",
-        "name": "Cerca",
-        "direction": "-",
-        "category": "comercio",
-        "subcategory": "supermercado",
-        "coord": {
-            "lat": -32.8894,  
-            "long": -68.84185
-        }
-      },
-      {
         "id": "loc_017",
         "name": "Super Uno",
         "direction": "-",
@@ -196,17 +163,6 @@
         "coord": {
             "lat": -32.89407, 
             "long": -68.84049
-        }
-      },
-      {
-        "id": "loc_019",
-        "name": "Cajero Automático Link",
-        "direction": "Banco Industrial, Av. San Martín 1126, M5500 Mendoza",
-        "category": "comercio",
-        "subcategory": "cajero_automatico",
-        "coord": {
-            "lat": -32.890021230724116,   
-            "long": -68.83945218650729
         }
       },
       {
@@ -349,17 +305,6 @@
         "coord": {
             "lat": -32.88777,
             "long": -68.84206
-        }
-      },
-      {
-        "id": "loc_033",
-        "name": "Óptica Visión",
-        "direction": "Av. España 1194, M5500 DXY, Mendoza",
-        "category": "equipamiento_basico",
-        "subcategory": "salud",
-        "coord": {
-            "lat": -32.8892, 
-            "long": -68.84182
         }
       },
       {
@@ -510,6 +455,52 @@
         "coord": {
             "lat": -32.89135216025068,
             "long": -68.84210522698541
+        }
+      },
+
+
+      {
+        "id": "loc_016",
+        "name": "Supermercado España",
+        "direction": "-",
+        "category": "comercio",
+        "subcategory": "supermercado",
+        "coord": {
+            "lat": -32.8894,  
+            "long": -68.84185
+        }
+      },
+      {
+        "id": "loc_002",
+        "name": "Panadería Trigal (Suc. Espejo)",
+        "direction": " G ESPEJO 231,M5502AVH CAPITAL,MENDOZA, M5502AVH CAPITAL, PROVINCIA DE MENDOZA",
+        "category": "comercio",
+        "subcategory": "panaderia",
+        "coord": {
+            "lat": -32.888824111110274, 
+            "long": -68.84193234031223
+        }
+      },
+      {
+        "id": "loc_001",
+        "name": "Mercado Santa Ana",
+        "direction": "Santa Ana, 9 de Julio 1055 Local R, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "carniceria",
+        "coord": {
+            "lat": -32.89061754667962, 
+            "long": -68.84066381712621
+        }
+      },
+      {
+        "id": "loc_019",
+        "name": "Cajero Automático Link",
+        "direction": "Montemar, Av. San Martín 1126, M5500 Mendoza",
+        "category": "comercio",
+        "subcategory": "cajero_automatico",
+        "coord": {
+            "lat": -32.890021230724116,   
+            "long": -68.83945218650729
         }
       }
     ]
