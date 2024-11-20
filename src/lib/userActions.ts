@@ -1,28 +1,23 @@
-import { doc, updateDoc } from "firebase/firestore";
+import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 import { CategoriesVisited, UserData } from "./types/user.types";
 
 export const initialCategoriesVisited:CategoriesVisited = {
     comercio: {
-      carniceria: false,
       panaderia: false,
       farmacia: false,
-      verduleria: false,
-      almacen: false,
       supermercado: false,
       cajero_automatico: false
     },
     equipamiento_basico: {
       cultura: false,
       educacion: false,
-      deporte: false,
       salud: false
     },
     espacios_verdes: {
       espacios_verdes: false
     },
     movilidad: {
-      metrotranvia: false,
       estaciones_de_bicicleta: false,
       paradas_de_colectivo: false
     }
@@ -105,3 +100,36 @@ export const hasVisitedAllCategories = (categoriesVisited:CategoriesVisited) => 
     }
     return true;
 };
+
+export const resetAllUserLocationsVisited = async () => {
+    try {
+        const usersCollection = collection(db, "users");
+        const usersSnapshot = await getDocs(usersCollection);
+
+        const users: UserData[] = [];
+
+        await Promise.all(usersSnapshot.docs.map(async (userDoc) => {
+            const id = userDoc.id;
+            const userData = userDoc.data() as UserData;
+
+            const updatedUser = {
+                ...userData,
+                locationVisited: initialCategoriesVisited
+            }
+
+            // Actualiza el documento en Firestore
+            const userRef = doc(db, "users", id);
+            await updateDoc(userRef, updatedUser);
+
+            users.push(updatedUser);
+        }));
+
+        return users;
+    } catch (error) {
+        const errorMsg = "Hubo un error al obtener los usuarios"
+        console.log(error)
+        
+        throw new Error(errorMsg);
+    }
+}
+

@@ -5,10 +5,23 @@ import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import { Table, Thead, Tbody, Tr, Th, Td, Box } from "@chakra-ui/react";
 import { useReactToPrint } from "react-to-print";
+import { Dialog, DialogTitle, DialogContent, DialogDescription, DialogFooter, DialogHeader } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { resetAllUserLocationsVisited } from "@/lib/userActions";
+import { toast } from "sonner";
 
 const UsersTable = () => {
   const [users, setUsers] = useState<UserData[]>([]);
+  const [openModalReset, setOpenModalReset] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const handleOpenModalReset = () => {
+    setOpenModalReset(true);
+  }
+
+  const handleCloseModalReset = () => {
+    setOpenModalReset(false);
+  }
 
   const contentRef = useRef<HTMLDivElement>(null);
   const reactToPrintFn = useReactToPrint({
@@ -43,6 +56,22 @@ const UsersTable = () => {
     fetchUsers();
   }, []);
 
+  const handleResetAllUserLocationsVisited = async () => {
+    const resetedUsersPromise = resetAllUserLocationsVisited();
+
+    toast.promise(resetedUsersPromise, {
+      loading: 'Reiniciando ubicaciones...',
+      success: (resetedUsers) => {
+        setUsers(resetedUsers);
+        handleCloseModalReset();
+        return 'Ubicaciones reiniciadas correctamente';
+      },
+      error: (error) => {
+        return error.message;
+      }
+    });
+  }
+
   return (
     <Box className="flex justify-center bg-background-secondary min-h-screen">
       {loading ? (
@@ -52,12 +81,15 @@ const UsersTable = () => {
           width="100%"
           maxWidth="auto"
         >
-          <Box className="w-full flex justify-end p-4">
+          <Box className="w-full flex justify-end p-4 gap-4">
             <button
               onClick={() => reactToPrintFn()}
               className="bg-background-primary text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-opacity-90 transition-all"
             >
               <span>Imprimir PDF</span>
+            </button>
+            <button onClick={handleOpenModalReset} className="bg-red-500 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-opacity-90 transition-all">
+              <span>Resetear ubicaciones</span>
             </button>
           </Box>
 
@@ -126,6 +158,24 @@ const UsersTable = () => {
           </TableContainer>
         </Box>
       )}
+    <Dialog open={openModalReset} onOpenChange={setOpenModalReset}>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Confirmar acción</DialogTitle>
+          <DialogDescription>
+            ¿Está seguro que desea reiniciar las ubicaciones de todos los usuarios registrados? Esta acción no se puede deshacer.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <Button type="button" variant="secondary" onClick={handleCloseModalReset}>
+            Cancelar
+          </Button>
+          <Button type="button" variant="destructive" onClick={handleResetAllUserLocationsVisited}>
+            Reiniciar
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
     </Box>
   );
 };
