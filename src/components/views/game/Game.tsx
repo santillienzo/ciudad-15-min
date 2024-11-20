@@ -51,8 +51,36 @@ const Game = () => {
   }
 
   useEffect(() => {
-    setRenderLocations(locations.filter(({category}) => visibility[category]))
-  }, [visibility])
+    // Initialize empty array for filtered locations
+    let filteredLocations: Location[] = [];
+
+    // Return early if no user data
+    if (!userData) return
+
+    // Filter locations based on visibility settings
+    const filteredLocationsByVisibility = locations.filter(({category}) => visibility[category]);
+    filteredLocations = filteredLocationsByVisibility;
+
+    // If user has visited locations, filter out already visited ones
+    if (userData.locationVisited) {
+      const {locationVisited} = userData;
+      const filteredLocationsByVisited: Location[] = [];
+
+        // Loop through locations and only keep unvisited ones
+        for (const location of filteredLocations) {
+          const category = location.category;
+          const subcategory = location.subcategory;
+
+          if (!locationVisited[category][subcategory]) {
+            filteredLocationsByVisited.push(location)
+          }
+        }
+      filteredLocations = filteredLocationsByVisited;
+    }
+
+    // Update state with filtered locations
+    setRenderLocations(filteredLocations)
+  }, [visibility, userData])
 
 
   useEffect(() => {
