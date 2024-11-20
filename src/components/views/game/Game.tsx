@@ -14,6 +14,7 @@ import { hasVisitedAllCategories } from '@/lib/userActions';
 import { categories } from '@/lib/data/categories';
 import { gameSettings } from '@/lib/utils';
 import GameCountdown from '@/components/features/game/GameCountdown';
+import LocationDataDialog from '@/components/features/game/LocationDataDialog';
 // import { categories } from '@/lib/data/categories';
 
 const squarePosition = { lat: -32.88943218488501, lng: -68.84481014373047 };
@@ -32,6 +33,8 @@ const Game = () => {
     movilidad: true,
   });
   const [renderLocations, setRenderLocations] = useState<Location[]>([]);
+  const [openDataDialog, setOpenDataDialog] = useState(false);
+  const [dataDialogData, setDataDialogData] = useState<Location | null>(null);
   
   const [currentPosition, setCurrentPosition] = useState<{
     lat: number;
@@ -145,6 +148,11 @@ const Game = () => {
     setShowCountdown(!showCountdown);
   }
 
+  const showDataDialog = (location: Location) => {
+    setDataDialogData(location)
+    setOpenDataDialog(true)
+  }
+
   // Add useEffect for mounting
   useEffect(() => {
     setIsMounted(true);
@@ -177,7 +185,8 @@ const Game = () => {
               <UserMarker currentPosition={currentPosition}/>
 
               {/* Acá van los pins de las ubicaciones */}
-              {renderLocations.map(({category, coord, name, id, subcategory}) => {
+              {renderLocations.map((location) => {
+                const {category, coord, name, id, subcategory} = location;
                 // const {background, borderColor, glyphColor} = colorCategoryDictionary(category)
                 const _category = categories.find((cat) => cat.name === category)
 
@@ -188,6 +197,7 @@ const Game = () => {
                 if (!icons) return null;
                 return (
                   <AdvancedMarker
+                    onClick={()=> showDataDialog(location)}
                     key={id}
                     position={{ lat: coord.lat, lng: coord.long }}
                     // Puedes agregar un title o un evento onClick para mostrar más detalles de la ubicación
@@ -207,6 +217,11 @@ const Game = () => {
             Escanear <QrCode size={32}/>
           </ThemeButton>
           <CategoryWrapper visibility={visibility} handleVisibility={handleVisibility}/>
+          <LocationDataDialog 
+            open={openDataDialog} 
+            onClose={()=> setOpenDataDialog(false)} 
+            data={dataDialogData}
+          />
       </div>
     </>
   );
