@@ -1,18 +1,18 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"; 
-import { IQR } from "@/lib/types/qr.types";
 import ThemeButton from "@/components/common/ThemeButton";
 import { formatCategoryName, formatSubcategoryName } from "@/lib/utils.string";
 import { QrCode } from "lucide-react";
 import { categories } from "@/lib/data/categories";
+import { Location } from "@/lib/types/location.types";
 
-type QrDataDialogProps = {
+type Props = {
   open: boolean; // Controla si el diálogo está abierto o cerrado
   onClose: () => void; // Función para cerrar el diálogo
-  handleConfirm: () => void; // Función para confirmar los datos
-  data: IQR | null; // Datos del QR que se mostrarán
+  handleConfirm?: () => void; // Función para confirmar los datos
+  data: Location | null; // Datos del QR que se mostrarán
 };
 
-const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps) => {
+const LocationDataDialog = ({ open, onClose, data, handleConfirm }: Props) => {
   const category = categories.find((category) => category.name === data?.category)
 
   if (!category) return null;
@@ -47,9 +47,11 @@ const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps)
             </div>
           </div>
 
-        <DialogFooter className="mt-10">
-          <ThemeButton onClick={handleConfirm} className="flex gap-4 p-6 text-xl border-none outline-none">Confirmar <QrCode size={32}/></ThemeButton>
-        </DialogFooter>
+        {handleConfirm && (
+          <DialogFooter className="mt-10">
+            <ThemeButton onClick={handleConfirm} className="flex gap-4 p-6 text-xl border-none outline-none">Confirmar <QrCode size={32}/></ThemeButton>
+          </DialogFooter>
+        )}
       </DialogContent>
         ) : (
           <p className="text-red-500">No hay datos para mostrar.</p>
@@ -58,4 +60,4 @@ const QrDataDialog = ({ open, onClose, data, handleConfirm }: QrDataDialogProps)
   );
 };
 
-export default QrDataDialog;
+export default LocationDataDialog;

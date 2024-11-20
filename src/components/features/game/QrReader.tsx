@@ -1,7 +1,7 @@
 import { IDetectedBarcode, Scanner } from '@yudiel/react-qr-scanner';
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import QrDataDialog from './QrDataDialog';
+import LocationDataDialog from './LocationDataDialog';
 import { IQR } from '@/lib/types/qr.types';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/components/contexts/AuthContext';
@@ -121,7 +121,7 @@ const QrReader = () => {
         }}
       />
 
-    <QrDataDialog 
+    <LocationDataDialog 
       open={openDialog} 
       onClose={closeDialog} 
       data={result} 

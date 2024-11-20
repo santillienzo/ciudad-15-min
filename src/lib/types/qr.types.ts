@@ -1,11 +1,6 @@
-export type IQR = {
-    id?: string,
-    type?: string,
-    name?: string,
-    category?: string,
-    subcategory?: string,
-    direction?: string,
+import { Location } from "./location.types";
+
+export interface IQR extends Location {
+    event?: 'finish-game',
     source: 'ciudad-15-minutos',
-    // event: 'mark-location' | 'finish-game'
-    event?: 'finish-game'
 }
