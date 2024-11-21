@@ -14,5 +14,6 @@ export interface UserData {
     email: string,
     createdAt?: string,
     isFinalized?: boolean,
+    startedGame?: boolean,
     locationVisited?: CategoriesVisited
 }
