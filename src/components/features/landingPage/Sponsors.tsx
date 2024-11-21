@@ -1,8 +1,8 @@
-import la_social from '@/assets/img/sponsors/logo_la_social.png'
-import cachipum from '@/assets/img/sponsors/logo_cachipum.png'
-import logo_don_justo from '@/assets/img/sponsors/logo_don_justo.png'
-import logo_latinad from '@/assets/img/sponsors/logo_latinad.png'
-import logo_evolution from '@/assets/img/sponsors/logo_evolution.png'
+import la_social from '@/assets/img/sponsors/logo_la_social.webp'
+import cachipum from '@/assets/img/sponsors/logo_cachipum.webp'
+import logo_don_justo from '@/assets/img/sponsors/logo_don_justo.webp'
+import logo_latinad from '@/assets/img/sponsors/logo_latinad.webp'
+import logo_evolution from '@/assets/img/sponsors/logo_evolution.webp'
 
 const principalSponsor = {
   name: 'Bicicletas Evolution',
