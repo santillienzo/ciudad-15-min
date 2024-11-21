@@ -4,9 +4,9 @@ import { LogOut } from 'lucide-react';
 import { Link, useNavigate } from "react-router-dom"
 import logo from '@/assets/svg/Logo blanco.svg'
 import { motion } from "framer-motion";
-import logoMuni  from '@/assets/img/municipalidad.png'
-import logoBloomberg  from '@/assets/img/Bloomberg.png'
-import logoBloomberg2  from '@/assets/img/Bloomberg_2.png'
+import logoMuni  from '@/assets/img/municipalidad.webp'
+import logoBloomberg  from '@/assets/img/Bloomberg.webp'
+import logoBloomberg2  from '@/assets/img/Bloomberg_2.webp'
 import { useState } from "react";
 import LogoutModal from "@/components/features/game/LogoutModal";
 import { Button } from "@/components/ui/button";

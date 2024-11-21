@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { containerVariants, itemVariants } from "./motionsVariant"
-import bloombergLogo from "@/assets/img/Bloomberg.png"
-import mendozaLogo from "@/assets/img/municipalidad.png"
+import bloombergLogo from "@/assets/img/Bloomberg.webp"
+import mendozaLogo from "@/assets/img/municipalidad.webp"
 import ThemeButton from "@/components/common/ThemeButton"
 
 interface Props {

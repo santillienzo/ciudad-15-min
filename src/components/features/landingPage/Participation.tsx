@@ -1,7 +1,7 @@
 import RegisterForm from '@/components/common/forms/RegisterForm'
 import { CalendarHeart, MapPinned } from 'lucide-react'
 import { RiCircleFill } from 'react-icons/ri'
-import cityMap from '@/assets/img/citymap.png'
+import cityMap from '@/assets/img/citymap.webp'
 import { Image } from '@chakra-ui/react'
 import {motion} from 'framer-motion'
 import { variants } from '@/lib/motionVariants'

@@ -1,6 +1,6 @@
 import { Instagram } from "lucide-react";
 import logo from "@/assets/svg/Logo blanco.svg";
-import logoUNC from "@/assets/img/uncuyo_blanco.png";
+import logoUNC from "@/assets/img/uncuyo_blanco.webp";
 
 const Footer = () => {
   return (

@@ -1,4 +1,4 @@
-import instruccionesImg from "@/assets/img/instrucciones.png";
+import instruccionesImg from "@/assets/img/instrucciones.webp";
 import { variants } from "@/lib/motionVariants";
 import { ScanQrCode, SquarePen, Undo2 } from "lucide-react";
 import {motion} from 'framer-motion'

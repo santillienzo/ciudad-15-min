@@ -5,9 +5,9 @@ import { Box } from "@chakra-ui/react";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { GoPlus } from "react-icons/go";
 import buildingsImg from "../../../assets/svg/Edificios.svg";
-import logoMuni  from '@/assets/img/municipalidad.png'
-import logoBloomberg  from '@/assets/img/Bloomberg.png'
-import logoBloomberg2  from '@/assets/img/Bloomberg_2.png'
+import logoMuni  from '@/assets/img/municipalidad.webp'
+import logoBloomberg  from '@/assets/img/Bloomberg.webp'
+import logoBloomberg2  from '@/assets/img/Bloomberg_2.webp'
 import {motion} from 'framer-motion'
 import { variants } from "@/lib/motionVariants";
 import { gameSettings } from "@/lib/utils";
