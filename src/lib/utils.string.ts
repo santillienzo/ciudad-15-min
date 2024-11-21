@@ -48,7 +48,7 @@ export const subcategoriesDictionary = (str:string):string => {
       "deporte": "Deporte",
       "bienestar_social": "Bienestar Social",
       "salud": "Salud",
-      "espacios_verdes": "Espacios Verdes",
+      "espacios_verdes": "Plazas",
       "metrotranvia": "Metrotranvía",
       "estaciones_de_bicicleta": "Estaciones de Bicicleta",
       "paradas_de_colectivo": "Paradas de Colectivo"
