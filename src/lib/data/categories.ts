@@ -10,7 +10,7 @@ import almacen from "@/assets/img/categories/comercio/almacen.svg"
 import almacen_disabled from "@/assets/img/categories/comercio/almacen_disabled.png"
 import supermercado from "@/assets/img/categories/comercio/supermercado.svg"
 import supermercado_disabled from "@/assets/img/categories/comercio/supermercado_disabled.png"
-import cajero_automatico from "@/assets/img/categories/comercio/cajero_automatico.svg"
+import cajero_automatico from "@/assets/img/categories/comercio/cajero_automatico.png"
 import cajero_automatico_disabled from "@/assets/img/categories/comercio/cajero_automatico_disabled.png"
 
 import cultura from "@/assets/img/categories/equipamiento_basico/cultura.svg"
@@ -27,9 +27,9 @@ import espacios_verdes_disabled from "@/assets/img/categories/espacios_verdes/es
 
 import metrotranvia from "@/assets/img/categories/movilidad/metrotranvia.svg"
 import metrotranvia_disabled from "@/assets/img/categories/movilidad/metrotranvia_disabled.png"
-import estaciones_de_bicicleta from "@/assets/img/categories/movilidad/estaciones_de_bicicleta.svg"
+import estaciones_de_bicicleta from "@/assets/img/categories/movilidad/estaciones_de_bicicleta.png"
 import estaciones_de_bicicleta_disabled from "@/assets/img/categories/movilidad/estaciones_de_bicicleta_disabled.png"
-import paradas_de_colectivo from "@/assets/img/categories/movilidad/paradas_de_colectivo.svg"
+import paradas_de_colectivo from "@/assets/img/categories/movilidad/paradas_d_colectivo.png"
 import paradas_de_colectivo_disabled from "@/assets/img/categories/movilidad/paradas_de_colectivo_disabled.png"
 
 export const categories = [
