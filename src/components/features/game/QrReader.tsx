@@ -126,6 +126,7 @@ const QrReader = () => {
       onClose={closeDialog} 
       data={result} 
       handleConfirm={handleConfirm}
+      variant='qr'
     />
   </div>
   );

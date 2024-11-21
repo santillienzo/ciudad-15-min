@@ -5,15 +5,47 @@ import { QrCode } from "lucide-react";
 import { categories } from "@/lib/data/categories";
 import { Location } from "@/lib/types/location.types";
 
+import la_social from '@/assets/img/sponsors/logo_la_social.png'
+import cachipum from '@/assets/img/sponsors/logo_cachipum.png'
+import logo_don_justo from '@/assets/img/sponsors/logo_don_justo.png'
+import logo_latinad from '@/assets/img/sponsors/latinad_square.png'
+import logo_evolution from '@/assets/img/sponsors/logo_evolution.png'
+
+const principalSponsor = {
+  name: 'Bicicletas Evolution',
+  logo: logo_evolution,
+}
+
+const sponsors = [
+    {
+      name: 'La Social - Pizzería de Barrio',
+      logo: la_social,
+    },
+    {
+      name: 'Cachipum',
+      logo: cachipum,
+    },
+    {
+      name: 'Don Justo',
+      logo: logo_don_justo,
+    },
+    {
+      name: 'LatinAd',
+      logo: logo_latinad,
+    }
+  ];
+
 type Props = {
   open: boolean; // Controla si el diálogo está abierto o cerrado
   onClose: () => void; // Función para cerrar el diálogo
   handleConfirm?: () => void; // Función para confirmar los datos
   data: Location | null; // Datos del QR que se mostrarán
+  variant?: 'default' | 'qr';
 };
 
-const LocationDataDialog = ({ open, onClose, data, handleConfirm }: Props) => {
+const LocationDataDialog = ({ open, onClose, data, handleConfirm, variant = 'default' }: Props) => {
   const category = categories.find((category) => category.name === data?.category)
+  const isQrVariant = variant === 'qr'
 
   if (!category) return null;
 
@@ -29,8 +61,7 @@ const LocationDataDialog = ({ open, onClose, data, handleConfirm }: Props) => {
           <DialogDescription className="text-sm">
             <span className="font-bold text-gray-100">{data.direction}</span>
           </DialogDescription>
-        </DialogHeader>
-        
+        </DialogHeader>        
           <div className="">
             <div className="flex w-full justify-center mb-4">
               <img src={subcategory?.icons.enable} alt={data.category} width={60} height={60} className="drop-shadow-xl"/>
@@ -51,6 +82,20 @@ const LocationDataDialog = ({ open, onClose, data, handleConfirm }: Props) => {
           <DialogFooter className="mt-10">
             <ThemeButton onClick={handleConfirm} className="flex gap-4 p-6 text-xl border-none outline-none">Confirmar <QrCode size={32}/></ThemeButton>
           </DialogFooter>
+        )}
+        {isQrVariant && (
+          <>
+            <div className="h-[1px] w-11/12 m-auto bg-background-primary-muted my-6"></div>
+            <div className="flex flex-col justify-center items-center">
+            <img src={principalSponsor.logo} alt={principalSponsor.name} width={200} height={150} className="drop-shadow-xl" loading="lazy"/>
+            <div className="flex gap-10 justify-center w-full my-4 flex-wrap">
+              <img src={sponsors[0].logo} alt={sponsors[0].name} width={50} loading="lazy" className="drop-shadow-xl object-contain"/>
+              <img src={sponsors[1].logo} alt={sponsors[1].name} width={50} loading="lazy" className="drop-shadow-xl object-contain"/>
+              <img src={sponsors[2].logo} alt={sponsors[2].name} width={50} loading="lazy" className="drop-shadow-xl object-contain"/>
+              <img src={sponsors[3].logo} alt={sponsors[3].name} width={40} loading="lazy" className="drop-shadow-xl object-contain"/>
+              </div>
+            </div>
+          </>
         )}
       </DialogContent>
         ) : (
