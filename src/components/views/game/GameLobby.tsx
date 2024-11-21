@@ -10,14 +10,38 @@ import logoBloomberg2  from '@/assets/img/Bloomberg_2.png'
 import { useState } from "react";
 import LogoutModal from "@/components/features/game/LogoutModal";
 import { Button } from "@/components/ui/button";
+import { startGame } from "@/lib/userActions";
+import { toast } from "sonner";
 
 
 const GameLobby = () => {
-  const { isAuth, logout, userData } = useAuth();
+  const { isAuth, logout, userData, user, updateUserData } = useAuth();
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const navigate = useNavigate();
   
-  const toPlayRedirect = isAuth() ? '/juego' : '/iniciar-sesion'
+  const handleStartGame = () => {
+    if (!isAuth() || !user || !userData) return
+
+    if (userData.startedGame) {
+      navigate('/juego')
+      return
+    }
+
+    try {
+      const startGamePromise = startGame({userId: user.uid})
+      toast.promise(startGamePromise, {
+        loading: 'Cargando ubicaciones...',
+        success: ()=> {
+          updateUserData({...userData, startedGame: true})
+          navigate('/juego')
+          return 'Es hora de empezar!'
+        },
+        error: 'Error al iniciar el juego'
+      })
+    } catch (error) {
+      toast.error('Error al iniciar el juego: ' + error)
+    }
+  }
 
   const handleLogout = () => logout(()=> navigate("/iniciar-sesion"))
 
@@ -109,11 +133,19 @@ const GameLobby = () => {
         }}
         className="w-full max-w-md space-y-4 mb-32 z-10"
       >
-        <Link to={toPlayRedirect} className="block">
-          <ThemeButton className="w-full text-lg">
-            Jugar
-          </ThemeButton>
-        </Link>
+        {
+          isAuth() ? (
+            <ThemeButton className="w-full text-lg" onClick={handleStartGame}>
+              Jugar
+            </ThemeButton>
+          ) : (
+            <Link to="/iniciar-sesion" className="block">
+              <ThemeButton className="w-full text-lg">
+                Iniciar sesión
+              </ThemeButton>
+            </Link>
+          )
+        }
         {
           userData?.isAdmin && (
             <>

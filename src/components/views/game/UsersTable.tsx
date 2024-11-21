@@ -163,7 +163,7 @@ const UsersTable = () => {
         <DialogHeader>
           <DialogTitle>Confirmar acción</DialogTitle>
           <DialogDescription>
-            ¿Está seguro que desea reiniciar las ubicaciones de todos los usuarios registrados? Esta acción no se puede deshacer.
+            ¿Está seguro que desea reiniciar el juego de todos los usuarios registrados? Esta acción no se puede deshacer.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>

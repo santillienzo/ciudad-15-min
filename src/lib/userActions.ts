@@ -88,6 +88,22 @@ export const finishGame = async ({userId}: {
     }
 }
 
+export const startGame = async ({userId}: {
+    userId: string,
+}) => {
+    try {
+        const docRef = doc(db, "users", userId);
+        await updateDoc(docRef, {
+            startedGame: true
+        });
+    } catch (error) {
+        const errorMsg = "Hubo un error al actualizar el documento"
+        console.log(error)
+        
+        throw new Error(errorMsg);
+    }
+}
+
 export const hasVisitedAllCategories = (categoriesVisited:CategoriesVisited) => {
     if (!categoriesVisited) return false;
 
@@ -114,7 +130,9 @@ export const resetAllUserLocationsVisited = async () => {
 
             const updatedUser = {
                 ...userData,
-                locationVisited: initialCategoriesVisited
+                locationVisited: initialCategoriesVisited,
+                isFinalized: false,
+                startedGame: false
             }
 
             // Actualiza el documento en Firestore

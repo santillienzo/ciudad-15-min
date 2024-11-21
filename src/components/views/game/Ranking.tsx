@@ -1,6 +1,4 @@
 import RankingDialog from "@/components/features/game/ranking/RankingDialog";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Skeleton } from "@/components/ui/skeleton";
 import { db } from "@/lib/firebaseConfig";
 import { UserData } from "@/lib/types/user.types";
@@ -8,7 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 const Ranking = () => {
-    const [showCompletedUsers, setShowCompletedUsers] = useState(true);
+    // const [showCompletedUsers, setShowCompletedUsers] = useState(true);
     const [users, setUsers] = useState<UserData[]>([]);
     const [isOpenDialog, setIsOpenDialog] = useState(false);
     
@@ -24,14 +22,10 @@ const Ranking = () => {
             usersSnapshot.forEach((doc) => {
               const userData = doc.data();
 
-              if (showCompletedUsers) {
-                // Check if the user has visited all categories
-                if (userData.isFinalized) {
-                    filteredUsers.push({ id: doc.id, ...userData } as UserData);
-                }
-              } else {
+            // Check if the user has visited all categories
+            if (userData.startedGame) {
                 filteredUsers.push({ id: doc.id, ...userData } as UserData);
-              }
+            }
             });
     
             setUsers(filteredUsers);
@@ -43,7 +37,7 @@ const Ranking = () => {
         };
     
         fetchUsersWithAllCategoriesVisited();
-      }, [showCompletedUsers]);
+      }, []);
 
     const closeRankingDialog = () => {
         setIsOpenDialog(false);
@@ -53,15 +47,15 @@ const Ranking = () => {
         setIsOpenDialog(true);
     }
 
-    const handleShowCompletedUsers = (value: string) => {
-        setShowCompletedUsers(value === "completedUsers");
-    }
+    // const handleShowCompletedUsers = (value: string) => {
+    //     setShowCompletedUsers(value === "completedUsers");
+    // }
     
 
     return (
         <section className="p-4 bg-background-secondary min-h-screen">
             <h1 className="text-2xl font-bold mb-4 text-white">Ranking</h1>
-            <div className="flex items-center gap-2 mb-4">
+            {/* <div className="flex items-center gap-2 mb-4">
                 <RadioGroup defaultValue="completedUsers" onValueChange={handleShowCompletedUsers}>
                     <div className="flex items-center space-x-2 text-white">
                         <RadioGroupItem value="allUsers" id="r2" className="text-white"/>
@@ -69,10 +63,10 @@ const Ranking = () => {
                     </div>
                     <div className="flex items-center space-x-2 text-white">
                         <RadioGroupItem value="completedUsers" id="r3" className="text-white"/>
-                        <Label htmlFor="r3">Usuarios con desafío completado</Label>
+                        <Label htmlFor="r3">Usuarios con desafío comenzado</Label>
                     </div>
                 </RadioGroup>
-            </div>
+            </div> */}
             <div className="flex flex-col gap-4">
                 {loading ? (
                     <div className="space-y-3">
@@ -86,9 +80,6 @@ const Ranking = () => {
                                 <p className="text-gray-100">{user.email}</p>
                                 <p className="text-gray-100">{user.dni}</p>
                             </div>
-                        </div>
-                        <div className="mt-2 text-sm text-gray-100">
-                            ¡Ha completado todas las ubicaciones!
                         </div>
                     </div>
                 )) : <p className="text-white text-center">No hay usuarios con todas las categorías visitadas</p>}
