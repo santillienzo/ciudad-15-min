@@ -17,6 +17,8 @@ import FinishGame from './components/views/game/FinishGame';
 import UsersTable from './components/views/game/UsersTable';
 import QrCodeGenerator from './components/views/qrGenerator/ListQrGenerator';
 
+//This is a commment
+
 function App() {
 
   return (
