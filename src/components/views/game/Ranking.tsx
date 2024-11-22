@@ -1,4 +1,6 @@
 import RankingDialog from "@/components/features/game/ranking/RankingDialog";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Skeleton } from "@/components/ui/skeleton";
 import { db } from "@/lib/firebaseConfig";
 import { UserData } from "@/lib/types/user.types";
@@ -6,7 +8,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 const Ranking = () => {
-    // const [showCompletedUsers, setShowCompletedUsers] = useState(true);
+    const [showFinalizedUsers, setShowFinalizedUsers] = useState(true);
     const [users, setUsers] = useState<UserData[]>([]);
     const [isOpenDialog, setIsOpenDialog] = useState(false);
     
@@ -20,12 +22,18 @@ const Ranking = () => {
             const filteredUsers:UserData[] = [];
     
             usersSnapshot.forEach((doc) => {
-              const userData = doc.data();
+              const userData = doc.data() as UserData;
 
-            // Check if the user has visited all categories
-            if (userData.startedGame) {
-                filteredUsers.push({ id: doc.id, ...userData } as UserData);
-            }
+                // Check if the user has visited all categories
+                if (showFinalizedUsers) {
+                    if (userData.startedGame && userData.isFinalized) {
+                        filteredUsers.push({ id: doc.id, ...userData } as UserData);
+                    }
+                } else {
+                    if (userData.startedGame) {
+                        filteredUsers.push({ id: doc.id, ...userData } as UserData);
+                    }
+                }
             });
     
             setUsers(filteredUsers);
@@ -37,7 +45,7 @@ const Ranking = () => {
         };
     
         fetchUsersWithAllCategoriesVisited();
-      }, []);
+      }, [showFinalizedUsers]);
 
     const closeRankingDialog = () => {
         setIsOpenDialog(false);
@@ -47,26 +55,26 @@ const Ranking = () => {
         setIsOpenDialog(true);
     }
 
-    // const handleShowCompletedUsers = (value: string) => {
-    //     setShowCompletedUsers(value === "completedUsers");
-    // }
+    const handleShowFinalizedUsers = (value: string) => {
+        setShowFinalizedUsers(value === "finalizedUsers");
+    }
     
 
     return (
         <section className="p-4 bg-background-secondary min-h-screen">
             <h1 className="text-2xl font-bold mb-4 text-white">Ranking</h1>
-            {/* <div className="flex items-center gap-2 mb-4">
-                <RadioGroup defaultValue="completedUsers" onValueChange={handleShowCompletedUsers}>
+            <div className="flex items-center gap-2 mb-4">
+                <RadioGroup defaultValue="finalizedUsers" onValueChange={handleShowFinalizedUsers}>
                     <div className="flex items-center space-x-2 text-white">
                         <RadioGroupItem value="allUsers" id="r2" className="text-white"/>
-                        <Label htmlFor="r2">Todos los usuarios</Label>
+                        <Label htmlFor="r2">Todos los participantes</Label>
                     </div>
                     <div className="flex items-center space-x-2 text-white">
-                        <RadioGroupItem value="completedUsers" id="r3" className="text-white"/>
-                        <Label htmlFor="r3">Usuarios con desafío comenzado</Label>
+                        <RadioGroupItem value="finalizedUsers" id="r3" className="text-white"/>
+                        <Label htmlFor="r3">Usuarios con desafío completado</Label>
                     </div>
                 </RadioGroup>
-            </div> */}
+            </div>
             <div className="flex flex-col gap-4">
                 {loading ? (
                     <div className="space-y-3">
@@ -82,7 +90,7 @@ const Ranking = () => {
                             </div>
                         </div>
                     </div>
-                )) : <p className="text-white text-center">No hay usuarios con todas las categorías visitadas</p>}
+                )) : <p className="text-white text-center">No hay usuarios {showFinalizedUsers ? "con desafío completado" : "participantes"}</p>}
             </div>
             {users.length > 0 && (
                 <button

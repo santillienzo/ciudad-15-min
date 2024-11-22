@@ -10,6 +10,7 @@ import cachipum from '@/assets/img/sponsors/logo_cachipum.webp'
 import logo_don_justo from '@/assets/img/sponsors/logo_don_justo.webp'
 import logo_latinad from '@/assets/img/sponsors/latinad_square.webp'
 import logo_evolution from '@/assets/img/sponsors/logo_evolution.webp'
+import { motion } from "framer-motion";
 
 const principalSponsor = {
   name: 'Bicicletas Evolution',
@@ -85,14 +86,35 @@ const LocationDataDialog = ({ open, onClose, data, handleConfirm, variant = 'def
         )}
         {isQrVariant && (
           <>
-            <div className="h-[1px] w-11/12 m-auto bg-background-primary-muted my-6"></div>
+
+<div className="h-[1px] w-11/12 m-auto bg-background-primary-muted my-6"></div>
             <div className="flex flex-col justify-center items-center">
-            <img src={principalSponsor.logo} alt={principalSponsor.name} width={200} height={150} className="drop-shadow-xl" loading="lazy"/>
-            <div className="flex gap-10 justify-center w-full my-4 flex-wrap">
-              <img src={sponsors[0].logo} alt={sponsors[0].name} width={50} loading="lazy" className="drop-shadow-xl object-contain"/>
-              <img src={sponsors[1].logo} alt={sponsors[1].name} width={50} loading="lazy" className="drop-shadow-xl object-contain"/>
-              <img src={sponsors[2].logo} alt={sponsors[2].name} width={50} loading="lazy" className="drop-shadow-xl object-contain"/>
-              <img src={sponsors[3].logo} alt={sponsors[3].name} width={40} loading="lazy" className="drop-shadow-xl object-contain"/>
+              <motion.img 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                src={principalSponsor.logo} 
+                alt={principalSponsor.name} 
+                width={200} 
+                height={150} 
+                className="drop-shadow-xl" 
+              />
+              <div className="flex gap-10 justify-center w-full my-4 flex-wrap">
+                {sponsors.slice(0, 4).map((sponsor, index) => (
+                  <motion.img 
+                    key={sponsor.name}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ 
+                      duration: 0.3,
+                      delay: index * .2 // staggered delay
+                    }}
+                    src={sponsor.logo} 
+                    alt={sponsor.name} 
+                    width={index === 3 ? 40 : 50} 
+                    className="drop-shadow-xl object-contain"
+                  />
+                ))}
               </div>
             </div>
           </>
